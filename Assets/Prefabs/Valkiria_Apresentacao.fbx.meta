@@ -1,0 +1,352 @@
+fileFormatVersion: 2
+guid: 672af4dd525c5184baca9bf4de94049e
+timeCreated: 1523300992
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cabelo_Back
+    100002: Cabelo_Back_01
+    100004: Cabelo_Back_02
+    100006: Espinha
+    100008: L_Assa
+    100010: L_Assa_01
+    100012: L_Assa_02
+    100014: L_Assa_03
+    100016: L_Assa_04
+    100018: L_Assa_05
+    100020: L_Assa_06
+    100022: L_Assa_07
+    100024: L_Assa_08
+    100026: L_Assa_09
+    100028: L_Assa_10
+    100030: L_Braco
+    100032: L_Cabelo
+    100034: L_Cabelo_01
+    100036: L_Cabelo_02
+    100038: L_Cotovelo
+    100040: L_Joelho
+    100042: L_Mao
+    100044: L_Pe
+    100046: L_Pe_Ponta
+    100048: L_Perna
+    100050: Peitoral
+    100052: Pescoco
+    100054: polySurface16
+    100056: R_Assa
+    100058: R_Assa_01
+    100060: R_Assa_02
+    100062: R_Assa_03
+    100064: R_Assa_04
+    100066: R_Assa_05
+    100068: R_Assa_06
+    100070: R_Assa_07
+    100072: R_Assa_08
+    100074: R_Assa_09
+    100076: R_Assa_10
+    100078: R_Braco
+    100080: R_Cabelo
+    100082: R_Cabelo_01
+    100084: R_Cabelo_02
+    100086: R_Cotovelo
+    100088: R_Joelho
+    100090: R_Mao
+    100092: R_Pe
+    100094: R_Pe_Ponta
+    100096: R_Perna
+    100098: Root
+    100100: Saia_atras
+    100102: Saia_atras_01
+    100104: Saia_Front
+    100106: Saia_Front_01
+    100108: Saia_Front_02
+    100110: Topo
+    100112: //RootNode
+    400000: Cabelo_Back
+    400002: Cabelo_Back_01
+    400004: Cabelo_Back_02
+    400006: Espinha
+    400008: L_Assa
+    400010: L_Assa_01
+    400012: L_Assa_02
+    400014: L_Assa_03
+    400016: L_Assa_04
+    400018: L_Assa_05
+    400020: L_Assa_06
+    400022: L_Assa_07
+    400024: L_Assa_08
+    400026: L_Assa_09
+    400028: L_Assa_10
+    400030: L_Braco
+    400032: L_Cabelo
+    400034: L_Cabelo_01
+    400036: L_Cabelo_02
+    400038: L_Cotovelo
+    400040: L_Joelho
+    400042: L_Mao
+    400044: L_Pe
+    400046: L_Pe_Ponta
+    400048: L_Perna
+    400050: Peitoral
+    400052: Pescoco
+    400054: polySurface16
+    400056: R_Assa
+    400058: R_Assa_01
+    400060: R_Assa_02
+    400062: R_Assa_03
+    400064: R_Assa_04
+    400066: R_Assa_05
+    400068: R_Assa_06
+    400070: R_Assa_07
+    400072: R_Assa_08
+    400074: R_Assa_09
+    400076: R_Assa_10
+    400078: R_Braco
+    400080: R_Cabelo
+    400082: R_Cabelo_01
+    400084: R_Cabelo_02
+    400086: R_Cotovelo
+    400088: R_Joelho
+    400090: R_Mao
+    400092: R_Pe
+    400094: R_Pe_Ponta
+    400096: R_Perna
+    400098: Root
+    400100: Saia_atras
+    400102: Saia_atras_01
+    400104: Saia_Front
+    400106: Saia_Front_01
+    400108: Saia_Front_02
+    400110: Topo
+    400112: //RootNode
+    4300000: polySurface16
+    7400000: poseIdle
+    7400002: PoseAsa
+    7400004: IdleAsasrecolhida
+    7400006: inicioVoo
+    7400008: voando
+    9500000: //RootNode
+    13700000: polySurface16
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Valkiria_Texture
+    second: {fileID: 2100000, guid: 6ec23ac35d64cd74598138a54ba9cc9d, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: poseIdle
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 10
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: PoseAsa
+      takeName: Take 001
+      firstFrame: 15
+      lastFrame: 20
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: IdleAsasrecolhida
+      takeName: Take 001
+      firstFrame: 30
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: inicioVoo
+      takeName: Take 001
+      firstFrame: 50
+      lastFrame: 140
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    - serializedVersion: 16
+      name: voando
+      takeName: Take 001
+      firstFrame: 140
+      lastFrame: 200
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 1
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

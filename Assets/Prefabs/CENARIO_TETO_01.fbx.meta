@@ -1,0 +1,168 @@
+fileFormatVersion: 2
+guid: db43a9745b2c2234d90719c21069ac74
+timeCreated: 1522957336
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Cenario_P1
+    100002: Cenario_P2
+    100004: Cenario_P3
+    100006: Cenario_P4
+    100008: //RootNode
+    100010: polySurface23
+    100012: polySurface49
+    100014: polySurface51
+    100016: polySurface53
+    100018: polySurface57
+    100020: polySurface58
+    100022: Teto_P1
+    100024: Teto_P1A
+    100026: Teto_P2
+    100028: Teto_P3
+    100030: Teto_P3A
+    100032: Teto_P4
+    400000: Cenario_P1
+    400002: Cenario_P2
+    400004: Cenario_P3
+    400006: Cenario_P4
+    400008: //RootNode
+    400010: polySurface23
+    400012: polySurface49
+    400014: polySurface51
+    400016: polySurface53
+    400018: polySurface57
+    400020: polySurface58
+    400022: Teto_P1
+    400024: Teto_P1A
+    400026: Teto_P2
+    400028: Teto_P3
+    400030: Teto_P3A
+    400032: Teto_P4
+    2300000: Teto_P1
+    2300002: Teto_P1A
+    2300004: Teto_P2
+    2300006: Teto_P3
+    2300008: Teto_P3A
+    2300010: Teto_P4
+    3300000: Teto_P1
+    3300002: Teto_P1A
+    3300004: Teto_P2
+    3300006: Teto_P3
+    3300008: Teto_P3A
+    3300010: Teto_P4
+    4300000: Teto_P3A
+    4300002: Teto_P4
+    4300004: Teto_P2
+    4300006: Teto_P1
+    4300008: Teto_P1A
+    4300010: Teto_P3
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P1A_Texture
+    second: {fileID: 2100000, guid: 0341a1f06cbdabf4583fbe751a018dc6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P1_Texture
+    second: {fileID: 2100000, guid: e39ed8c72330f6d44860366995c74d12, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P2_Texture
+    second: {fileID: 2100000, guid: 21435a18bf4435b44a1f9d0fd6b7357e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P3A_Texture
+    second: {fileID: 2100000, guid: 8ad4e911d0cbb8d449b7831865eb790b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P3_Texture
+    second: {fileID: 2100000, guid: 5e08bac8663b4fe4cb47d0f0fd1cfc3b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Teto_P4_Texture
+    second: {fileID: 2100000, guid: a803043f2ae7bbb4e8fbe75b79504f07, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

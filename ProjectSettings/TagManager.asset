@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags:
+  - Tocha1
+  - Tocha2
+  - Chao
+  - JoyStick
+  - Acao
+  - Lobinho
+  - Lobinho2
+  - LoboVermelho
+  - LoboAzul
+  - LoboVerde
+  - LoboRoxo
+  - ChaoVermelho
+  - ChaoAzul
+  - ChaoVerde
+  - ChaoRoxo
+  - Porta
+  - VikingAp
+  - ValkiriaAp
+  - TelaBranca
+  - PortaTuto1
+  - PortaTuto2
+  - PortaTuto3
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - 
+  - Water
+  - UI
+  - 
+  - 
+  - Fase2
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0

@@ -1,0 +1,228 @@
+fileFormatVersion: 2
+guid: 2b9e44f723efc7c4285741569665b6dc
+timeCreated: 1523300991
+licenseType: Free
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: Back_01
+    100002: Back_02
+    100004: Back_03
+    100006: Cabeca
+    100008: Capa_01
+    100010: Capa_02
+    100012: Capa_03
+    100014: Capa_04
+    100016: Capa_05
+    100018: Capa_06
+    100020: Capa_LowPoly
+    100022: Espinha
+    100024: Front_01
+    100026: Front_02
+    100028: Front_03
+    100030: L_Cotovelo
+    100032: L_Joelho
+    100034: L_Mao
+    100036: L_Ombro
+    100038: L_Pe
+    100040: L_Pe_ponta
+    100042: L_Perna
+    100044: pCube1
+    100046: Peitoral
+    100048: R_Cotovelo
+    100050: R_Joelho
+    100052: R_Mao
+    100054: R_Ombro
+    100056: R_Pe
+    100058: R_Pe_ponta
+    100060: R_Perna
+    100062: Root
+    100064: Topo
+    100066: //RootNode
+    100068: Viking_LowPoly
+    400000: Back_01
+    400002: Back_02
+    400004: Back_03
+    400006: Cabeca
+    400008: Capa_01
+    400010: Capa_02
+    400012: Capa_03
+    400014: Capa_04
+    400016: Capa_05
+    400018: Capa_06
+    400020: Capa_LowPoly
+    400022: Espinha
+    400024: Front_01
+    400026: Front_02
+    400028: Front_03
+    400030: L_Cotovelo
+    400032: L_Joelho
+    400034: L_Mao
+    400036: L_Ombro
+    400038: L_Pe
+    400040: L_Pe_ponta
+    400042: L_Perna
+    400044: pCube1
+    400046: Peitoral
+    400048: R_Cotovelo
+    400050: R_Joelho
+    400052: R_Mao
+    400054: R_Ombro
+    400056: R_Pe
+    400058: R_Pe_ponta
+    400060: R_Perna
+    400062: Root
+    400064: Topo
+    400066: //RootNode
+    400068: Viking_LowPoly
+    4300000: Capa_LowPoly
+    4300002: Viking_LowPoly
+    7400000: Idle
+    7400002: Reverencia
+    9500000: //RootNode
+    13700000: Capa_LowPoly
+    13700002: Viking_LowPoly
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Capa_Texture
+    second: {fileID: 2100000, guid: daddfbe0f0eeea041bda8f7075fea121, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Viking_texture
+    second: {fileID: 2100000, guid: d4fb2f026c37bfe44821040f8a0380ad, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Idle
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 25
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Reverencia
+      takeName: Take 001
+      firstFrame: 150
+      lastFrame: 250
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
