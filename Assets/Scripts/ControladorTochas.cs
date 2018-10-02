@@ -18,6 +18,7 @@ public class ControladorTochas : MonoBehaviour {
 	void Start () {
 		tochas = GameObject.FindGameObjectsWithTag ("Tocha1");
 		size = TamanhoDoChaoX ();
+		print(size);
 		i = GetNearestTorch ();
 	}
 	
@@ -37,14 +38,15 @@ public class ControladorTochas : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionEnter(Collision other){
+	void OnTriggerEnter(Collider other){
 		if (other.gameObject.tag == "Player") {
-			//print ("Entrou");
+			print ("Entrou");
 			foreach(GameObject t in tochas){
 				distancia = Vector3.Distance (gameObject.transform.position, t.gameObject.transform.position);
-				//print(distancia);
+				print(distancia);
 				if (distancia < size) {
 					if (t.GetComponent<Light> ().intensity < 6) {
+						print("ASDSAD");
 						ligar = true;
 					}
 				}
@@ -52,9 +54,9 @@ public class ControladorTochas : MonoBehaviour {
 		}
 	}
 
-	void OnCollisionExit (Collision other){
+	void OnTriggerExit (Collider other){
 		if (other.gameObject.tag == "Player") {
-		//	print ("saiu");
+			print ("saiu");
 		//	foreach(GameObject t in tochas){
 		//		distancia = Vector3.Distance (gameObject.transform.position, t.gameObject.transform.position);
 		//		if(distancia < size) {
@@ -75,7 +77,7 @@ public class ControladorTochas : MonoBehaviour {
 		} if(coroutineAtiva2 == false){
 			ligar = false;
 			coroutineAtiva1 = true;
-			//print ("Ativei");
+			print ("Ativei");
 			foreach (GameObject t in tochas) {
 				distancia = Vector3.Distance (gameObject.transform.position, t.gameObject.transform.position);
 				if (distancia < size) {

@@ -26,6 +26,10 @@ TagManager:
   - PortaTuto1
   - PortaTuto2
   - PortaTuto3
+  - PortaTutorial
+  - PortaTutorialTrigger
+  - PortaTutorial2
+  - LoboTutoba
   layers:
   - Default
   - TransparentFX
