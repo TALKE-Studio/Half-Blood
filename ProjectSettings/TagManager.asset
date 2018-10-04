@@ -30,6 +30,11 @@ TagManager:
   - PortaTutorialTrigger
   - PortaTutorial2
   - LoboTutoba
+  - PedraVerde
+  - GarraTutorial
+  - PedraVerdeInv
+  - PortaFase4
+  - teste
   layers:
   - Default
   - TransparentFX
