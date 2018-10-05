@@ -9,6 +9,8 @@ public class Movimento : MonoBehaviour {
 	public static float x;
 	public static float z;
 
+	
+
 	// Use this for initialization
 	void Start () {
 		rb = gameObject.GetComponent<Rigidbody> ();

@@ -35,6 +35,15 @@ TagManager:
   - PedraVerdeInv
   - PortaFase4
   - teste
+  - Pira_Fase1
+  - Pira2_Fase1
+  - Pira3_Fase1
+  - Pira4_Fase1
+  - Tocha_1
+  - Tocha_2
+  - Tocha_3
+  - Tocha_4
+  - Tocha_5
   layers:
   - Default
   - TransparentFX

@@ -9,6 +9,9 @@ public class Sala3 : MonoBehaviour {
 	GameObject porta;
 	bool coletoupedra = false;
 	bool abriuporta = false;
+	static public bool colocoupedra;
+
+
 	// Use this for initialization
 	void Start () {
 		pedra = GameObject.FindGameObjectWithTag("PedraVerde");
@@ -33,6 +36,7 @@ public class Sala3 : MonoBehaviour {
 			if(coletoupedra == true){
 				gameObject.GetComponent<Animator>().SetBool("TocouParede", true);
 				abriuporta = true;
+				colocoupedra = true;
 				StartCoroutine(AbrindoPorta());
 				StartCoroutine(TocandoParede());
 				StartCoroutine(TerminarAnim());
