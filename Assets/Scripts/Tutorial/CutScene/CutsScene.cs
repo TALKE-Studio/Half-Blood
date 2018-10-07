@@ -12,13 +12,15 @@ public class CutsScene : MonoBehaviour {
     public Light[] tocha4;
 	public Light[] tocha5;
 
-	GameObject personagem;	
+	GameObject personagem;
+    GameObject porta;
 	public static bool olharValk = false;
 
 	// Use this for initialization
 	void Start () {
 		
 		personagem = GameObject.FindGameObjectWithTag("Player");
+        porta = GameObject.FindGameObjectWithTag("PortaFase4");
 	}
 	
 	// Update is called once per frame
@@ -26,20 +28,28 @@ public class CutsScene : MonoBehaviour {
 	
 	}
 
-	void OnTriggerEnter(Collider other){
+    void OnTriggerEnter(Collider other) {
 
-		if(other.gameObject.tag == "Player"){
-			print("PARA ESSA PORRA");
-			olharValk = true;
-			RotacaoPersonagem.x = 0;
-			RotacaoPersonagem.z = 0;
-			personagem.GetComponent<Animator>().SetFloat("Blend", 0);
-			RotacaoPersonagem.naoMexer = true;
-			StartCoroutine(AcenderTochas());
-		}
+        if (other.gameObject.tag == "Player") {
+            print("PARA ESSA PORRA");
+            olharValk = true;
+            RotacaoPersonagem.x = 0;
+            RotacaoPersonagem.z = 0;
+            personagem.GetComponent<Animator>().SetFloat("Blend", 0);
+            RotacaoPersonagem.naoMexer = true;
+            porta.GetComponent<Animator>().SetFloat("Volta", -3.0f);
+            StartCoroutine(FechouPorta());
+        }
 
-	}
+    }
 
+    IEnumerator FechouPorta()
+    {
+        yield return new WaitForSeconds(1.64f);
+        personagem.GetComponent<Animator>().SetTrigger("PortaFechou");
+    }
+
+    /**
 	IEnumerator AcenderTochas(){
 		yield return new WaitForSeconds(3f);
 		personagem.GetComponent<Animator>().SetTrigger("AssustadoDeMais");
@@ -62,6 +72,6 @@ public class CutsScene : MonoBehaviour {
 		foreach(Light luz in tocha5){
 				luz.intensity = 1.3f;
 			}
-	}
+	}**/
 
 }

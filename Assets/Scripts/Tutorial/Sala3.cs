@@ -35,6 +35,8 @@ public class Sala3 : MonoBehaviour {
 		if(other.gameObject.tag == "GarraTutorial" && Input.GetKeyDown (KeyCode.Space) == true){
 			if(coletoupedra == true){
 				gameObject.GetComponent<Animator>().SetBool("TocouParede", true);
+                porta.GetComponent<BoxCollider>().enabled = false;
+                coletoupedra = false;
 				abriuporta = true;
 				colocoupedra = true;
 				StartCoroutine(AbrindoPorta());
