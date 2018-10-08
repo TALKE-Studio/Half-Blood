@@ -12,13 +12,21 @@ public class CutsScene : MonoBehaviour {
     public Light[] tocha4;
 	public Light[] tocha5;
 
+	GameObject valkVoando;
+	GameObject canvasBotoes;
 	GameObject personagem;
     GameObject porta;
+	GameObject bordabaixo;
+	GameObject bordacima;
 	public static bool olharValk = false;
 
 	// Use this for initialization
 	void Start () {
 		
+		valkVoando = GameObject.FindGameObjectWithTag("ValkTutoba");
+		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
+		bordacima = GameObject.FindGameObjectWithTag("BordaCima");
+		bordabaixo = GameObject.FindGameObjectWithTag("BordaBaixo");
 		personagem = GameObject.FindGameObjectWithTag("Player");
         porta = GameObject.FindGameObjectWithTag("PortaFase4");
 	}
@@ -31,27 +39,31 @@ public class CutsScene : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.tag == "Player") {
-            print("PARA ESSA PORRA");
+			canvasBotoes.GetComponent<Canvas>().enabled = false;
+			bordacima.GetComponent<Animator>().SetTrigger("Bordinha");
+			bordabaixo.GetComponent<Animator>().SetTrigger("Bordinha");
             olharValk = true;
             RotacaoPersonagem.x = 0;
             RotacaoPersonagem.z = 0;
+			porta.GetComponent<Animator>().SetFloat("Volta", -1.0f);
             personagem.GetComponent<Animator>().SetFloat("Blend", 0);
             RotacaoPersonagem.naoMexer = true;
-            porta.GetComponent<Animator>().SetFloat("Volta", -3.0f);
             StartCoroutine(FechouPorta());
+			StartCoroutine(AcenderTochas());
+			StartCoroutine(ValkiriaAnim());
         }
 
     }
 
     IEnumerator FechouPorta()
     {
-        yield return new WaitForSeconds(1.64f);
+        yield return new WaitForSeconds(2f);
         personagem.GetComponent<Animator>().SetTrigger("PortaFechou");
     }
 
-    /**
+    
 	IEnumerator AcenderTochas(){
-		yield return new WaitForSeconds(3f);
+		yield return new WaitForSeconds(5f);
 		personagem.GetComponent<Animator>().SetTrigger("AssustadoDeMais");
 		foreach(Light luz in tocha1){
 				luz.intensity = 1.3f;
@@ -72,6 +84,11 @@ public class CutsScene : MonoBehaviour {
 		foreach(Light luz in tocha5){
 				luz.intensity = 1.3f;
 			}
-	}**/
+	}
+
+	IEnumerator ValkiriaAnim(){
+		yield return new WaitForSeconds(7.5f);
+		valkVoando.GetComponent<Animator>().SetTrigger("InicioVoo");
+	}
 
 }

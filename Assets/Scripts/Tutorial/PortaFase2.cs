@@ -4,8 +4,11 @@ using UnityEngine;
 
 public class PortaFase2 : MonoBehaviour {
 	GameObject porta;
+	public static bool pisocor = false;
+
 	// Use this for initialization
 	void Start () {
+
 		porta = GameObject.FindGameObjectWithTag("PortaTutorial2");
 	}
 	
@@ -17,8 +20,10 @@ public class PortaFase2 : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if(other.gameObject.tag == "LoboTutoba"){
+			pisocor = true;
 			print("aloooooo");
 			porta.GetComponent<Animator>().SetBool("Abrir", true);
+			porta.GetComponent<BoxCollider>().enabled = false;
 		}
 	}
 }

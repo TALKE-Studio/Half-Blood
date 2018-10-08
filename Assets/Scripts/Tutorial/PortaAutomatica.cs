@@ -19,6 +19,7 @@ public class PortaAutomatica : MonoBehaviour {
 		if(other.gameObject.tag == "Player"){
 			print("Olha so");
 			porta.GetComponent<Animator>().SetBool("Abrir", true);
+			porta.GetComponent<BoxCollider>().enabled = false;
 		}
 
 	}

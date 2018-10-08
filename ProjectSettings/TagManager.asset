@@ -44,6 +44,12 @@ TagManager:
   - Tocha_3
   - Tocha_4
   - Tocha_5
+  - BordaBaixo
+  - BordaCima
+  - Botoes
+  - ValkTutoba
+  - apagado
+  - acesso
   layers:
   - Default
   - TransparentFX
