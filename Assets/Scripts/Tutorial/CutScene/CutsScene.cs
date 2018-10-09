@@ -13,20 +13,14 @@ public class CutsScene : MonoBehaviour {
 	public Light[] tocha5;
 
 	GameObject valkVoando;
-	GameObject canvasBotoes;
 	GameObject personagem;
     GameObject porta;
-	GameObject bordabaixo;
-	GameObject bordacima;
 	public static bool olharValk = false;
 
 	// Use this for initialization
 	void Start () {
 		
 		valkVoando = GameObject.FindGameObjectWithTag("ValkTutoba");
-		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
-		bordacima = GameObject.FindGameObjectWithTag("BordaCima");
-		bordabaixo = GameObject.FindGameObjectWithTag("BordaBaixo");
 		personagem = GameObject.FindGameObjectWithTag("Player");
         porta = GameObject.FindGameObjectWithTag("PortaFase4");
 	}
@@ -39,15 +33,9 @@ public class CutsScene : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
 
         if (other.gameObject.tag == "Player") {
-			canvasBotoes.GetComponent<Canvas>().enabled = false;
-			bordacima.GetComponent<Animator>().SetTrigger("Bordinha");
-			bordabaixo.GetComponent<Animator>().SetTrigger("Bordinha");
             olharValk = true;
-            RotacaoPersonagem.x = 0;
-            RotacaoPersonagem.z = 0;
 			porta.GetComponent<Animator>().SetFloat("Volta", -1.0f);
             personagem.GetComponent<Animator>().SetFloat("Blend", 0);
-            RotacaoPersonagem.naoMexer = true;
             StartCoroutine(FechouPorta());
 			StartCoroutine(AcenderTochas());
 			StartCoroutine(ValkiriaAnim());

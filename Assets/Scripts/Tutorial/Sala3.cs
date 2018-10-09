@@ -9,7 +9,9 @@ public class Sala3 : MonoBehaviour {
 	GameObject porta;
 	bool coletoupedra = false;
 	bool abriuporta = false;
+	static public bool iniciarAndar;
 	static public bool colocoupedra;
+	static public bool animacaoAndar;
 
 
 	// Use this for initialization
@@ -39,6 +41,7 @@ public class Sala3 : MonoBehaviour {
                 coletoupedra = false;
 				abriuporta = true;
 				colocoupedra = true;
+				StartCoroutine(InicioAndando());
 				StartCoroutine(AbrindoPorta());
 				StartCoroutine(TocandoParede());
 				StartCoroutine(TerminarAnim());
@@ -46,6 +49,12 @@ public class Sala3 : MonoBehaviour {
 
 			
 		}
+	}
+
+	IEnumerator InicioAndando(){
+		yield return new WaitForSeconds(2f);
+		iniciarAndar = true;
+		animacaoAndar = true;
 	}
 
 	IEnumerator TocandoParede(){

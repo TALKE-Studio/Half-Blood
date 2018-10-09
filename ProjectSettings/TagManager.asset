@@ -50,6 +50,10 @@ TagManager:
   - ValkTutoba
   - apagado
   - acesso
+  - Hit2
+  - FimTutorial
+  - TextoTutorial
+  - ImagemTutorial
   layers:
   - Default
   - TransparentFX
