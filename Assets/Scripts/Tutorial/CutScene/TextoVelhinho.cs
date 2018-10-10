@@ -7,7 +7,9 @@ public class TextoVelhinho : MonoBehaviour {
 	public GameObject texto1;
 	public GameObject texto2;
 	public GameObject texto3;
-	
+	public GameObject textoContinuar;
+	bool podeavancar = false;
+	Touch touch;
 
 
 
@@ -19,6 +21,13 @@ public class TextoVelhinho : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		
+		if((Input.GetKeyDown(KeyCode.Space)|| Input.touchCount > 0) && podeavancar == true){
+			texto1.GetComponent<Animator>().SetBool("Proximo", true);
+			print("Tocou na tela");
+			print(Input.touchCount);
+		}
+		
+	
 	}
 
 	void OnTriggerEnter(Collider other){
@@ -26,23 +35,27 @@ public class TextoVelhinho : MonoBehaviour {
 			StartCoroutine(Texto1());
 			
 		}
+		
 	}
 
 	IEnumerator Texto1(){
 		yield return new WaitForSeconds (2f);
 		texto1.SetActive(true);
-		StartCoroutine(Texto2());
+		StartCoroutine(Trava());
+		StartCoroutine(Continuar());
 	}
 
-	IEnumerator Texto2(){
-		yield return new WaitForSeconds (17f);
-		texto2.SetActive(true);
-		StartCoroutine(Texto3());
+	IEnumerator Trava(){
+		yield return new WaitForSeconds(6f);
+		podeavancar = true;
+
 	}
 
-	IEnumerator Texto3(){
-		yield return new WaitForSeconds (32f);
-		texto3.SetActive(true);
+
+
+	IEnumerator Continuar(){
+		yield return new WaitForSeconds (5f);
+		textoContinuar.SetActive(true);
 	}
 
 }
