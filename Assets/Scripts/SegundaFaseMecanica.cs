@@ -17,6 +17,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public static bool pedraCColocada = false;
     public static bool pedraPColocada = false;
     bool pedraFinal = false;
+    public static bool tutorial = true;
+    public static bool  fase1 = true;
+    public static bool fase2 = false;
 
     // Use this for initialization
     void Start () {
@@ -55,25 +58,32 @@ public class SegundaFaseMecanica : MonoBehaviour {
 				}
 				if (dist < 15) {
                     if (p.name == "PedraRosa") {
-                        pedraRColetada = true;
-                        dist = 100;
-                        p.GetComponent<MeshRenderer>().enabled = false;
+                        if (pedraRColetada == false) {
+                            pedraRColetada = true;
+                            dist = 100;
+                            p.GetComponent<MeshRenderer>().enabled = false;
+                        }
                     } else if (p.name == "PedraAzul") {
-                        pedraAColetada = true;
-                        dist = 100;
-                        p.GetComponent<MeshRenderer>().enabled = false;
+                        if (pedraAColetada == false) {
+                            pedraAColetada = true;
+                            dist = 100;
+                            p.GetComponent<MeshRenderer>().enabled = false;
+                        }
                     } else if(p.name == "courage_pedra"){
-                        pedraCColetada = true;
-                        dist = 100;
-                        p.GetComponent<MeshRenderer>().enabled = false;
-                        p.GetComponentInChildren<Light>().enabled = false;
+                        if (pedraCColetada == false) {
+                            pedraCColetada = true;
+                            dist = 100;
+                            p.GetComponent<MeshRenderer>().enabled = false;
+                            p.GetComponentInChildren<Light>().enabled = false;
+                        }
                     }
-                    else if (p.name == "death_pedra")
-                    {
-                        pedraPColetada = true;
-                        dist = 100;
-                        p.GetComponent<MeshRenderer>().enabled = false;
-                        p.GetComponentInChildren<Light>().enabled = false;
+                    else if (p.name == "death_pedra"){
+                        if (pedraPColetada == false) {
+                            pedraPColetada = true;
+                            dist = 100;
+                            p.GetComponent<MeshRenderer>().enabled = false;
+                            p.GetComponentInChildren<Light>().enabled = false;
+                        }
                     }
                 }
 			}
@@ -113,14 +123,14 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         Movimento.rb.velocity = new Vector3(0, 0, 0);
                         RotacaoPersonagem.animator.SetBool("Andando", false);
                         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
-                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animation>().Play();
+                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver");
                     }
                     if (g.name == "death_base" && pedraPColetada == true && pedraPColocada == false)
                     {
                         GameObject.Find("death_pedra").GetComponent<MeshRenderer>().enabled = true;
                         GameObject.Find("death_pedra").GetComponentInChildren<Light>().enabled = true;
                         pedraPColocada = true;
-                        GameObject.Find("death_pedra").GetComponent<Animation>().Play();
+                        GameObject.Find("death_pedra").GetComponent<Animator>().SetTrigger("gameOver");
                         TelaBranca.colidiu = true;
                         RotacaoPersonagem.naoMexer = true;
                         RotacaoPersonagem.x = 0;
@@ -128,7 +138,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         Movimento.rb.velocity = new Vector3(0, 0, 0);
                         RotacaoPersonagem.animator.SetBool("Andando", false);
                         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
-                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animation>().Play();
+                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver");
                     }
                 }
 			}
