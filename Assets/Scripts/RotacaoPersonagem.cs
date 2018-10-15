@@ -151,18 +151,22 @@ public class RotacaoPersonagem : MonoBehaviour {
 			animator.SetBool ("EmpurrandoFrente", false);
 		}
 		if (teste1 == true && z>0 && posY < 0) {
-			animator.SetBool ("EmpurrandoFrente", true);
-			animator.SetBool ("EmpurrandoTras", false);
+            print("frente");
+            animator.SetFloat("X", z);
+            animator.SetFloat("Y", x);
 		}else if(z>0 && teste1 == true && posY >0){
-			animator.SetBool ("EmpurrandoTras", true);
-			animator.SetBool ("EmpurrandoFrente", false);
-		}else if(z<0 && teste1 == true && posY <0){
-			animator.SetBool ("EmpurrandoTras", true);
-			animator.SetBool ("EmpurrandoFrente", false);
-		}else if(z<0 && teste1 == true && posY >0){
-			animator.SetBool ("EmpurrandoTras", false);
-			animator.SetBool ("EmpurrandoFrente", true);
-		}else if(teste2 == true && x>0 && posX<0){
+            print("TRAS2");
+            animator.SetFloat("X", z*-1);
+            animator.SetFloat("Y", x*-1);
+        } else if(z<0 && teste1 == true && posY <0){
+            print("TRAS");
+            animator.SetFloat("X", z);
+            animator.SetFloat("Y", x);
+        } else if(z<0 && teste1 == true && posY >0){
+            print("frente2");
+            animator.SetFloat("X", z*-1);
+            animator.SetFloat("Y", x*-1);
+        } else if(teste2 == true && x>0 && posX<0){
 			animator.SetBool ("EmpurrandoFrente", true);
 			animator.SetBool ("EmpurrandoTras", false);
 		}else if(teste2 == true && x>0 && posX>0){

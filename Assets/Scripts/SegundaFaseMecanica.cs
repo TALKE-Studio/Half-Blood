@@ -23,8 +23,12 @@ public class SegundaFaseMecanica : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
-	}
+
+     pedraAColocada = false;
+     pedraRColocada = false;
+     pedraCColocada = false;
+     pedraPColocada = false;
+}
 	
 	// Update is called once per frame
 	void Update () {
@@ -58,19 +62,19 @@ public class SegundaFaseMecanica : MonoBehaviour {
 				}
 				if (dist < 15) {
                     if (p.name == "PedraRosa") {
-                        if (pedraRColetada == false) {
+                        if (pedraRColetada == false && pedraRColocada == false) {
                             pedraRColetada = true;
                             dist = 100;
                             p.GetComponent<MeshRenderer>().enabled = false;
                         }
                     } else if (p.name == "PedraAzul") {
-                        if (pedraAColetada == false) {
+                        if (pedraAColetada == false && pedraAColocada == false) {
                             pedraAColetada = true;
                             dist = 100;
                             p.GetComponent<MeshRenderer>().enabled = false;
                         }
                     } else if(p.name == "courage_pedra"){
-                        if (pedraCColetada == false) {
+                        if (pedraCColetada == false && pedraCColocada == false) {
                             pedraCColetada = true;
                             dist = 100;
                             p.GetComponent<MeshRenderer>().enabled = false;
@@ -78,7 +82,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         }
                     }
                     else if (p.name == "death_pedra"){
-                        if (pedraPColetada == false) {
+                        if (pedraPColetada == false && pedraPColocada == false) {
                             pedraPColetada = true;
                             dist = 100;
                             p.GetComponent<MeshRenderer>().enabled = false;

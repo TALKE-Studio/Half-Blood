@@ -1,103 +1,88 @@
 fileFormatVersion: 2
-guid: 2fc8a7bb2343f334e97f9ec167b8df2f
-timeCreated: 1521678014
-licenseType: Free
+guid: f9c1b49da83f712448569e516a0411da
 ModelImporter:
-  serializedVersion: 22
+  serializedVersion: 23
   fileIDToRecycleName:
     100000: Back_01
     100002: Back_02
-    100004: Back_03
-    100006: Cabeca
-    100008: Capa_01
-    100010: Capa_02
-    100012: Capa_03
-    100014: Capa_04
-    100016: Capa_05
-    100018: Capa_06
-    100020: Capa_LowPoly
-    100022: Espinha
-    100024: Front_01
-    100026: Front_02
-    100028: Front_03
-    100030: L_Cotovelo
-    100032: L_Joelho
-    100034: L_Mao
-    100036: L_Ombro
-    100038: L_Pe
-    100040: L_Pe_ponta
-    100042: L_Perna
-    100044: //RootNode
-    100046: pCube1
-    100048: Peitoral
-    100050: R_Cotovelo
-    100052: R_Joelho
-    100054: R_Mao
-    100056: R_Ombro
-    100058: R_Pe
-    100060: R_Pe_ponta
-    100062: R_Perna
-    100064: Root
-    100066: Topo
-    100068: Viking_LowPoly
+    100004: Cabeca
+    100006: Capa_01
+    100008: Capa_02
+    100010: Capa_03
+    100012: Capa_04
+    100014: Capa_05
+    100016: Capa_06
+    100018: Capa_LowPoly
+    100020: Espinha
+    100022: Front_01
+    100024: Front_02
+    100026: L_Cotovelo
+    100028: L_Joelho
+    100030: L_Mao
+    100032: L_Ombro
+    100034: L_Pe
+    100036: L_Pe_ponta
+    100038: L_Perna
+    100040: pCube1
+    100042: Peitoral
+    100044: R_Cotovelo
+    100046: R_Joelho
+    100048: R_Mao
+    100050: R_Ombro
+    100052: R_Pe
+    100054: R_Pe_ponta
+    100056: R_Perna
+    100058: Root
+    100060: Topo
+    100062: //RootNode
+    100064: Viking_LowPoly
     400000: Back_01
     400002: Back_02
-    400004: Back_03
-    400006: Cabeca
-    400008: Capa_01
-    400010: Capa_02
-    400012: Capa_03
-    400014: Capa_04
-    400016: Capa_05
-    400018: Capa_06
-    400020: Capa_LowPoly
-    400022: Espinha
-    400024: Front_01
-    400026: Front_02
-    400028: Front_03
-    400030: L_Cotovelo
-    400032: L_Joelho
-    400034: L_Mao
-    400036: L_Ombro
-    400038: L_Pe
-    400040: L_Pe_ponta
-    400042: L_Perna
-    400044: //RootNode
-    400046: pCube1
-    400048: Peitoral
-    400050: R_Cotovelo
-    400052: R_Joelho
-    400054: R_Mao
-    400056: R_Ombro
-    400058: R_Pe
-    400060: R_Pe_ponta
-    400062: R_Perna
-    400064: Root
-    400066: Topo
-    400068: Viking_LowPoly
+    400004: Cabeca
+    400006: Capa_01
+    400008: Capa_02
+    400010: Capa_03
+    400012: Capa_04
+    400014: Capa_05
+    400016: Capa_06
+    400018: Capa_LowPoly
+    400020: Espinha
+    400022: Front_01
+    400024: Front_02
+    400026: L_Cotovelo
+    400028: L_Joelho
+    400030: L_Mao
+    400032: L_Ombro
+    400034: L_Pe
+    400036: L_Pe_ponta
+    400038: L_Perna
+    400040: pCube1
+    400042: Peitoral
+    400044: R_Cotovelo
+    400046: R_Joelho
+    400048: R_Mao
+    400050: R_Ombro
+    400052: R_Pe
+    400054: R_Pe_ponta
+    400056: R_Perna
+    400058: Root
+    400060: Topo
+    400062: //RootNode
+    400064: Viking_LowPoly
+    2100000: Capa_Texture
+    2100002: Viking_texture
     4300000: Capa_LowPoly
     4300002: Viking_LowPoly
-    7400000: Take 001
+    7400000: EmpurrandoEsquerdaEstatua
     9500000: //RootNode
-    11100000: //RootNode
     13700000: Capa_LowPoly
     13700002: Viking_LowPoly
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Capa_Texture
-    second: {fileID: 2100000, guid: 36c919312302d474fb4e75b691328afd, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Viking_texture
-    second: {fileID: 2100000, guid: cec79062d61237e45986e0e83234a6ae, type: 2}
+  externalObjects: {}
   materials:
     importMaterials: 1
     materialName: 0
     materialSearch: 1
-    materialLocation: 0
+    materialLocation: 1
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
@@ -111,6 +96,7 @@ ModelImporter:
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
+    importConstraints: 0
     animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
@@ -120,17 +106,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: EmpurrandoEsquerdaEstatua
       takeName: Take 001
-      firstFrame: 10
-      lastFrame: 30
-      wrapMode: 2
+      firstFrame: 330
+      lastFrame: 350
+      wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -163,18 +149,22 @@ ModelImporter:
     optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 1
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
     serializedVersion: 2
     human: []
@@ -191,8 +181,9 @@ ModelImporter:
     hasTranslationDoF: 0
     hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 1
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d8260e090024e5c49b85249433e1202a,
+    type: 3}
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
