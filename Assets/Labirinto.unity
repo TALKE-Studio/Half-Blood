@@ -2475,7 +2475,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/QRCode.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 89.2476
@@ -3979,7 +3978,6 @@ GameObject:
   - component: {fileID: 219389681}
   - component: {fileID: 219389680}
   - component: {fileID: 219389685}
-  - component: {fileID: 219389686}
   m_Layer: 0
   m_Name: ARCamera
   m_TagString: Untagged
@@ -4083,18 +4081,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   alvo: {fileID: 1612691754}
---- !u!114 &219389686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 219389679}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff26db721962cdf4a8edcdfa9a767d2a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  profile: {fileID: 11400000, guid: 920832ff432ab5c4ca76b2621113bd1a, type: 2}
 --- !u!1 &227390941
 GameObject:
   m_ObjectHideFlags: 0
@@ -11216,7 +11202,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/QRCode.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 30
@@ -14131,7 +14116,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/QRCode.xml
-  mExtendedTracking: 0
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 30
@@ -25443,7 +25427,6 @@ MonoBehaviour:
   mPreserveChildSize: 1
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/QRCode.xml
-  mExtendedTracking: 1
   mAspectRatio: 1
   mImageTargetType: 0
   mWidth: 222.876
@@ -37125,7 +37108,6 @@ MonoBehaviour:
   mPreserveChildSize: 0
   mInitializedInEditor: 1
   mDataSetPath: Vuforia/QRCode.xml
-  mExtendedTracking: 0
   mAspectRatio: 0.7782666
   mImageTargetType: 0
   mWidth: 500.79956
