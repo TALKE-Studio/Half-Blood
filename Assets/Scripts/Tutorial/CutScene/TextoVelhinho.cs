@@ -6,10 +6,11 @@ public class TextoVelhinho : MonoBehaviour {
 
 	public GameObject texto1;
 	public GameObject texto2;
-	public GameObject texto3;
 	public GameObject textoContinuar;
 	bool podeavancar = false;
+	public static bool avancou;
 	Touch touch;
+
 
 
 
@@ -23,8 +24,10 @@ public class TextoVelhinho : MonoBehaviour {
 		
 		if((Input.GetKeyDown(KeyCode.Space)|| Input.touchCount > 0) && podeavancar == true){
 			texto1.GetComponent<Animator>().SetBool("Proximo", true);
-			print("Tocou na tela");
-			print(Input.touchCount);
+			texto1.GetComponent<Animator>().SetBool("Fechartexto", true);
+			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
+			avancou = true;
+			StartCoroutine(Texto2());
 		}
 		
 	
@@ -51,7 +54,12 @@ public class TextoVelhinho : MonoBehaviour {
 
 	}
 
-
+	IEnumerator Texto2(){
+		yield return new WaitForSeconds(1.5f);
+		texto2.SetActive(true);
+		textoContinuar.SetActive(false);
+		podeavancar = false;
+	}
 
 	IEnumerator Continuar(){
 		yield return new WaitForSeconds (5f);
