@@ -78,6 +78,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
+
+        if(SegundaFaseMecanica.fase2 == true) {
+            if(GameObject.Find("Fase2ImageTarget").GetComponent<ImageTargetBehaviour>().ImageTarget.Name == "SegundoLevel") {
+                GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+            }
+        }
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);

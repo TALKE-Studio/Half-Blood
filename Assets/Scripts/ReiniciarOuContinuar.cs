@@ -37,7 +37,6 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
-            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             RotacaoPersonagem.naoMexer = false;
             SegundaFaseMecanica.fase1 = false;
             SegundaFaseMecanica.fase2 = true;
