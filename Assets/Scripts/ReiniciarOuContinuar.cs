@@ -17,6 +17,7 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             RotacaoPersonagem.naoMexer = false;
         }
         if(SegundaFaseMecanica.fase2 == true) {
+            GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
@@ -28,18 +29,18 @@ public class ReiniciarOuContinuar : MonoBehaviour {
         if (SegundaFaseMecanica.tutorial == true) {
 
         }
+        if (SegundaFaseMecanica.fase2 == true) {
+            SceneManager.LoadScene("Menu");
+        }
         if (SegundaFaseMecanica.fase1 == true) {
+            GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
-            GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             RotacaoPersonagem.naoMexer = false;
             SegundaFaseMecanica.fase1 = false;
             SegundaFaseMecanica.fase2 = true;
-        }
-        if (SegundaFaseMecanica.fase2 == true) {
-
         }
     }
 }

@@ -16,8 +16,8 @@ public class RotacaoPersonagem : MonoBehaviour {
 	Vector3 posBox;
 	float posX;
 	float posY;
-	public static bool teste1 = false;
-	public static bool teste2 = false;
+	public static bool vertical = false;
+	public static bool Horizontal = false;
 	Collider colisor;
 	public static bool naoMexer = false;
 
@@ -62,20 +62,20 @@ public class RotacaoPersonagem : MonoBehaviour {
 					naoMexer = true;
 				}
 					if (posX < 1 && posX > -1) {
-						teste1 = true;
-						teste2 = false;
+						vertical = true;
+						Horizontal = false;
 						//GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyVertical;
 					}
 					if (posY < 1 && posY > -1) {
-						teste2 = true;
-						teste1 = false;
+						Horizontal = true;
+						vertical = false;
 						//GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyHorizontal;
 					}
 				
 				} else {
 				naoMexer = false;
-				teste1 = false;
-				teste2 = false;
+				vertical = false;
+				Horizontal = false;
 				colisor.gameObject.transform.SetParent (GameObject.FindGameObjectWithTag ("Chao").gameObject.transform, true);
 				BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider> ();
 				foreach (BoxCollider c in col) {
@@ -149,36 +149,38 @@ public class RotacaoPersonagem : MonoBehaviour {
 			animator.SetFloat ("Blend", 0);
 			animator.SetBool ("EmpurrandoTras", false);
 			animator.SetBool ("EmpurrandoFrente", false);
-		}
-		if (teste1 == true && z>0 && posY < 0) {
+            animator.SetFloat("X", 0);
+            animator.SetFloat("Y", 0);
+        }
+		if (vertical == true && z>0 && posY < 0) {
             print("frente");
             animator.SetFloat("X", z);
             animator.SetFloat("Y", x);
-		}else if(z>0 && teste1 == true && posY >0){
+		}else if(z>0 && vertical == true && posY >0){
             print("TRAS2");
             animator.SetFloat("X", z*-1);
             animator.SetFloat("Y", x*-1);
-        } else if(z<0 && teste1 == true && posY <0){
+        } else if(z<0 && vertical == true && posY <0){
             print("TRAS");
             animator.SetFloat("X", z);
             animator.SetFloat("Y", x);
-        } else if(z<0 && teste1 == true && posY >0){
+        } else if(z<0 && vertical == true && posY >0){
             print("frente2");
             animator.SetFloat("X", z*-1);
             animator.SetFloat("Y", x*-1);
-        } else if(teste2 == true && x>0 && posX<0){
-			animator.SetBool ("EmpurrandoFrente", true);
-			animator.SetBool ("EmpurrandoTras", false);
-		}else if(teste2 == true && x>0 && posX>0){
-			animator.SetBool ("EmpurrandoFrente", false);
-			animator.SetBool ("EmpurrandoTras", true);
-		}else if(x<0 && teste2 == true && posX<0){
-			animator.SetBool ("EmpurrandoTras", true);
-			animator.SetBool ("EmpurrandoFrente", false);
-		}else if(x<0 && teste2 == true && posX>0){
-			animator.SetBool ("EmpurrandoTras", false);
-			animator.SetBool ("EmpurrandoFrente", true);
-		}
+        } else if(Horizontal == true && x>0 && posX<0){
+            animator.SetFloat("X", x);
+            animator.SetFloat("Y", z*-1);
+        } else if(Horizontal == true && x>0 && posX>0){
+            animator.SetFloat("X", x*-1);
+            animator.SetFloat("Y", z);
+        } else if(x<0 && Horizontal == true && posX<0){
+            animator.SetFloat("X", x);
+            animator.SetFloat("Y", z * -1);
+        } else if(x<0 && Horizontal == true && posX>0){
+            animator.SetFloat("X", x * -1);
+            animator.SetFloat("Y", z);
+        }
 	}
 
 	/*void OnTriggerEnter(Collider other){

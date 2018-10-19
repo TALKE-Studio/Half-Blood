@@ -55,6 +55,7 @@ TagManager:
   - TextoTutorial
   - ImagemTutorial
   - Hit
+  - Porta2
   layers:
   - Default
   - TransparentFX

@@ -30,13 +30,13 @@ public class Sala3 : MonoBehaviour {
 		if(other.gameObject.tag == "PedraVerde" && Input.GetKeyDown (KeyCode.Space) == true){
 			coletoupedra = true;
 			print("Moco Colidiu aqui");
-			gameObject.GetComponent<Animator>().SetBool("PegouChao", true);
+			gameObject.GetComponent<Animator>().SetTrigger("PegouChao");
 			StartCoroutine(PegandoPedra());
-			StartCoroutine (TerminarAnim());
+			//StartCoroutine (TerminarAnim());
 		}
 		if(other.gameObject.tag == "GarraTutorial" && Input.GetKeyDown (KeyCode.Space) == true){
 			if(coletoupedra == true){
-				gameObject.GetComponent<Animator>().SetBool("TocouParede", true);
+				gameObject.GetComponent<Animator>().SetTrigger("TocouParede");
                 porta.GetComponent<BoxCollider>().enabled = false;
                 coletoupedra = false;
 				abriuporta = true;
@@ -44,7 +44,7 @@ public class Sala3 : MonoBehaviour {
 				StartCoroutine(InicioAndando());
 				StartCoroutine(AbrindoPorta());
 				StartCoroutine(TocandoParede());
-				StartCoroutine(TerminarAnim());
+			//	StartCoroutine(TerminarAnim());
 			}
 
 			

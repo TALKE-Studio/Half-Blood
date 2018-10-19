@@ -5,7 +5,7 @@ using UnityEngine;
 public class LugarDasEstatuas : MonoBehaviour {
 
 
-	MeshRenderer rend;
+	Renderer rend;
 	bool teste;
 	float dist;
 	public static bool posicionado1;
@@ -16,9 +16,9 @@ public class LugarDasEstatuas : MonoBehaviour {
 
 	// Use this for initialization
 	IEnumerator Start () {
-		rend = GetComponent<MeshRenderer> ();
+		rend = GetComponent<Renderer> ();
 		yield return new WaitForSeconds (0.1f);
-		rend.enabled = false;
+        rend.material.DisableKeyword("_EMISSION");
 	}
 	
 	// Update is called once per frame
@@ -40,26 +40,13 @@ public class LugarDasEstatuas : MonoBehaviour {
         GameObject.Find("courage_pedra").AddComponent<LightBehaviourStone>();
     }
 
-    IEnumerator MoverPedra() {
-        float dist2 = Vector3.Distance(GameObject.Find("courage_pedra_POSICAO_INICIAL").transform.position, GameObject.Find("courage_base").transform.position);
-        float tempo = 0;
-        tempo += 0.5f * Time.deltaTime;
-        GameObject.Find("courage_pedra_POSICAO_INICIAL").transform.position = Vector3.LerpUnclamped(GameObject.Find("courage_pedra_POSICAO_INICIAL").transform.position, GameObject.Find("courage_base").transform.position, tempo);
-        yield return new WaitForSeconds(0.1f);
-        if (dist2 > 0.1f) {
-            StartCoroutine(MoverPedra());
-        } else {
-            GameObject.Find("courage_pedra_POSICAO_INICIAL").GetComponent<Animation>().Play();
-        }
-    }
-
     void EncaixarEstatua(){
 		if (gameObject.tag == "ChaoRoxo") {
 			GameObject loboRoxo = GameObject.FindGameObjectWithTag ("LoboRoxo");
 			dist = Vector3.Distance (gameObject.transform.position, loboRoxo.transform.position);
 			if (dist < 12) {
-				rend.enabled = true;
-				if (RotacaoPersonagem.onTrigger == false) {
+                rend.material.EnableKeyword("_EMISSION");
+                if (RotacaoPersonagem.onTrigger == false) {
 					loboRoxo.transform.SetParent (gameObject.transform, true);
 					if (dist > 0.1f) {
 						StartCoroutine (MoverEstatua (loboRoxo));
@@ -72,14 +59,14 @@ public class LugarDasEstatuas : MonoBehaviour {
 					}
 				}
 			} else {
-				rend.enabled = false;
-			}
+                rend.material.DisableKeyword("_EMISSION");
+            }
 		}else if (gameObject.tag == "ChaoVermelho") {
 			GameObject loboVermelho = GameObject.FindGameObjectWithTag ("LoboVermelho");
 			dist = Vector3.Distance (gameObject.transform.position, loboVermelho.transform.position);
 			if (dist < 12) {
-				rend.enabled = true;
-				if (RotacaoPersonagem.onTrigger == false) {
+                rend.material.EnableKeyword("_EMISSION");
+                if (RotacaoPersonagem.onTrigger == false) {
 					loboVermelho.transform.SetParent (gameObject.transform, true);
 					if (dist > 0.1f) {
 						StartCoroutine (MoverEstatua (loboVermelho));
@@ -92,14 +79,14 @@ public class LugarDasEstatuas : MonoBehaviour {
 					}
 				}
 			} else {
-				rend.enabled = false;
-			}
+                rend.material.DisableKeyword("_EMISSION");
+            }
 		} else if (gameObject.tag == "ChaoVerde") {
 			GameObject loboVerde = GameObject.FindGameObjectWithTag ("LoboVerde");
 			dist = Vector3.Distance (gameObject.transform.position, loboVerde.transform.position);
 			if (dist < 12) {
-				rend.enabled = true;
-				if (RotacaoPersonagem.onTrigger == false) {
+                rend.material.EnableKeyword("_EMISSION");
+                if (RotacaoPersonagem.onTrigger == false) {
 					loboVerde.transform.SetParent (gameObject.transform, true);
 					if (dist > 0.1f) {
 						StartCoroutine (MoverEstatua (loboVerde));
@@ -112,14 +99,14 @@ public class LugarDasEstatuas : MonoBehaviour {
 					}
 				}
 			} else {
-				rend.enabled = false;
-			}
+                rend.material.DisableKeyword("_EMISSION");
+            }
 		} else if (gameObject.tag == "ChaoAzul") {
 			GameObject loboAzul = GameObject.FindGameObjectWithTag ("LoboAzul");
 			dist = Vector3.Distance (gameObject.transform.position, loboAzul.transform.position);
 			if (dist < 12) {
-				rend.enabled = true;
-				if (RotacaoPersonagem.onTrigger == false) {
+                rend.material.EnableKeyword("_EMISSION");
+                if (RotacaoPersonagem.onTrigger == false) {
 					loboAzul.transform.SetParent (gameObject.transform, true);
 					if (dist > 0.1f) {
 						StartCoroutine (MoverEstatua (loboAzul));
@@ -132,8 +119,8 @@ public class LugarDasEstatuas : MonoBehaviour {
 					}
 				}
 			} else {
-				rend.enabled = false;
-			}
+                rend.material.DisableKeyword("_EMISSION");
+            }
 		}
 	}
 		

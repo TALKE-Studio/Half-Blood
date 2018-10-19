@@ -25,16 +25,8 @@ public class Movimento : MonoBehaviour {
 
 	void Andar(){
 		if (RotacaoPersonagem.naoMexer == false) {
-			if (RotacaoPersonagem.teste2 == true) {
-				x = CrossPlatformInputManager.GetAxisRaw ("Horizontal");
-				z = 0;
-			} else if (RotacaoPersonagem.teste1 == true) {
-				z = CrossPlatformInputManager.GetAxisRaw ("Vertical");
-				x = 0;
-			} else {
 				x = CrossPlatformInputManager.GetAxisRaw ("Horizontal");
 				z = CrossPlatformInputManager.GetAxisRaw ("Vertical");
-			}
 		} else {
 			x = 0;
 			z = 0;
@@ -43,7 +35,11 @@ public class Movimento : MonoBehaviour {
 		//x = -Input.GetAxis ("Horizontal");
 		//z = -Input.GetAxis ("Vertical");
 		if (x != 0 || z != 0) {
-			rb.velocity = new Vector3 (x, 0, z) * 15;
+            if (RotacaoPersonagem.segurando == false) {
+                rb.velocity = new Vector3(x, 0, z) * 30;
+            } else {
+                rb.velocity = new Vector3(x, 0, z) * 15;
+            }
 		} else {
 			rb.velocity = new Vector3(0,0,0);
 		}
