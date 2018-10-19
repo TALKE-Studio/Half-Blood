@@ -189,7 +189,7 @@ public class RotacaoPersonagem : MonoBehaviour {
 	}*/
 
 	void OnTriggerStay(Collider other){
-		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo") {
+		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo"|| other.tag == "Lobinho2") {
 				onTrigger = true;
 			if (segurando == false) {
 				posBox = new Vector3 (other.bounds.center.x, gameObject.transform.position.y, other.bounds.center.z);
@@ -200,7 +200,7 @@ public class RotacaoPersonagem : MonoBehaviour {
 		} 
 	}
 	void OnTriggerExit(Collider other){
-		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo") {
+		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo"|| other.tag == "Lobinho2") {
 			if (segurando == false) {
 				onTrigger = false;
 			}

@@ -18,10 +18,13 @@ public class Texto2 : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if((Input.GetKeyDown(KeyCode.Space)|| Input.touchCount > 0) && podeavancar == true){
+		for (int i = 0; i < Input.touchCount; i++) {
+		if((Input.GetKeyDown(KeyCode.Space)|| Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0) ) && podeavancar == true)
+		{
 			texto2.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
 			StartCoroutine(IrTexto3());
+		}
 		}
 	}
 
@@ -43,5 +46,11 @@ public class Texto2 : MonoBehaviour {
 		texto3.SetActive(true);
 		textoContinuar.SetActive(false);
 		podeavancar = false;
+		StartCoroutine(Destroir());
+	}
+
+	IEnumerator Destroir(){
+		yield return new WaitForSeconds(3f);
+		texto2.SetActive(false);
 	}
 }

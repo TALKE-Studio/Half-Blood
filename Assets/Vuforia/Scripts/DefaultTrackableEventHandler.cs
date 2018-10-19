@@ -87,6 +87,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
+        var coliderTutoba1 = GameObject.FindGameObjectWithTag("Colissor2");
+
+       
 
         // Enable rendering:
         foreach (var component in rendererComponents)
@@ -95,6 +98,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable colliders:
         foreach (var component in colliderComponents)
             component.enabled = true;
+             if(TextoVelhinho.destruiouColider == true){
+            coliderTutoba1.GetComponent<BoxCollider>().enabled = false;
+        }
 
         // Enable canvas':
         foreach (var component in canvasComponents)

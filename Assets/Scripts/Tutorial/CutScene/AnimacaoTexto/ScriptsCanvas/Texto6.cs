@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Texto3 : MonoBehaviour {
+public class Texto6 : MonoBehaviour {
 
-	public GameObject texto3;
+	public GameObject texto6;
 	public GameObject textoContinuar;
-	public GameObject texto4;
 	bool podeavancar = false;
 	Touch touch;
 
@@ -21,9 +20,9 @@ public class Texto3 : MonoBehaviour {
 		for (int i = 0; i < Input.touchCount; i++) {
 		if((Input.GetKeyDown(KeyCode.Space)|| Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0) ) && podeavancar == true)
 		{
-			texto3.GetComponent<Animator>().SetBool("Proximo", true);
+			texto6.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
-			StartCoroutine(IrTexto4());
+			StartCoroutine(IrTexto7());
 		}
 		}
 	}
@@ -41,9 +40,9 @@ public class Texto3 : MonoBehaviour {
 		textoContinuar.SetActive(true);
 	}
 
-	IEnumerator IrTexto4(){
+	IEnumerator IrTexto7(){
 		yield return new WaitForSeconds(2f);
-		texto4.SetActive(true);
+		
 		textoContinuar.SetActive(false);
 		podeavancar = false;
 		StartCoroutine(Destroir());
@@ -51,6 +50,6 @@ public class Texto3 : MonoBehaviour {
 
 	IEnumerator Destroir(){
 		yield return new WaitForSeconds(3f);
-		texto3.SetActive(false);
+		texto6.SetActive(false);
 	}
 }

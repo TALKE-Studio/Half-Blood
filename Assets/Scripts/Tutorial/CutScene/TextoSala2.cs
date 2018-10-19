@@ -2,53 +2,52 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TextoVelhinho : MonoBehaviour {
+public class TextoSala2 : MonoBehaviour {
 
-	public GameObject texto1;
-	public GameObject texto2;
+	public GameObject texto5;
+	public GameObject texto6;
 	public GameObject textoContinuar;
 	bool podeavancar = false;
 	public static bool avancou;
 	Touch touch;
 	GameObject colissor;
 	GameObject canvasBotoes;
-	public static bool destruiouColider = false;
 
-
-
+	
 	// Use this for initialization
 	void Start () {
 		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
-		colissor = GameObject.FindGameObjectWithTag("Colissor2");
+		colissor = GameObject.FindGameObjectWithTag("Colissor3");
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < Input.touchCount; i++) {
-		if((Input.GetKeyDown(KeyCode.Space)|| Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0) ) && podeavancar == true){
-			texto1.GetComponent<Animator>().SetBool("Proximo", true);
-			texto1.GetComponent<Animator>().SetBool("Fechartexto", true);
+		if((Input.GetKeyDown(KeyCode.Space)|| Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0) ) && podeavancar == true)
+		{
+			texto5.GetComponent<Animator>().SetBool("Proximo", true);
+			texto5.GetComponent<Animator>().SetBool("Fechartexto", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
 			avancou = true;
-			StartCoroutine(Texto2());
+			StartCoroutine(Texto6());
 		}
 		}
-	
 	}
 
 	void OnTriggerEnter(Collider other){
 
 		if(other.gameObject.tag == "Player"){
-			canvasBotoes.GetComponent<Canvas>().enabled = false;
-			StartCoroutine(Texto1());
+			
+			StartCoroutine(Texto5());
 			
 		}
 		
 	}
 
-	IEnumerator Texto1(){
-		yield return new WaitForSeconds (2f);
-		texto1.SetActive(true);
+		IEnumerator Texto5(){
+		yield return new WaitForSeconds (1f);
+		texto5.SetActive(true);
+		canvasBotoes.GetComponent<Canvas>().enabled = false;
 		StartCoroutine(Trava());
 		StartCoroutine(Continuar());
 	}
@@ -59,9 +58,9 @@ public class TextoVelhinho : MonoBehaviour {
 
 	}
 
-	IEnumerator Texto2(){
+	IEnumerator Texto6(){
 		yield return new WaitForSeconds(2f);
-		texto2.SetActive(true);
+		texto6.SetActive(true);
 		textoContinuar.SetActive(false);
 		podeavancar = false;
 		StartCoroutine(Destruir());
@@ -74,9 +73,7 @@ public class TextoVelhinho : MonoBehaviour {
 
 	IEnumerator Destruir(){
 		yield return new WaitForSeconds (2f);
-		texto1.SetActive(false);
-		destruiouColider = true;
+		texto5.SetActive(false);
 		Destroy(colissor.gameObject);
 	}
-
 }
