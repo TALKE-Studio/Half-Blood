@@ -47,7 +47,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
     }
 
     IEnumerator PosInicial() {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         if (tutorial == true) {
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
