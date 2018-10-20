@@ -17,18 +17,19 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public static bool pedraCColocada = false;
     public static bool pedraPColocada = false;
     bool pedraFinal = false;
-    public static bool tutorial = true;
-    public static bool  fase1 = true;
-    public static bool fase2 = false;
+    public static bool tutorial;
+    public static bool fase1;
+    public static bool fase2;
+    public static bool gameOver = false;
 
     // Use this for initialization
     void Start () {
-
-     pedraAColocada = false;
-     pedraRColocada = false;
-     pedraCColocada = false;
-     pedraPColocada = false;
-}
+        pedraAColocada = false;
+        pedraRColocada = false;
+        pedraCColocada = false;
+        pedraPColocada = false;
+        StartCoroutine(PosInicial());
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -43,6 +44,23 @@ public class SegundaFaseMecanica : MonoBehaviour {
             }
         }
 
+    }
+
+    IEnumerator PosInicial() {
+        yield return new WaitForSeconds(0.5f);
+        if (tutorial == true) {
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
+        } else if (fase1 == true) {
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
+        } else if (fase2 == true) {
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase2").transform.localRotation;
+        }
     }
 
     private void PedraFinalScript()
@@ -187,7 +205,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         GameObject.Find("courage_pedra").GetComponent<MeshRenderer>().enabled = true;
                         GameObject.Find("courage_pedra").GetComponentInChildren<Light>().enabled = true;
                         GameObject.Find("courage_pedra").GetComponent<Animation>().Play();
-                        TelaBranca.colidiu = true;
+                        gameOver= true;
                         RotacaoPersonagem.naoMexer = true;
                         RotacaoPersonagem.x = 0;
                         RotacaoPersonagem.z = 0;
@@ -210,7 +228,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         GameObject.Find("death_pedra").GetComponent<MeshRenderer>().enabled = true;
                         GameObject.Find("death_pedra").GetComponentInChildren<Light>().enabled = true;
                         GameObject.Find("death_pedra").GetComponent<Animation>().Play();
-                        TelaBranca.colidiu = true;
+                        gameOver = true;
                         RotacaoPersonagem.naoMexer = true;
                         RotacaoPersonagem.x = 0;
                         RotacaoPersonagem.z = 0;

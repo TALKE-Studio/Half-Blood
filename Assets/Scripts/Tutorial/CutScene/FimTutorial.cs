@@ -32,6 +32,6 @@ public class FimTutorial : MonoBehaviour {
 	}
 	IEnumerator TelaBranca(){
 		yield return new WaitForSeconds(14f);
-		Tela_Final.SetActive(true);
-	}
+        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver");
+    }
 }

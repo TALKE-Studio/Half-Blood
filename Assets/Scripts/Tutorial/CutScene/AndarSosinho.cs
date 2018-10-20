@@ -16,7 +16,7 @@ public class AndarSosinho : MonoBehaviour {
 
         void Start () {
 
-            canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
+            canvasBotoes = GameObject.FindGameObjectWithTag("Finish");
             bordacima = GameObject.FindGameObjectWithTag("BordaCima");
 		    bordabaixo = GameObject.FindGameObjectWithTag("BordaBaixo");
 			personagem = GameObject.FindGameObjectWithTag("Player");
@@ -76,6 +76,7 @@ public class AndarSosinho : MonoBehaviour {
 
         IEnumerator Bordas(){
             yield return new WaitForSeconds(0.5f);
+        SegundaFaseMecanica.gameOver = true;
             canvasBotoes.GetComponent<Canvas>().enabled = false;
             bordacima.GetComponent<Animator>().SetTrigger("Bordinha");
 			bordabaixo.GetComponent<Animator>().SetTrigger("Bordinha");

@@ -18,21 +18,21 @@ public class ParedeTransparent : MonoBehaviour {
 			GameObject.FindGameObjectWithTag ("Finish").GetComponent<Canvas> ().enabled = false;
 			for (int i = 0; i < Input.touchCount; i++) {
 				if (Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0)) {
-				if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("VikingAp").gameObject.transform.position) < 100) {
+				    if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("VikingAp").gameObject.transform.position) < 100) {
 					GameObject.FindGameObjectWithTag ("VikingAp").GetComponent<Animator> ().SetBool ("TocouTela", true);
-				}
-			}
+				    }
+			    }
 				if (Input.GetTouch(i).phase == TouchPhase.Ended || Input.GetMouseButtonUp(0)) {
-				if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("VikingAp").gameObject.transform.position) < 100) {
+				    if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("VikingAp").gameObject.transform.position) < 100) {
 					GameObject.FindGameObjectWithTag ("VikingAp").GetComponent<Animator> ().SetBool ("TocouTela", false);
-				}
-				if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("ValkiriaAp").gameObject.transform.position) < 100) {
-					GameObject.FindGameObjectWithTag ("ValkiriaAp").GetComponent<Animator> ().SetBool ("TocouTela", true);
-				}
-			}
-		}
+				    }
+				    if (Vector3.Distance (gameObject.transform.position, GameObject.FindGameObjectWithTag ("ValkiriaAp").gameObject.transform.position) < 100) {
+					GameObject.FindGameObjectWithTag ("ValkiriaAp").GetComponent<Animator> ().SetTrigger ("TocouTela");
+				    }
+			    }
+		    }
 		} else {
-            if (TelaBranca.colidiu == false) {
+            if (SegundaFaseMecanica.gameOver == false) {
                 GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             }
 		}
