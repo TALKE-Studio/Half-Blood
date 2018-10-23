@@ -45,7 +45,7 @@ public class TextoSala2 : MonoBehaviour {
 	}
 
 		IEnumerator Texto5(){
-		yield return new WaitForSeconds (1f);
+		yield return new WaitForSeconds (0.3f);
 		texto5.SetActive(true);
 		canvasBotoes.GetComponent<Canvas>().enabled = false;
 		StartCoroutine(Trava());

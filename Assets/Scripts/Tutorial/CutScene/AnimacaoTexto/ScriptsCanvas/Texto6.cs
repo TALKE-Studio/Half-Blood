@@ -8,9 +8,11 @@ public class Texto6 : MonoBehaviour {
 	public GameObject textoContinuar;
 	bool podeavancar = false;
 	Touch touch;
+	GameObject canvasBotoes;
 
 	// Use this for initialization
 	void Start () {
+		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
 		StartCoroutine(Trava());
 		StartCoroutine(Continuar());
 	}
@@ -51,5 +53,6 @@ public class Texto6 : MonoBehaviour {
 	IEnumerator Destroir(){
 		yield return new WaitForSeconds(3f);
 		texto6.SetActive(false);
+		canvasBotoes.GetComponent<Canvas>().enabled = true;
 	}
 }
