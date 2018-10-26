@@ -28,6 +28,12 @@ public class Texto4 : MonoBehaviour {
 			StartCoroutine(IrTexto4());
 		}
 		}
+		if(Input.GetKeyDown(KeyCode.Space)&& podeavancar == true)
+		{
+			texto4.GetComponent<Animator>().SetBool("Proximo", true);
+			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
+			StartCoroutine(IrTexto4());
+		}
 	}
 
 

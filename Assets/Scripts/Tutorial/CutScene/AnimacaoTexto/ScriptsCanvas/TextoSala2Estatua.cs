@@ -2,43 +2,69 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Texto6 : MonoBehaviour {
+public class TextoSala2Estatua : MonoBehaviour {
 
-	public GameObject texto6;
+	public GameObject texto7;	
 	public GameObject textoContinuar;
-	bool podeavancar = false;
-	Touch touch;
 	GameObject canvasBotoes;
+	Touch touch;
+	GameObject colissor;
+	bool podeavancar = false;
 
 	// Use this for initialization
 	void Start () {
+
+		
 		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
-		StartCoroutine(Trava());
-		StartCoroutine(Continuar());
-	}
+		colissor = GameObject.FindGameObjectWithTag("Collisor4");
+		}
 	
 	// Update is called once per frame
 	void Update () {
 		for (int i = 0; i < Input.touchCount; i++) {
 		if((Input.GetKeyDown(KeyCode.Space)|| Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0) ) && podeavancar == true)
 		{
-			texto6.GetComponent<Animator>().SetBool("Proximo", true);
+			print("QQQQQQQQQQQQQQQQQQQQQQ");
+			texto7.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
-			StartCoroutine(IrTexto7());
+			StartCoroutine(Voltarbotao());
+			StartCoroutine(Destroir());
 		}
 		}
 		if(Input.GetKeyDown(KeyCode.Space)&& podeavancar == true)
 		{
-			texto6.GetComponent<Animator>().SetBool("Proximo", true);
+			texto7.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
-			StartCoroutine(IrTexto7());
+			StartCoroutine(Voltarbotao());
+			StartCoroutine(Destroir());
+		}
+		
+	}
+
+		void OnTriggerEnter(Collider other){
+
+		if(other.gameObject.tag == "Player"){
+			
+			StartCoroutine(Texto7());
+			
 		}
 	}
 
+	IEnumerator Texto7(){
+		yield return new WaitForSeconds (0.3f);
+		texto7.SetActive(true);
+		canvasBotoes.GetComponent<Canvas>().enabled = false;
+		RotacaoPersonagem.naoMexer = true;
+        RotacaoPersonagem.x = 0;
+        RotacaoPersonagem.z = 0;
+		StartCoroutine(Trava());
+		StartCoroutine(Continuar());
+	}
 
 	IEnumerator Voltarbotao(){
 			yield return new WaitForSeconds(3f);
 			canvasBotoes.GetComponent<Canvas>().enabled = true;
+			RotacaoPersonagem.naoMexer = false;
 		}
 
 	IEnumerator Trava(){
@@ -52,16 +78,10 @@ public class Texto6 : MonoBehaviour {
 		textoContinuar.SetActive(true);
 	}
 
-	IEnumerator IrTexto7(){
-		yield return new WaitForSeconds(2f);
-		textoContinuar.SetActive(false);
-		podeavancar = false;
-		StartCoroutine(Destroir());
-	}
-
 	IEnumerator Destroir(){
 		yield return new WaitForSeconds(3f);
-		texto6.SetActive(false);
-		
+		texto7.SetActive(false);
+		textoContinuar.SetActive(false);
+		Destroy(colissor.gameObject);
 	}
 }

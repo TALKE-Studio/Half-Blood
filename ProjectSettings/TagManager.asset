@@ -59,6 +59,8 @@ TagManager:
   - Colissor
   - Colissor2
   - Colissor3
+  - Collisor4
+  - Collisor5
   layers:
   - Default
   - TransparentFX

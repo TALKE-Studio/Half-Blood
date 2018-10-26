@@ -33,6 +33,15 @@ public class TextoVelhinho : MonoBehaviour {
 			StartCoroutine(Texto2());
 		}
 		}
+		if(Input.GetKeyDown(KeyCode.Space)&& podeavancar == true)
+		{
+			texto1.GetComponent<Animator>().SetBool("Proximo", true);
+			texto1.GetComponent<Animator>().SetBool("Fechartexto", true);
+			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
+			avancou = true;
+			StartCoroutine(Texto2());
+			
+		}
 	
 	}
 
