@@ -8,10 +8,12 @@ public class Texto8 : MonoBehaviour {
 	public GameObject textoContinuar;
 	bool podeavancar = false;
 	Touch touch;
+    GameObject canvasBotoes;
 
-	// Use this for initialization
-	void Start () {
-		StartCoroutine(Trava());
+    // Use this for initialization
+    void Start () {
+        canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
+        StartCoroutine(Trava());
 		StartCoroutine(Continuar());
 	}
 	
@@ -22,20 +24,29 @@ public class Texto8 : MonoBehaviour {
 		{
 			texto8.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
-			
-		}
+                StartCoroutine(Voltarbotao());
+                StartCoroutine(Destroir());
+
+            }
 		}
 		if(Input.GetKeyDown(KeyCode.Space)&& podeavancar == true)
 		{
 			texto8.GetComponent<Animator>().SetBool("Proximo", true);
 			textoContinuar.GetComponent<Animator>().SetBool("Proximo", true);
-			
+            StartCoroutine(Voltarbotao());
+            StartCoroutine(Destroir());
 		}
 	}
 
+    IEnumerator Voltarbotao()
+    {
+        yield return new WaitForSeconds(3f);
+        canvasBotoes.GetComponent<Canvas>().enabled = true;
+        RotacaoPersonagem.naoMexer = false;
+    }
 
 
-		IEnumerator Trava(){
+    IEnumerator Trava(){
 		yield return new WaitForSeconds(6f);
 		podeavancar = true;
 

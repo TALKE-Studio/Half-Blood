@@ -88,6 +88,8 @@ public class TextoSala3 : MonoBehaviour {
 
 	IEnumerator Destroir(){
 		yield return new WaitForSeconds(3f);
+        texto7.SetActive(false);
+        
 		Destroy(colissor.gameObject);
 	}
 
