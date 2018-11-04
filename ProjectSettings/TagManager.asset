@@ -61,6 +61,8 @@ TagManager:
   - Colissor3
   - Collisor4
   - Collisor5
+  - UltimoTextoTutorial
+  - TelaBrancaTutorial
   layers:
   - Default
   - TransparentFX
