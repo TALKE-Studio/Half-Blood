@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public class SegundaFaseMecanica : MonoBehaviour {
 	public GameObject[] pedras;
@@ -21,9 +22,19 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public static bool fase1;
     public static bool fase2;
     public static bool gameOver = false;
+    public Sprite Ituto;
+    public Sprite Ifase1;
+    public Sprite Ifase2;
 
     // Use this for initialization
     void Start () {
+        if(tutorial == true) {
+            GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
+        }else if (fase1 == true) {
+            GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;
+        } else if (fase2 == true) {
+            GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase2;
+        }
         pedraAColocada = false;
         pedraRColocada = false;
         pedraCColocada = false;
