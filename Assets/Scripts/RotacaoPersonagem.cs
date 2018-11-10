@@ -34,68 +34,71 @@ public class RotacaoPersonagem : MonoBehaviour {
             z = CrossPlatformInputManager.GetAxis("Vertical");
 
         }
-		//x= Input.GetAxis ("Horizontal");
-		//z= Input.GetAxis ("Vertical");
-		Rotacao ();
+        //x= Input.GetAxis ("Horizontal");
+        //z= Input.GetAxis ("Vertical");
+        if (onTrigger == true) {
+            StartCoroutine(EstatuaC());
+        }
+        Rotacao ();
 		Animacao ();
-		if (onTrigger == true) {
-			if (CrossPlatformInputManager.GetButtonDown ("Jump") == true || Input.GetKeyDown (KeyCode.Space) == true) {
-				gameObject.transform.position = posBox;
-			}
-			if (CrossPlatformInputManager.GetButton ("Jump") == true || Input.GetKey(KeyCode.Space) == true) {
-				segurando = true;
-				//gameObject.transform.position = posBox;//está travando o pers e se esta segurando o botao o pers nao gruda na estatua
-				transform.LookAt (new Vector3 (colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
-				if (colisor.gameObject.tag != "Lobinho") {
-					colisor.gameObject.transform.SetParent (gameObject.transform, true);
-					BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider> ();
-					foreach (BoxCollider c in col) {
-						if (c.isTrigger == true) {
-							c.enabled = false;
-							c.enabled = true;
-						} else {
-							c.enabled = false;
-							c.enabled = true;
-						}
-					}
-				} else {
-					naoMexer = true;
-				}
-					if (posX < 1 && posX > -1) {
-						vertical = true;
-						Horizontal = false;
-						//GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyVertical;
-					}
-					if (posY < 1 && posY > -1) {
-						Horizontal = true;
-						vertical = false;
-						//GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyHorizontal;
-					}
-				
-				} else {
-				naoMexer = false;
-				vertical = false;
-				Horizontal = false;
-				colisor.gameObject.transform.SetParent (GameObject.FindGameObjectWithTag ("Chao").gameObject.transform, true);
-				BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider> ();
-				foreach (BoxCollider c in col) {
-					if (segurando == true) {
-						if (c.isTrigger == true) {
-							c.enabled = false;
-							c.enabled = true;
-						} else {
-							c.enabled = false;
-							c.enabled = true;
-						}
-					}
-				}
-					GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.Both;
-				segurando = false;
-				}
-			}
-
-
 	}
+
+    IEnumerator EstatuaC() {
+        if (CrossPlatformInputManager.GetButtonDown("Jump") == true || Input.GetKeyDown(KeyCode.Space) == true) {
+            gameObject.transform.position = posBox;
+        }
+        if (CrossPlatformInputManager.GetButton("Jump") == true || Input.GetKey(KeyCode.Space) == true) {
+            segurando = true;
+            //gameObject.transform.position = posBox;//está travando o pers e se esta segurando o botao o pers nao gruda na estatua
+            transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
+            if (colisor.gameObject.tag != "Lobinho") {
+                yield return new WaitForSecondsRealtime(0.1f);
+                colisor.gameObject.transform.SetParent(gameObject.transform, true);
+                BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
+                foreach (BoxCollider c in col) {
+                    if (c.isTrigger == true) {
+                        c.enabled = false;
+                        c.enabled = true;
+                    } else {
+                        c.enabled = false;
+                        c.enabled = true;
+                    }
+                }
+            } else {
+                naoMexer = true;
+            }
+            if (posX < 1 && posX > -1) {
+                vertical = true;
+                Horizontal = false;
+                //GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyVertical;
+            }
+            if (posY < 1 && posY > -1) {
+                Horizontal = true;
+                vertical = false;
+                //GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyHorizontal;
+            }
+
+        } else {
+            segurando = false;
+            colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
+            naoMexer = false;
+            vertical = false;
+            Horizontal = false;
+            BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
+            foreach (BoxCollider c in col) {
+                if (segurando == true) {
+                    if (c.isTrigger == true) {
+                        c.enabled = false;
+                        c.enabled = true;
+                    } else {
+                        c.enabled = false;
+                        c.enabled = true;
+                    }
+                }
+            }
+            GameObject.FindGameObjectWithTag("JoyStick").GetComponent<Joystick>().axesToUse = Joystick.AxisOption.Both;
+        }
+    }
 
 	void Rotacao(){
 		if (segurando == false) {

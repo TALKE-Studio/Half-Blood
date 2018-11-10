@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
 using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class SegundaFaseMecanica : MonoBehaviour {
 	public GameObject[] pedras;
@@ -25,15 +26,27 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public Sprite Ituto;
     public Sprite Ifase1;
     public Sprite Ifase2;
+    public GameObject telaBranca;
 
     // Use this for initialization
     void Start () {
         if(tutorial == true) {
             GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
-        }else if (fase1 == true) {
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
+
+        } else if (fase1 == true) {
             GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
         } else if (fase2 == true) {
             GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase2;
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
         }
         pedraAColocada = false;
         pedraRColocada = false;
@@ -223,7 +236,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         Movimento.rb.velocity = new Vector3(0, 0, 0);
                         RotacaoPersonagem.animator.SetBool("Andando", false);
                         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
-                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver");
+                        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+                        telaBranca.SetActive(true);
+                        telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
                     }
                     if (g.name == "death_base" && pedraPColetada == true && pedraPColocada == false){
                         pedraPColocada = true;
@@ -246,7 +261,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         Movimento.rb.velocity = new Vector3(0, 0, 0);
                         RotacaoPersonagem.animator.SetBool("Andando", false);
                         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
-                        GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver");
+                        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+                        telaBranca.SetActive(true);
+                        telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
                     }
                 }
 			}

@@ -13,6 +13,7 @@ public class FimTutorial : MonoBehaviour {
     public GameObject continuar;
     bool podeavancar = false;
     Touch touch;
+    public GameObject telaBrancaTutorial;
 
     // Use this for initialization
     void Start () {
@@ -94,6 +95,8 @@ public class FimTutorial : MonoBehaviour {
 
     IEnumerator TelaBranca(){
 		yield return new WaitForSeconds(1.5f);
-        GameObject.FindGameObjectWithTag("TelaBrancaTutorial").GetComponent<Animator>().SetTrigger("gameOver");
+        telaBrancaTutorial.SetActive(true);
+        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+        telaBrancaTutorial.GetComponent<Animator>().SetTrigger("gameOver");
     }
 }

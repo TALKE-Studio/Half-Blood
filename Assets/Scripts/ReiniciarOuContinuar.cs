@@ -30,7 +30,8 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             SceneManager.LoadScene("Menu");
         }
         if (SegundaFaseMecanica.fase1 == true) {
-            GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
+            SceneManager.LoadScene("Menu");
+            /*GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
@@ -38,18 +39,10 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             RotacaoPersonagem.naoMexer = false;
             SegundaFaseMecanica.fase1 = false;
-            SegundaFaseMecanica.fase2 = true;
+            SegundaFaseMecanica.fase2 = true;*/
         }
         if (SegundaFaseMecanica.tutorial == true) {
-            GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
-            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
-            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
-            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
-            SegundaFaseMecanica.gameOver = false;
-            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-            RotacaoPersonagem.naoMexer = false;
-            SegundaFaseMecanica.fase1 = true;
-            SegundaFaseMecanica.tutorial = false;
+            SceneManager.LoadScene("Menu");
         }
     }
 }
