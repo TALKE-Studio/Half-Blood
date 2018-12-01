@@ -94,13 +94,16 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Enable colliders:
         foreach (var component in colliderComponents)
             component.enabled = true;
-             if(TextoVelhinho.destruiouColider == true){
+
+        foreach (var component in canvasComponents)
+            component.enabled = true;
+
+        if (TextoVelhinho.destruiouColider == true){
             coliderTutoba1.GetComponent<BoxCollider>().enabled = false;
         }
 
         // Enable canvas':
-        foreach (var component in canvasComponents)
-            component.enabled = true;
+
     }
 
 
