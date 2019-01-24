@@ -24,6 +24,8 @@ public class MenuIniciarJogo : MonoBehaviour {
 
     public void Tutoba() {
         SegundaFaseMecanica.tutorial = true;
+        SegundaFaseMecanica.fase2 = false;
+        SegundaFaseMecanica.fase1 = false;
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = tut;
         StartCoroutine(Carregar());
@@ -31,6 +33,8 @@ public class MenuIniciarJogo : MonoBehaviour {
 
     public void Fase1() {
         SegundaFaseMecanica.fase1 = true;
+        SegundaFaseMecanica.tutorial = false;
+        SegundaFaseMecanica.fase2 = false;
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = fas1;
         StartCoroutine(Carregar());
@@ -38,6 +42,8 @@ public class MenuIniciarJogo : MonoBehaviour {
 
     public void Fase2() {
         SegundaFaseMecanica.fase2 = true;
+        SegundaFaseMecanica.fase1 = false;
+        SegundaFaseMecanica.tutorial = false;
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = fas2;
         StartCoroutine(Carregar());

@@ -36,9 +36,14 @@ public class SegundaFaseMecanica : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
             GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
 
         } else if (fase1 == true) {
             GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;
+            GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
+            GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
+            GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
+            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;

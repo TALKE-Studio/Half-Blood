@@ -21,11 +21,11 @@ public class RotacaoPersonagem : MonoBehaviour {
 	Collider colisor;
 	public static bool naoMexer = false;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		t = GetComponent<Transform> ();
 		animator = GetComponent<Animator> ();
-	}
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -117,35 +117,58 @@ public class RotacaoPersonagem : MonoBehaviour {
             if(x>0 && z > 0) {
                 if (x > z) {
                     animator.SetFloat("Blend", x);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = x * 2;
+                    }
                 } else {
                     animator.SetFloat("Blend", z);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = z * 2;
+                    }
                 }
             }
             if (x < 0 && z > 0) {
                 float horz = x * -1;
                 if (horz > z) {
                     animator.SetFloat("Blend", horz);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = horz * 2;
+                    }
                 } else {
                     animator.SetFloat("Blend", z);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = z * 2;
+                    }
                 }
             }
             if (z < 0 && x > 0) {
-                    print("DAD");
                     float vert = z * -1;
                     if (vert > x) {
                         animator.SetFloat("Blend", vert);
-                    } else {
-                        animator.SetFloat("Blend", x);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = vert * 2;
                     }
+                } else {
+                        animator.SetFloat("Blend", x);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = x * 2;
+                    }
+                }
             }
             if (x<0 && z<0) {
                 float horz = x * -1;
                 float vert = z * -1;
                 if (horz > vert) {
                    animator.SetFloat("Blend", horz);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = horz * 2;
+                    }
                 }
                 if (vert > horz) {
                     animator.SetFloat("Blend", vert);
+                    if (animator.GetFloat("Blend") <= 0.5) {
+                        animator.speed = vert * 2;
+                    }
                 }
             }
 		} else {

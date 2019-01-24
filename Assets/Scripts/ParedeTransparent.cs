@@ -33,6 +33,7 @@ public class ParedeTransparent : MonoBehaviour {
 		    }
 		} else {
             if (SegundaFaseMecanica.gameOver == false) {
+                
                 GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             }
 		}
