@@ -1,0 +1,208 @@
+fileFormatVersion: 2
+guid: 8a23fa7097886844cacb1ebdc1372847
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Alquimista
+    100002: //RootNode
+    100004: Barba
+    100006: Barba_Ponta
+    100008: Barriga
+    100010: L_Braco
+    100012: L_Clavicula
+    100014: L_Cotovelo
+    100016: L_Joelho
+    100018: L_Mao
+    100020: L_Mao_Ponta
+    100022: L_Pe
+    100024: L_Perna
+    100026: L_Pontape
+    100028: L_Roupa
+    100030: L_Roupa2
+    100032: L_Roupa3
+    100034: L_Roupa_Back
+    100036: L_Roupa_Back2
+    100038: L_Roupa_Back3
+    100040: L_Roupa_Front
+    100042: L_Roupa_Front2
+    100044: L_Roupa_Front3
+    100046: nurbsCircle5
+    100048: Peitoral
+    100050: Pescoco
+    100052: Pocao_Mesh
+    100054: R_Braco
+    100056: R_Clavicula
+    100058: R_Cotovelo
+    100060: R_Joelho
+    100062: R_Mao
+    100064: R_Mao_Ponta
+    100066: R_Pe
+    100068: R_Perna
+    100070: R_Pontape
+    100072: R_Roupa
+    100074: R_Roupa2
+    100076: R_Roupa3
+    100078: Root
+    100080: Topo
+    400000: Alquimista
+    400002: //RootNode
+    400004: Barba
+    400006: Barba_Ponta
+    400008: Barriga
+    400010: L_Braco
+    400012: L_Clavicula
+    400014: L_Cotovelo
+    400016: L_Joelho
+    400018: L_Mao
+    400020: L_Mao_Ponta
+    400022: L_Pe
+    400024: L_Perna
+    400026: L_Pontape
+    400028: L_Roupa
+    400030: L_Roupa2
+    400032: L_Roupa3
+    400034: L_Roupa_Back
+    400036: L_Roupa_Back2
+    400038: L_Roupa_Back3
+    400040: L_Roupa_Front
+    400042: L_Roupa_Front2
+    400044: L_Roupa_Front3
+    400046: nurbsCircle5
+    400048: Peitoral
+    400050: Pescoco
+    400052: Pocao_Mesh
+    400054: R_Braco
+    400056: R_Clavicula
+    400058: R_Cotovelo
+    400060: R_Joelho
+    400062: R_Mao
+    400064: R_Mao_Ponta
+    400066: R_Pe
+    400068: R_Perna
+    400070: R_Pontape
+    400072: R_Roupa
+    400074: R_Roupa2
+    400076: R_Roupa3
+    400078: Root
+    400080: Topo
+    2100000: Alquimista_Texture
+    2100002: vidro_pocao
+    2100004: liquido_pocao
+    2300000: Pocao_Mesh
+    3300000: Pocao_Mesh
+    4300000: Alquimista
+    4300002: Pocao_Mesh
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: Alquimista
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Take 001
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 60
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 0.01
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
