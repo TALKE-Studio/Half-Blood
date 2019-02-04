@@ -5,7 +5,7 @@ using UnityEngine;
 public class LightBehaviourFire : MonoBehaviour {
 
 	Light thisLight;
-	Color originalColor;
+	internal Color originalColor;
 	float timePassed;
 	float changeValue;
 

@@ -63,6 +63,8 @@ TagManager:
   - Collisor5
   - UltimoTextoTutorial
   - TelaBrancaTutorial
+  - Tora
+  - pedra
   layers:
   - Default
   - TransparentFX

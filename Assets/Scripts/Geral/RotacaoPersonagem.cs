@@ -172,6 +172,7 @@ public class RotacaoPersonagem : MonoBehaviour {
                 }
             }
 		} else {
+            animator.speed = 1;
 			animator.SetFloat ("Blend", 0);
 			animator.SetBool ("EmpurrandoTras", false);
 			animator.SetBool ("EmpurrandoFrente", false);
