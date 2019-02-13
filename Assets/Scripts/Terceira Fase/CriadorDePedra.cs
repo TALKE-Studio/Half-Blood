@@ -18,7 +18,7 @@ public class CriadorDePedra : MonoBehaviour {
 
     IEnumerator Criar() {
         if (MecanicaTochaAzul.tAzul == true) {
-            print("A");
+           // print("A");
             Instantiate(pedra, gameObject.transform.position, gameObject.transform.rotation);
             yield return new WaitForSeconds(tempo);
             StartCoroutine(Criar());

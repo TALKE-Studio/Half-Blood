@@ -45,7 +45,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             gameObject.GetComponent<Animator>().speed = 1;
                             Vector3 alvo = new Vector3(t.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, t.transform.position.z);
                             gameObject.transform.LookAt(alvo, Vector3.up);
-                            gameObject.GetComponent<Animator>().SetTrigger("PegouChao");//COLOCAR ANIMACAO CERTA
+                            gameObject.GetComponent<Animator>().SetTrigger("UsarTocha");
                             yield return new WaitForSeconds(0.1f);
                             yield return new WaitForSecondsRealtime(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
                             RotacaoPersonagem.naoMexer = false;
@@ -79,7 +79,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             Movimento.rb.velocity = new Vector3(0, 0, 0);
                             Vector3 alvo = new Vector3(t.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, t.transform.position.z);
                             GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
-                            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");//COLOCAR ANIMACAO CERTA
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("UsarTocha");
                             yield return new WaitForSecondsRealtime(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
                             RotacaoPersonagem.naoMexer = false;
                             dist = 100;

@@ -102,7 +102,7 @@ public class RotacaoPersonagem : MonoBehaviour {
 
 	void Rotacao(){
 		if (segurando == false) {
-			ang = Mathf.Atan2 (-x, z);
+			ang = Mathf.Atan2 (-Movimento.rb.velocity.x, Movimento.rb.velocity.z);
 			ang = ang * Mathf.Rad2Deg;
 			qtan = Quaternion.AngleAxis (ang, new Vector3 (0, -1, 0));
 			if (x != 0 || z != 0) {
@@ -174,8 +174,8 @@ public class RotacaoPersonagem : MonoBehaviour {
 		} else {
             animator.speed = 1;
 			animator.SetFloat ("Blend", 0);
-			animator.SetBool ("EmpurrandoTras", false);
-			animator.SetBool ("EmpurrandoFrente", false);
+			//animator.SetBool ("EmpurrandoTras", false);
+			//animator.SetBool ("EmpurrandoFrente", false);
             animator.SetFloat("X", 0);
             animator.SetFloat("Y", 0);
         }
@@ -211,8 +211,9 @@ public class RotacaoPersonagem : MonoBehaviour {
 	}
 
 	/*void OnTriggerEnter(Collider other){
-		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo") {
-		}
+		if (other.tag == "pedra") {
+
+        }
 	}*/
 
 	void OnTriggerStay(Collider other){
