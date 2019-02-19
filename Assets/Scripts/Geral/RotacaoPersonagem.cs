@@ -118,12 +118,16 @@ public class RotacaoPersonagem : MonoBehaviour {
                 if (x > z) {
                     animator.SetFloat("Blend", x);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = x * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando")) {
+                            animator.speed = x * 2;
+                        }
                     }
                 } else {
                     animator.SetFloat("Blend", z);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = z * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando")) {
+                            animator.speed = z * 2;
+                        }
                     }
                 }
             }
@@ -132,12 +136,16 @@ public class RotacaoPersonagem : MonoBehaviour {
                 if (horz > z) {
                     animator.SetFloat("Blend", horz);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = horz * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0)==false) {
+                            animator.speed = horz * 2;
+                        }
                     }
                 } else {
                     animator.SetFloat("Blend", z);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = z * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0) == false) {
+                            animator.speed = z * 2;
+                        }
                     }
                 }
             }
@@ -146,12 +154,16 @@ public class RotacaoPersonagem : MonoBehaviour {
                     if (vert > x) {
                         animator.SetFloat("Blend", vert);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = vert * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0) == false) {
+                            animator.speed = vert * 2;
+                        }
                     }
                 } else {
                         animator.SetFloat("Blend", x);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = x * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0) == false) {
+                            animator.speed = x * 2;
+                        }
                     }
                 }
             }
@@ -161,13 +173,17 @@ public class RotacaoPersonagem : MonoBehaviour {
                 if (horz > vert) {
                    animator.SetFloat("Blend", horz);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = horz * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0) == false) {
+                            animator.speed = horz * 2;
+                        }
                     }
                 }
                 if (vert > horz) {
                     animator.SetFloat("Blend", vert);
                     if (animator.GetFloat("Blend") <= 0.5) {
-                        animator.speed = vert * 2;
+                        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") && animator.IsInTransition(0) == false) {
+                            animator.speed = vert * 2;
+                        }
                     }
                 }
             }

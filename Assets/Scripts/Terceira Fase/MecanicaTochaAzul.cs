@@ -14,6 +14,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
     Light[] luz;
     float c = 0;
     public float tempoDeTocha = 12;
+    public static int nTochasAcesas = 0;
 
     // Use this for initialization
     void Start () {
@@ -25,6 +26,9 @@ public class MecanicaTochaAzul : MonoBehaviour {
 	void Update () {
         StartCoroutine(Acender());
         StartCoroutine(Colocar());
+        if(nTochasAcesas == 4) {
+            GameObject.Find("PortasFase3").GetComponent<Animation>().Play();
+        }
 	}
 
 
@@ -46,11 +50,12 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             Vector3 alvo = new Vector3(t.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, t.transform.position.z);
                             gameObject.transform.LookAt(alvo, Vector3.up);
                             gameObject.GetComponent<Animator>().SetTrigger("UsarTocha");
-                            yield return new WaitForSeconds(0.1f);
-                            yield return new WaitForSecondsRealtime(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                            yield return new WaitForSeconds(0.25f);
+                            yield return new WaitForSeconds(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                            //yield return new WaitForSeconds(0.5f);
+                            StartCoroutine(MudarCor(original, azul));
                             RotacaoPersonagem.naoMexer = false;
                             dist = 100;
-                            StartCoroutine(MudarCor(original, azul));
                         }
                     }
                 }
@@ -68,6 +73,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
                 if (dist < 8.7f) {
                     if (tAzul == true) {
                         if (t.GetComponentInChildren<Light>().enabled == false) {
+                            nTochasAcesas++;
                             Light[] luz = t.GetComponentsInChildren<Light>();
                             foreach(Light l in luz) {
                                 l.enabled = true;
@@ -77,10 +83,13 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             RotacaoPersonagem.x = 0;
                             RotacaoPersonagem.z = 0;
                             Movimento.rb.velocity = new Vector3(0, 0, 0);
+                            RotacaoPersonagem.animator.speed = 1;
                             Vector3 alvo = new Vector3(t.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, t.transform.position.z);
                             GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
                             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("UsarTocha");
-                            yield return new WaitForSecondsRealtime(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                            yield return new WaitForSeconds(0.25f);
+                            yield return new WaitForSeconds(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
+                          //  yield return new WaitForSeconds(1f);
                             RotacaoPersonagem.naoMexer = false;
                             dist = 100;
                             c = 0;
@@ -132,8 +141,6 @@ public class MecanicaTochaAzul : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.tag == "pedra") {
-            //verificar qual lado foi acertado
-            //rodar animacao adequada
             tAzul = false;
         }
     }

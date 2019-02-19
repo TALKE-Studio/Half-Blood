@@ -7,16 +7,36 @@ public class PedraRolando : MonoBehaviour {
 
     public float velocidade = 35;
     float t = 0.2f;
+    bool rodar = true;
+    float v = 35;
+    public Transform filhoT;
+    bool destruir = false;
+    Color alphaColor;
+    Color original;
+    MeshRenderer[] cores;
+    float tC = 0.2f;
 
 	// Use this for initialization
 	void Start () {
         StartCoroutine(Crescer());
+        alphaColor = gameObject.transform.GetChild(0).GetChild(1).GetComponent<MeshRenderer>().material.color;
+        original = alphaColor;
+        alphaColor.a = 0;
+        cores = gameObject.GetComponentsInChildren<MeshRenderer>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
-        Movimento();
-        Rolar();
+            Move();
+        if (rodar == true) {
+            Rolar();
+        }
+        if(destruir == true) {
+            foreach(MeshRenderer c in cores) {
+                c.material.color = Color.Lerp(original, alphaColor, tC * Time.deltaTime);
+                tC += 0.2f;
+            }
+        }
 	}
 
     IEnumerator Crescer() {
@@ -33,47 +53,68 @@ public class PedraRolando : MonoBehaviour {
         }
     }
 
-    void Movimento() {
-        transform.Translate(Vector3.forward*velocidade*Time.deltaTime, Space.Self);
+    void Move() {
+        if (rodar == true) {
+            transform.Translate(Vector3.forward * velocidade * Time.deltaTime, Space.Self);
+        } else {
+            transform.Translate(Vector3.back * v * Time.deltaTime, Space.Self);
+            v *= 0.9f;
+        }
     }
 
     void Rolar() {
-        gameObject.transform.GetChild(0).Rotate(Vector3.right, 10 * velocidade * Time.deltaTime);
+            gameObject.transform.GetChild(0).Rotate(Vector3.right, 10 * velocidade * Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider other) {
         if(other.name == "Cenario_04_paredes") {
             print("BATEU");
-            Destroy(gameObject);
+            rodar = false;
+            gameObject.GetComponent<SphereCollider>().enabled = false;
+            gameObject.transform.GetChild(0).eulerAngles = new Vector3(0, 0, 0);
+            gameObject.GetComponentInChildren<Animator>().enabled = true;
+            StartCoroutine(ComecarADestruir());
+            //Destroy(gameObject);
         }
         else if(other.tag == "Player") {
             print("ATROPELOU");
             RaycastHit hit;
-            Physics.Raycast(transform.position, other.transform.position, out hit);
-            Vector3 localPoint = hit.transform.InverseTransformPoint(hit.point);
+            Physics.Raycast(transform.position, transform.TransformDirection(transform.forward), out hit);
+           // gameObject.GetComponent<SphereCollider>().enabled = false;
+            Vector3 localPoint = hit.point;
             Vector3 localDir = localPoint.normalized;
-            float fwdDot = Vector3.Dot(localDir, Vector3.forward);
-            float rightDot = Vector3.Dot(localDir, Vector3.right);
-            Debug.DrawLine(other.transform.position, transform.position, Color.green, 10);
-            /* if (Mathf.Abs(fwdDot) > Mathf.Abs(rightDot)) {
-                 if (fwdDot > 0) {
-                     fwdDot = 1;
-                 } else {
-                     fwdDot = -1;
-                 }
-             } else {
-                 if (rightDot > 0) {
-                     rightDot = 1;
-                 } else {
-                     rightDot = -1;
-                 }
-             }*/
-            print(fwdDot + " " + rightDot);
+            float fwdDot = Vector3.Dot(localDir, other.transform.right);
+            float rightDot = Vector3.Dot(localDir, other.transform.forward);
+           // print(fwdDot + " " + rightDot);
             RotacaoPersonagem.animator.SetFloat("Frente", fwdDot);
             RotacaoPersonagem.animator.SetFloat("Lados", rightDot);
+            RotacaoPersonagem.naoMexer = true;
+            RotacaoPersonagem.x = 0;
+            RotacaoPersonagem.z = 0;
+            Movimento.rb.velocity = new Vector3(0, 0, 0);
+            RotacaoPersonagem.animator.speed = 1;
             RotacaoPersonagem.animator.SetTrigger("Bateu");
+            RotacaoPersonagem.animator.speed = 1;
+            StartCoroutine(EsperarAnim());
         }
     }
 
+    IEnumerator EsperarAnim() {
+        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(RotacaoPersonagem.animator.GetCurrentAnimatorStateInfo(0).length);
+        RotacaoPersonagem.animator.speed = 1;
+        RotacaoPersonagem.animator.SetTrigger("Levantar");
+        yield return new WaitForSeconds(1f);
+        RotacaoPersonagem.animator.speed = 1;
+        RotacaoPersonagem.naoMexer = false;
+        //gameObject.GetComponent<SphereCollider>().enabled = true;
+    }
+
+    IEnumerator ComecarADestruir() {
+        yield return new WaitForSeconds(2);
+        destruir = true;
+        yield return new WaitForSeconds(2);
+        Destroy(gameObject);
+    }
 
 }
