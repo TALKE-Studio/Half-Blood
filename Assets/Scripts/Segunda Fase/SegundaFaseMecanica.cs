@@ -22,6 +22,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public static bool tutorial;
     public static bool fase1;
     public static bool fase2;
+    public static bool fase3;
     public static bool gameOver = false;
     public Sprite Ituto;
     public Sprite Ifase1;
@@ -52,6 +53,15 @@ public class SegundaFaseMecanica : MonoBehaviour {
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
+        } else if (fase3 == true) {
+            GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;//TROCAR PRA FASE3
+            GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
+            GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
+            GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
+            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase3ImageTarget").transform);
+            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase3").transform.localPosition;
+            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase3").transform.localRotation;
         }
         pedraAColocada = false;
         pedraRColocada = false;

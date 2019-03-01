@@ -92,6 +92,7 @@ public class PedraRolando : MonoBehaviour {
             RotacaoPersonagem.x = 0;
             RotacaoPersonagem.z = 0;
             Movimento.rb.velocity = new Vector3(0, 0, 0);
+            GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>().enabled = false;
             RotacaoPersonagem.animator.speed = 1;
             RotacaoPersonagem.animator.SetTrigger("Bateu");
             RotacaoPersonagem.animator.speed = 1;
@@ -106,6 +107,7 @@ public class PedraRolando : MonoBehaviour {
         RotacaoPersonagem.animator.SetTrigger("Levantar");
         yield return new WaitForSeconds(1f);
         RotacaoPersonagem.animator.speed = 1;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>().enabled = true;
         RotacaoPersonagem.naoMexer = false;
         //gameObject.GetComponent<SphereCollider>().enabled = true;
     }
