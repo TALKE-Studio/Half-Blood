@@ -8,6 +8,8 @@ Confidential and Proprietary - Protected under copyright and other laws.
 
 using UnityEngine;
 using Vuforia;
+using System.Collections.Generic;
+using System.Collections;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -20,6 +22,8 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
+    bool fase1;
+    bool jaRodou = false;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -85,7 +89,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         var canvasComponents = GetComponentsInChildren<Canvas>(true);
         var coliderTutoba1 = GameObject.FindGameObjectWithTag("Colissor2");
 
-       
+
 
         // Enable rendering:
         foreach (var component in rendererComponents)
@@ -102,6 +106,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             coliderTutoba1.GetComponent<BoxCollider>().enabled = false;
         }
 
+        if(gameObject.name == "Fase1ImageTarget") {
+            fase1 = true;
+            if(jaRodou == false) {
+                StartCoroutine(RodarAnim());
+            }
+        }
         // Enable canvas':
 
     }
@@ -124,7 +134,29 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         // Disable canvas':
         foreach (var component in canvasComponents)
             component.enabled = false;
+
+
+        if (gameObject.name == "Fase1ImageTarget") {
+            fase1 = false;
+        }
+
     }
 
     #endregion // PROTECTED_METHODS
+
+    IEnumerator RodarAnim() {
+        jaRodou = true;
+       // yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(GameObject.Find("TelaDoCapitulo").GetComponent<Animation>().GetClip("Tela_Inicio1").length - 1f);
+        //GetComponentInChildren<Animation>().Rewind();
+        yield return new WaitUntil(() => fase1 == true);
+        GetComponentInChildren<Animation>().Play();
+        print("QQQQ");
+        GetComponent<CameraShake>().enabled = true;
+        yield return new WaitForSeconds(GetComponentInChildren<Animation>().GetClip("LabUmAnim").length);
+        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
+    }
+    
 }

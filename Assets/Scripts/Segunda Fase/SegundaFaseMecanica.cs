@@ -45,9 +45,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
             GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
             GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
-            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
-            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
         } else if (fase2 == true) {
             GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase2;
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);

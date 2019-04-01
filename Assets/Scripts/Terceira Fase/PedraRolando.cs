@@ -105,7 +105,8 @@ public class PedraRolando : MonoBehaviour {
         yield return new WaitForSeconds(RotacaoPersonagem.animator.GetCurrentAnimatorStateInfo(0).length);
         RotacaoPersonagem.animator.speed = 1;
         RotacaoPersonagem.animator.SetTrigger("Levantar");
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.25f);
+        yield return new WaitForSeconds(RotacaoPersonagem.animator.GetCurrentAnimatorStateInfo(0).length);
         RotacaoPersonagem.animator.speed = 1;
         GameObject.FindGameObjectWithTag("Player").GetComponent<CapsuleCollider>().enabled = true;
         RotacaoPersonagem.naoMexer = false;
