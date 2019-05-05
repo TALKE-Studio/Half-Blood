@@ -14,7 +14,7 @@ public class LightBehaviourStone : MonoBehaviour {
 	void Start () {
 		mat = gameObject.GetComponent<Renderer> ().material;
 		originalColor = mat.GetColor ("_EmissionColor");
-        if(gameObject.name == "courage_pedra"|| gameObject.name == "death_pedra") {
+        if(gameObject.name == "courage_pedra"|| gameObject.name == "death_pedra" || gameObject.name == "intelligence_pedra") {
             luz = gameObject.GetComponentInChildren<Light>();
             corLuzOriginal = luz.color;
         }
@@ -22,8 +22,8 @@ public class LightBehaviourStone : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-        if (gameObject.name == "courage_pedra"||gameObject.name == "death_pedra") {
-            if (SegundaFaseMecanica.pedraCColocada == false|| SegundaFaseMecanica.pedraPColocada == false) {
+        if (gameObject.name == "courage_pedra"||gameObject.name == "death_pedra" || gameObject.name == "intelligence_pedra") {
+            if (SegundaFaseMecanica.pedraCColocada == false|| SegundaFaseMecanica.pedraPColocada == false || SegundaFaseMecanica.pedraIColocada == false) {
                 emission = Mathf.PingPong(Time.time * 0.75f, 1);
                 Color finalColor = originalColor * Mathf.LinearToGammaSpace(emission);
                 mat.SetColor("_EmissionColor", finalColor);

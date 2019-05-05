@@ -199,30 +199,102 @@ public class RotacaoPersonagem : MonoBehaviour {
             print("frente");
             animator.SetFloat("X", z);
             animator.SetFloat("Y", x);
-		}else if(z>0 && vertical == true && posY >0){
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
+        } else if(z>0 && vertical == true && posY >0){
             print("TRAS2");
             animator.SetFloat("X", z*-1);
             animator.SetFloat("Y", x*-1);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(z<0 && vertical == true && posY <0){
             print("TRAS");
             animator.SetFloat("X", z);
             animator.SetFloat("Y", x);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(z<0 && vertical == true && posY >0){
             print("frente2");
             animator.SetFloat("X", z*-1);
             animator.SetFloat("Y", x*-1);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(Horizontal == true && x>0 && posX<0){
             animator.SetFloat("X", x);
             animator.SetFloat("Y", z*-1);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(Horizontal == true && x>0 && posX>0){
             animator.SetFloat("X", x*-1);
             animator.SetFloat("Y", z);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(x<0 && Horizontal == true && posX<0){
             animator.SetFloat("X", x);
             animator.SetFloat("Y", z * -1);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         } else if(x<0 && Horizontal == true && posX>0){
             animator.SetFloat("X", x * -1);
             animator.SetFloat("Y", z);
+            if (Mathf.Abs(z) > Mathf.Abs(x)) {
+                if (Mathf.Abs(z) <= 0.5) {
+                    animator.speed = Mathf.Abs(z) * 2;
+                }
+            } else {
+                if (Mathf.Abs(x) <= 0.5) {
+                    animator.speed = Mathf.Abs(x) * 2;
+                }
+            }
         }
 	}
 

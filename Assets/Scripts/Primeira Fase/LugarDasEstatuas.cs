@@ -34,6 +34,8 @@ public class LugarDasEstatuas : MonoBehaviour {
 	}
 
     private void PedraFinalScript() {
+        CameraShake.shakeDuration =  1f;
+        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().enabled = true;
         pedraFinal = true;
         GameObject.Find("courage_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("courage_pedra").GetComponentInChildren<Light>().enabled = true;

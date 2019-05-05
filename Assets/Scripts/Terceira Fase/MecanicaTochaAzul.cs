@@ -15,6 +15,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
     float c = 0;
     public float tempoDeTocha = 12;
     public static int nTochasAcesas = 0;
+    bool pedraFinal = false;
 
     // Use this for initialization
     void Start () {
@@ -28,9 +29,18 @@ public class MecanicaTochaAzul : MonoBehaviour {
         StartCoroutine(Colocar());
         if(nTochasAcesas == 4) {
             GameObject.Find("PortasFase3").GetComponent<Animation>().Play();
+            if (pedraFinal == false) {
+                PedraFinalScript();
+            }
         }
 	}
 
+    private void PedraFinalScript() {
+        pedraFinal = true;
+        GameObject.Find("intelligence_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
+        GameObject.Find("intelligence_pedra").GetComponentInChildren<Light>().enabled = true;
+        GameObject.Find("intelligence_pedra").AddComponent<LightBehaviourStone>();
+    }
 
     IEnumerator Acender() {
         if (Input.GetKeyDown(KeyCode.Space) == true || CrossPlatformInputManager.GetButtonDown("Jump") == true) {

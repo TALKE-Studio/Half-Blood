@@ -9,12 +9,13 @@ public class Movimento : MonoBehaviour {
 	public static float x;
 	public static float z;
     GameObject cam;
-
+    AudioSource audioSrc;
 	
 
 	// Use this for initialization
 	void Start () {
-		rb = gameObject.GetComponent<Rigidbody> ();
+        audioSrc = GetComponent<AudioSource>();
+        rb = gameObject.GetComponent<Rigidbody> ();
         cam = GameObject.Find("MovimentoJogadorCamera");
 	}
 	
@@ -47,4 +48,9 @@ public class Movimento : MonoBehaviour {
 			rb.velocity = new Vector3(0,0,0);
 		}
 	}
+
+    public void SomAndar() {
+        audioSrc.Play();
+    }
+
 }
