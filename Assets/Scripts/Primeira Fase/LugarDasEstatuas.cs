@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LugarDasEstatuas : MonoBehaviour {
 
-
-	Renderer rend;
+    public Sprite Ifase1;
+    Renderer rend;
 	bool teste;
 	float dist;
 	public static bool posicionado1;
@@ -17,9 +18,17 @@ public class LugarDasEstatuas : MonoBehaviour {
 	// Use this for initialization
 	IEnumerator Start () {
 		rend = GetComponent<Renderer> ();
-		yield return new WaitForSeconds (0.1f);
+        GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;
+        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
+        GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+        yield return new WaitForSeconds (0.1f);
         rend.material.DisableKeyword("_EMISSION");
-	}
+        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
+    }
 	
 	// Update is called once per frame
 	void Update () {

@@ -17,8 +17,8 @@ public class AndarSosinho : MonoBehaviour {
         void Start () {
 
             canvasBotoes = GameObject.FindGameObjectWithTag("Finish");
-            bordacima = GameObject.FindGameObjectWithTag("BordaCima");
-		    bordabaixo = GameObject.FindGameObjectWithTag("BordaBaixo");
+            bordacima = GameObject.Find("BordaCima");
+		    bordabaixo = GameObject.Find("BordaBaixo");
 			personagem = GameObject.FindGameObjectWithTag("Player");
             agent = GetComponent<NavMeshAgent>();
 

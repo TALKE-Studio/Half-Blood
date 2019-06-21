@@ -6,7 +6,7 @@ public class PortaAutomatica : MonoBehaviour {
 	GameObject porta;
 	// Use this for initialization
 	void Start () {
-		porta = GameObject.FindGameObjectWithTag("PortaTutorial");
+		porta = GameObject.Find("PortaTutorial");
 		
 	}
 	

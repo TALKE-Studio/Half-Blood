@@ -98,7 +98,7 @@ public class FimTutorial : MonoBehaviour {
         yield return new WaitForSeconds(1.5f);
         TextoFinal.tocou = false;
         telaBrancaTutorial.SetActive(true);
-        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().sortingOrder = 60;
         TextoFinal.tocou = false;
         telaBrancaTutorial.GetComponent<Animator>().SetTrigger("gameOver");
     }

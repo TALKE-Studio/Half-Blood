@@ -12,7 +12,7 @@ public class Texto4 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
+		canvasBotoes = GameObject.FindGameObjectWithTag("Finish");
 		StartCoroutine(Trava());
 		StartCoroutine(Continuar());
 	}

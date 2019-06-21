@@ -28,7 +28,7 @@ public class RotacaoPersonagem : MonoBehaviour {
     }
 
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (naoMexer == false) {
             x = CrossPlatformInputManager.GetAxis("Horizontal");
             z = CrossPlatformInputManager.GetAxis("Vertical");

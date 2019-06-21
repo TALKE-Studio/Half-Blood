@@ -1,0 +1,187 @@
+fileFormatVersion: 2
+guid: 7a8941347e4ffc348826a43f8b970010
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Cenario_Centro
+    100002: //RootNode
+    100004: Cenario_P1
+    100006: Cenario_P1 1
+    100008: Cenario_P1A
+    100010: Cenario_P2
+    100012: Cenario_P2 1
+    100014: Cenario_P3
+    100016: Cenario_P3 1
+    100018: Cenario_P3A
+    100020: Cenario_P4
+    100022: Cenario_P4 1
+    100024: pCube7
+    100026: polySurface23
+    100028: polySurface49
+    100030: polySurface51
+    100032: polySurface53
+    100034: polySurface57
+    100036: polySurface58
+    100038: polySurface61
+    100040: polySurface62
+    400000: Cenario_Centro
+    400002: //RootNode
+    400004: Cenario_P1
+    400006: Cenario_P1 1
+    400008: Cenario_P1A
+    400010: Cenario_P2
+    400012: Cenario_P2 1
+    400014: Cenario_P3
+    400016: Cenario_P3 1
+    400018: Cenario_P3A
+    400020: Cenario_P4
+    400022: Cenario_P4 1
+    400024: pCube7
+    400026: polySurface23
+    400028: polySurface49
+    400030: polySurface51
+    400032: polySurface53
+    400034: polySurface57
+    400036: polySurface58
+    400038: polySurface61
+    400040: polySurface62
+    2300000: Cenario_Centro
+    2300002: Cenario_P1 1
+    2300004: Cenario_P1A
+    2300006: Cenario_P2 1
+    2300008: Cenario_P3
+    2300010: Cenario_P3A
+    2300012: Cenario_P4
+    3300000: Cenario_Centro
+    3300002: Cenario_P1 1
+    3300004: Cenario_P1A
+    3300006: Cenario_P2 1
+    3300008: Cenario_P3
+    3300010: Cenario_P3A
+    3300012: Cenario_P4
+    4300000: Cenario_P3A
+    4300002: Cenario_P4
+    4300004: Cenario_P2
+    4300006: Cenario_Centro
+    4300008: Cenario_P1
+    4300010: Cenario_P1A
+    4300012: Cenario_P3
+    9500000: //RootNode
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_Centro_Texture
+    second: {fileID: 2100000, guid: 2b869d2d02010ed43b2a422d1ad3c413, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P1A_Texture
+    second: {fileID: 2100000, guid: fda5c9a6d229cc442aaf599e3fce2a11, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P1_Texture
+    second: {fileID: 2100000, guid: 15977b5d0c79f364284ac27c005b1cd9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P2_Texture
+    second: {fileID: 2100000, guid: d8815a0e7be46104f93f6e12c9db03f3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P3A_Texture
+    second: {fileID: 2100000, guid: 1602e03ba7c3d6147891657a0221c04a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P3_Texture
+    second: {fileID: 2100000, guid: e2ae0fdeb83cb6b49b55d7881b359946, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Cenario_P4_Texture
+    second: {fileID: 2100000, guid: d92272cff94c81c45b643e0d30623139, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 0
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

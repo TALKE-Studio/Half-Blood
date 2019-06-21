@@ -5,10 +5,13 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Menu.unity
     guid: a1dfcfbd5ab98274d8571c1656369ff0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Labirinto.unity
     guid: bf46b10a3095dff4e85dd950a06d4878
+  - enabled: 1
+    path: Assets/Scenes/LuzTeste.unity
+    guid: e900b175bf7fe914c886a2563773668a
   m_configObjects: {}

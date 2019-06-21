@@ -9,7 +9,7 @@ public class PortaFase2 : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-		porta = GameObject.FindGameObjectWithTag("PortaTutorial2");
+		porta = GameObject.Find("PortaTutorial2");
 	}
 	
 	// Update is called once per frame

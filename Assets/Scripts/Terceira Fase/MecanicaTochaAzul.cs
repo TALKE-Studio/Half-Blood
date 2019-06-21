@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
 
 public class MecanicaTochaAzul : MonoBehaviour {
 
@@ -13,13 +14,22 @@ public class MecanicaTochaAzul : MonoBehaviour {
     Color azul =  new Color(0.03301889f, 0.2960934f, 1);
     Light[] luz;
     float c = 0;
+    public Sprite Ifase1;
     public float tempoDeTocha = 12;
     public static int nTochasAcesas = 0;
     bool pedraFinal = false;
 
     // Use this for initialization
     void Start () {
-		original = gameObject.GetComponentInChildren<Light>().GetComponent<LightBehaviourFire>().originalColor;
+        GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;//TROCAR PRA FASE3
+        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
+        GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
+        GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase3ImageTarget").transform);
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase3").transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase3").transform.localRotation;
+        original = gameObject.GetComponentInChildren<Light>().GetComponent<LightBehaviourFire>().originalColor;
         luz = gameObject.GetComponentsInChildren<Light>();
     }
 	

@@ -18,8 +18,8 @@ public class TextoVelhinho : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
-		colissor = GameObject.FindGameObjectWithTag("Colissor2");
+		canvasBotoes = GameObject.FindGameObjectWithTag("Finish");
+		colissor = GameObject.Find("Texto1Collider");
 	}
 	
 	// Update is called once per frame

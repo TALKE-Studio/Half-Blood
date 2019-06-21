@@ -15,8 +15,8 @@ public class TextoSala2 : MonoBehaviour {
 	
 	// Use this for initialization
 	void Start () {
-		canvasBotoes = GameObject.FindGameObjectWithTag("Botoes");
-		colissor = GameObject.FindGameObjectWithTag("Colissor3");
+		canvasBotoes = GameObject.FindGameObjectWithTag("Finish");
+		colissor = GameObject.FindGameObjectWithTag("Texto2Collider");
 	}
 	
 	// Update is called once per frame

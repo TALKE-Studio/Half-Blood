@@ -4,8 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Tocha1
-  - Tocha2
   - Chao
   - JoyStick
   - Acao
@@ -23,48 +21,24 @@ TagManager:
   - VikingAp
   - ValkiriaAp
   - TelaBranca
-  - PortaTuto1
-  - PortaTuto2
-  - PortaTuto3
-  - PortaTutorial
   - PortaTutorialTrigger
-  - PortaTutorial2
   - LoboTutoba
-  - PedraVerde
-  - GarraTutorial
-  - PedraVerdeInv
-  - PortaFase4
-  - teste
-  - Pira_Fase1
-  - Pira2_Fase1
-  - Pira3_Fase1
-  - Pira4_Fase1
   - Tocha_1
   - Tocha_2
   - Tocha_3
   - Tocha_4
   - Tocha_5
-  - BordaBaixo
-  - BordaCima
-  - Botoes
-  - ValkTutoba
-  - apagado
-  - acesso
-  - Hit2
   - FimTutorial
   - TextoTutorial
   - ImagemTutorial
-  - Hit
   - Porta2
-  - Colissor
-  - Colissor2
-  - Colissor3
-  - Collisor4
-  - Collisor5
   - UltimoTextoTutorial
   - TelaBrancaTutorial
   - Tora
   - pedra
+  - PlacaVerde
+  - PlacaVermelha
+  - PlacaCinza
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ GameObject piso;
 	// Use this for initialization
 	void Start () {
 		
-		piso = GameObject.FindGameObjectWithTag("acesso");
+		piso = GameObject.Find("LuzBranca");
 		
 	}
 	

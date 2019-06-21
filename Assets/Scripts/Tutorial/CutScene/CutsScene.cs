@@ -20,9 +20,9 @@ public class CutsScene : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		
-		valkVoando = GameObject.FindGameObjectWithTag("ValkTutoba");
+		valkVoando = GameObject.Find("Valkiria_Tutorial");
 		personagem = GameObject.FindGameObjectWithTag("Player");
-        porta = GameObject.FindGameObjectWithTag("PortaFase4");
+        porta = GameObject.Find("PortaFase4");
 	}
 	
 	// Update is called once per frame

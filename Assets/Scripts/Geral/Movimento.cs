@@ -20,7 +20,7 @@ public class Movimento : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void FixedUpdate () {
         if (GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled == true) {
             Andar();
         }

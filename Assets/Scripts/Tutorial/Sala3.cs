@@ -19,10 +19,10 @@ public class Sala3 : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		pedra = GameObject.FindGameObjectWithTag("PedraVerde");
-		pedrainv = GameObject.FindGameObjectWithTag("PedraVerdeInv");
-		porta = GameObject.FindGameObjectWithTag("PortaFase4");
-        garra = GameObject.FindGameObjectWithTag("GarraTutorial");
+		pedra = GameObject.Find("Pedra_Tutorial");
+		pedrainv = GameObject.Find("Pedra_Tutorial_Inv");
+		porta = GameObject.Find("PortaFase4");
+        garra = GameObject.Find("GarraTutorial");
 	}
 	
 	// Update is called once per frame
@@ -84,27 +84,6 @@ public class Sala3 : MonoBehaviour {
             }
         }
     }
-
-
-
-  /*  void OnTriggerStay(Collider other){
-		if(other.gameObject.tag == "GarraTutorial" && Input.GetKeyDown (KeyCode.Space) == true){
-			if(coletoupedra == true){
-				gameObject.GetComponent<Animator>().SetTrigger("TocouParede");
-                porta.GetComponent<BoxCollider>().enabled = false;
-                coletoupedra = false;
-				abriuporta = true;
-				colocoupedra = true;
-				StartCoroutine(InicioAndando());
-				StartCoroutine(AbrindoPorta());
-				StartCoroutine(TocandoParede());
-			//	StartCoroutine(TerminarAnim());
-			}
-
-			
-		}
-	}
-    */
 
 	IEnumerator InicioAndando(){
 		yield return new WaitForSeconds(2f);
