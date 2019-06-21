@@ -23,22 +23,14 @@ TagManager:
   - TelaBranca
   - PortaTutorialTrigger
   - LoboTutoba
-  - Tocha_1
-  - Tocha_2
-  - Tocha_3
-  - Tocha_4
-  - Tocha_5
   - FimTutorial
-  - TextoTutorial
-  - ImagemTutorial
   - Porta2
-  - UltimoTextoTutorial
-  - TelaBrancaTutorial
   - Tora
   - pedra
   - PlacaVerde
   - PlacaVermelha
   - PlacaCinza
+  - Botoes
   layers:
   - Default
   - TransparentFX
