@@ -16,8 +16,9 @@ public class Movimento : MonoBehaviour {
 	void Start () {
         audioSrc = GetComponent<AudioSource>();
         rb = gameObject.GetComponent<Rigidbody> ();
-        cam = GameObject.Find("MovimentoJogadorCamera");
-	}
+        cam = GameObject.Find("ARCamera");
+        
+    }
 	
 	// Update is called once per frame
 	void FixedUpdate () {
@@ -35,14 +36,21 @@ public class Movimento : MonoBehaviour {
 			z = 0;
 		}
 
-		//x = -Input.GetAxis ("Horizontal");
-		//z = -Input.GetAxis ("Vertical");
-		if (x != 0 || z != 0) {
+        //x = -Input.GetAxis ("Horizontal");
+        //z = -Input.GetAxis ("Vertical");
+        if (x != 0 || z != 0) {
+            Vector3 forward = cam.transform.forward;
+            Vector3 right = cam.transform.right;
+            forward.y = 0;
+            right.y = 0;
+            forward.Normalize();
+            right.Normalize();
+            var direcao = forward * z + right * x;
             if (RotacaoPersonagem.segurando == false) {
-               rb.velocity = cam.transform.TransformDirection(x, 0, z) * 30;
-               // rb.velocity = new Vector3(x, 0, z) * 30;
+                rb.velocity = direcao*30;
+                //rb.velocity = cam.transform.TransformDirection(x, 0, z) * 30;
             } else {
-                rb.velocity = new Vector3(x, 0, z) * 15;
+                rb.velocity = direcao * 15;
             }
 		} else {
 			rb.velocity = new Vector3(0,0,0);

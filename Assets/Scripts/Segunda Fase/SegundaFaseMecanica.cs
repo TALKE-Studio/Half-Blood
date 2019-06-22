@@ -10,14 +10,12 @@ public class SegundaFaseMecanica : MonoBehaviour {
 	float dist = 100;
     public static bool pedraAColetada = false;
     public static bool pedraRColetada = false;
-    public static bool pedraCColetada = false;
     public static bool pedraPColetada = false;
     public static bool pedraIColetada = false;
     public GameObject[] garras;
 	float dist2 = 100;
 	public static bool pedraAColocada = false;
-	public static bool pedraRColocada = false;
-    public static bool pedraCColocada = false;
+    public static bool pedraRColocada = false;
     public static bool pedraPColocada = false;
     public static bool pedraIColocada = false;
     bool pedraFinal = false;
@@ -47,7 +45,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
         pedraAColocada = false;
         pedraRColocada = false;
-        pedraCColocada = false;
         pedraPColocada = false;
         pedraIColocada = false;
         StartCoroutine(PosInicial());
@@ -107,11 +104,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
                             pedraAColetada = true;
                             StartCoroutine(ColetarPedra(p));
                         }
-                    } else if (p.name == "courage_pedra") {
-                        if (pedraCColetada == false && pedraCColocada == false) {
-                            pedraCColetada = true;
-                            StartCoroutine(ColetarPedra(p));
-                        }
                     } else if (p.name == "death_pedra") {
                         if (pedraPColetada == false && pedraPColocada == false) {
                             pedraPColetada = true;
@@ -138,9 +130,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
 
                     } else if (g.name == "GarraRosa" && pedraRColetada == true && pedraRColocada == false) {
                         pedraRColocada = true;
-
-                    } else if (g.name == "courage_base" && pedraCColetada == true && pedraCColocada == false) {
-                        pedraCColocada = true;
 
                     } else if (g.name == "death_base" && pedraPColetada == true && pedraPColocada == false) {
                         pedraPColocada = true;

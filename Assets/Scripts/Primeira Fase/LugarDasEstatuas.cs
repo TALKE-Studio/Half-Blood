@@ -25,9 +25,6 @@ public class LugarDasEstatuas : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
         yield return new WaitForSeconds (0.1f);
         rend.material.DisableKeyword("_EMISSION");
-        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
     }
 	
 	// Update is called once per frame
@@ -43,9 +40,10 @@ public class LugarDasEstatuas : MonoBehaviour {
 	}
 
     private void PedraFinalScript() {
-        CameraShake.shakeDuration =  1f;
-        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().enabled = true;
         pedraFinal = true;
+        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().shakeDuration =  1f;
+        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().enabled = true;
+        GameObject.Find("teto_1fase").GetComponent<Animation>().Play();
         GameObject.Find("courage_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("courage_pedra").GetComponentInChildren<Light>().enabled = true;
         GameObject.Find("courage_pedra").AddComponent<LightBehaviourStone>();
