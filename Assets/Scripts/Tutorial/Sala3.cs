@@ -18,6 +18,7 @@ public class Sala3 : MonoBehaviour {
     float distP;
     float distG;
     public Sprite Ituto;
+    public GameObject teto;
 
 
 	// Use this for initialization
@@ -86,6 +87,7 @@ public class Sala3 : MonoBehaviour {
                    // pedrainv.GetComponent<MeshRenderer>().enabled = true;
                     yield return new WaitForSecondsRealtime(1);
                     porta.GetComponent<Animator>().SetBool("Abrir", true);
+                    teto.GetComponent<Animation>().Play();
                     iniciarAndar = true;
                     animacaoAndar = true;
                     RotacaoPersonagem.naoMexer = false;
