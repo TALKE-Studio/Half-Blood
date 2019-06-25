@@ -22,8 +22,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
-    bool fase1;
-    bool jaRodou = false;
+    public static bool fase1;
+    public static bool fase2;
+    public static bool fase3;
+    public static bool jaRodou = false;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
 
@@ -109,10 +111,16 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         if(gameObject.name == "Fase1ImageTarget") {
             fase1 = true;
             if(jaRodou == false) {
-                StartCoroutine(RodarAnim());
+                StartCoroutine(RodarAnim(fase1,"LugarFase1"));
             }
         }
-        // Enable canvas':
+        if(gameObject.name == "Fase3ImageTarget") {
+            fase3 = true;
+            if (jaRodou == false) {
+                StartCoroutine(RodarAnim(fase3, "LugarFase3"));
+            }
+        }
+
 
     }
 
@@ -139,24 +147,28 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         if (gameObject.name == "Fase1ImageTarget") {
             fase1 = false;
         }
+        if (gameObject.name == "Fase3ImageTarget") {
+            fase3 = false;
+        }
 
     }
 
     #endregion // PROTECTED_METHODS
 
-    IEnumerator RodarAnim() {
+    IEnumerator RodarAnim(bool fase,string lugar) {
         jaRodou = true;
+
        // yield return new WaitForSeconds(0.25f);
         yield return new WaitForSeconds(GameObject.Find("TelaDoCapitulo").GetComponent<Animation>().GetClip("Tela_Inicio1").length - 1f);
         //GetComponentInChildren<Animation>().Rewind();
-        yield return new WaitUntil(() => fase1 == true);
+        yield return new WaitUntil(() => fase == true);
         GetComponentInChildren<Animation>().Play();
         print("QQQQ");
         GetComponent<CameraShake>().enabled = true;
         yield return new WaitForSeconds(GetComponentInChildren<Animation>().GetClip("LabUmAnim").length);
-        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
+        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find(gameObject.name).transform);
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find(lugar).transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find(lugar).transform.localRotation;
     }
     
 }

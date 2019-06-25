@@ -86,8 +86,8 @@ public class PedraRolando : MonoBehaviour {
             float fwdDot = Vector3.Dot(localDir, other.transform.right);
             float rightDot = Vector3.Dot(localDir, other.transform.forward);
            // print(fwdDot + " " + rightDot);
-            RotacaoPersonagem.animator.SetFloat("Frente", fwdDot);
-            RotacaoPersonagem.animator.SetFloat("Lados", rightDot);
+            RotacaoPersonagem.animator.SetFloat("Frente", -fwdDot);
+            RotacaoPersonagem.animator.SetFloat("Lados", -rightDot);
             RotacaoPersonagem.naoMexer = true;
             RotacaoPersonagem.x = 0;
             RotacaoPersonagem.z = 0;

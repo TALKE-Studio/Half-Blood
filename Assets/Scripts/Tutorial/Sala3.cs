@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+using UnityEngine.UI;
+using UnityEngine.AI;
 
 public class Sala3 : MonoBehaviour {
 	GameObject pedra;
@@ -15,6 +17,7 @@ public class Sala3 : MonoBehaviour {
 	static public bool animacaoAndar;
     float distP;
     float distG;
+    public Sprite Ituto;
 
 
 	// Use this for initialization
@@ -23,7 +26,13 @@ public class Sala3 : MonoBehaviour {
 		pedrainv = GameObject.Find("Pedra_Tutorial_Inv");
 		porta = GameObject.Find("PortaFase4");
         garra = GameObject.Find("GarraTutorial");
-	}
+        GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
+        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
+    }
 	
 	// Update is called once per frame
 	void Update () {

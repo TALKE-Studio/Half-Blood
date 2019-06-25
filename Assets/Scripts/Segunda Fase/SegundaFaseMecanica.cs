@@ -30,19 +30,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-        /*  if(tutorial == true) {
-              GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
-              GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
-              GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
-              GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
-              GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
-              GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
-
-          }*/
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase2;
-        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase1").transform.localRotation;
         pedraAColocada = false;
         pedraRColocada = false;
         pedraPColocada = false;
@@ -67,15 +55,14 @@ public class SegundaFaseMecanica : MonoBehaviour {
 
     IEnumerator PosInicial() {
         yield return new WaitForSeconds(0.1f);
-        if (tutorial == true) {
+        /*if (tutorial == true) {
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
-        } else if (fase2 == true) {
+        }*/
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase2").transform.localRotation;
-        }
     }
 
     private void PedraFinalScript()

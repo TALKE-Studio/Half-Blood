@@ -16,6 +16,7 @@ public class PedraFinalFase1 : MonoBehaviour {
     // Use this for initialization
     void Start () {
         pedraCColocada = false;
+        DefaultTrackableEventHandler.jaRodou = false;
     }
 	
 	// Update is called once per frame

@@ -5,13 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: a1dfcfbd5ab98274d8571c1656369ff0
-  - enabled: 0
-    path: Assets/Scenes/Labirinto.unity
+  - enabled: 1
+    path: Assets/Scenes/Tutorial.unity
     guid: bf46b10a3095dff4e85dd950a06d4878
   - enabled: 1
-    path: Assets/Scenes/LuzTeste.unity
+    path: Assets/Scenes/Fase1.unity
     guid: e900b175bf7fe914c886a2563773668a
+  - enabled: 1
+    path: Assets/Scenes/Fase2.unity
+    guid: 29de810f22b9176499cfec60f11f0807
+  - enabled: 1
+    path: Assets/Scenes/Fase3.unity
+    guid: 336181bc3be9d9e47a2133d7467036b4
+  - enabled: 1
+    path: Assets/Scenes/Fase4.unity
+    guid: f3a06e4e83d6a4c46ac9dcd4655684ff
   m_configObjects: {}

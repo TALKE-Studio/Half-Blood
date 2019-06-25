@@ -15,20 +15,28 @@ public class MecanicaTochaAzul : MonoBehaviour {
     Light[] luz;
     float c = 0;
     public Sprite Ifase1;
-    public float tempoDeTocha = 12;
+    public float tempoDeTocha = 15;
     public static int nTochasAcesas = 0;
     bool pedraFinal = false;
+    public static bool pedraIColetada = false;
+    public static bool pedraIColocada = false;
+    float dist2;
+    public GameObject pedra;
+    public GameObject pedraBase;
+    public GameObject telaBranca;
+    public Texture textura;
 
     // Use this for initialization
     void Start () {
+        pedraIColocada = false;
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;//TROCAR PRA FASE3
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase3ImageTarget").transform);
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase3").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase3").transform.localRotation;
+       // GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase3ImageTarget").transform);
+       // GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase3").transform.localPosition;
+       // GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase3").transform.localRotation;
         original = gameObject.GetComponentInChildren<Light>().GetComponent<LightBehaviourFire>().originalColor;
         luz = gameObject.GetComponentsInChildren<Light>();
     }
@@ -37,9 +45,11 @@ public class MecanicaTochaAzul : MonoBehaviour {
 	void Update () {
         StartCoroutine(Acender());
         StartCoroutine(Colocar());
-        if(nTochasAcesas == 4) {
-            GameObject.Find("PortasFase3").GetComponent<Animation>().Play();
+        if (nTochasAcesas == 4) {
+            PickRock();
+            PutRock();
             if (pedraFinal == false) {
+                GameObject.Find("PortasFase3").GetComponent<Animation>().Play();
                 PedraFinalScript();
             }
         }
@@ -47,6 +57,9 @@ public class MecanicaTochaAzul : MonoBehaviour {
 
     private void PedraFinalScript() {
         pedraFinal = true;
+        GameObject.Find("Fase3ImageTarget").GetComponent<CameraShake>().shakeDuration = 1f;
+        GameObject.Find("Fase3ImageTarget").GetComponent<CameraShake>().enabled = true;
+        GameObject.Find("teto_1fase").GetComponent<Animation>().Play();
         GameObject.Find("intelligence_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("intelligence_pedra").GetComponentInChildren<Light>().enabled = true;
         GameObject.Find("intelligence_pedra").AddComponent<LightBehaviourStone>();
@@ -113,6 +126,12 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             RotacaoPersonagem.naoMexer = false;
                             dist = 100;
                             c = 0;
+                            if(nTochasAcesas == 1) {
+                                tempoDeTocha = 20;
+                            }
+                            if(nTochasAcesas == 2) {
+                                tempoDeTocha = 10;
+                            }
                         }
                     }
                 }
@@ -163,6 +182,76 @@ public class MecanicaTochaAzul : MonoBehaviour {
         if(other.tag == "pedra") {
             tAzul = false;
         }
+    }
+
+    void PickRock() {
+        if (Input.GetKeyDown(KeyCode.Space) == true || CrossPlatformInputManager.GetButtonDown("Jump") == true) {
+            if (pedraIColetada == false) {
+                dist = Vector3.Distance(gameObject.transform.position, pedra.gameObject.transform.position);
+                if (dist < 15) {
+                    if (pedraIColocada == false) {
+                        pedraIColetada = true;
+                        StartCoroutine(ColetarPedra());
+                    }
+                }
+            }
+        }
+    }
+
+    void PutRock() {
+        if (Input.GetKeyDown(KeyCode.Space) == true || CrossPlatformInputManager.GetButtonDown("Jump") == true) {
+            if (pedraIColetada == true) {
+                dist = Vector3.Distance(gameObject.transform.position, pedraBase.gameObject.transform.position);
+                if (dist < 20) {
+                    if (pedraIColocada == false) {
+                        pedraIColocada = true;
+                        StartCoroutine(ColocarPedra());
+                    }
+                }
+            }
+        }
+    }
+
+    IEnumerator ColetarPedra() {
+        RotacaoPersonagem.naoMexer = true;
+        RotacaoPersonagem.x = 0;
+        RotacaoPersonagem.z = 0;
+        Movimento.rb.velocity = new Vector3(0, 0, 0);
+        Vector3 alvo = new Vector3(pedra.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, pedra.transform.position.z);
+        GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
+        yield return new WaitForSecondsRealtime(1);
+        RotacaoPersonagem.naoMexer = false;
+        dist = 100;
+        pedra.GetComponent<MeshRenderer>().enabled = false;
+        pedra.transform.localPosition = new Vector3(pedra.transform.localPosition.x, pedra.transform.localPosition.y - 5, pedra.transform.localPosition.z);
+        pedra.GetComponentInChildren<Light>().enabled = false;
+    }
+
+
+    IEnumerator ColocarPedra() {
+        RotacaoPersonagem.naoMexer = true;
+        RotacaoPersonagem.x = 0;
+        RotacaoPersonagem.z = 0;
+        Movimento.rb.velocity = new Vector3(0, 0, 0);
+        Vector3 alvo = new Vector3(pedraBase.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, pedraBase.transform.position.z);
+        GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
+        yield return new WaitForSecondsRealtime(1);
+        RotacaoPersonagem.naoMexer = false;
+        pedra.GetComponent<MeshRenderer>().enabled = true;
+        pedraBase.GetComponent<Renderer>().material.mainTexture = textura;
+        pedra.GetComponentInChildren<Light>().enabled = true;
+        pedra.GetComponent<Animation>().Play();
+        RotacaoPersonagem.naoMexer = true;
+        RotacaoPersonagem.x = 0;
+        RotacaoPersonagem.z = 0;
+        Movimento.rb.velocity = new Vector3(0, 0, 0);
+        RotacaoPersonagem.animator.SetBool("Andando", false);
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
+        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+        telaBranca.SetActive(true);
+        telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
     }
 
 }

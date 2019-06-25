@@ -8,6 +8,7 @@ public class CameraShake : MonoBehaviour {
 	float shakeAmount = 1f;
 	float decreaseFactor = 1.0f;
 	Vector3 originalPos;
+    Vector3 novaPos;
 
 	// Use this for initialization
 	 
@@ -17,7 +18,8 @@ public class CameraShake : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (shakeDuration > 0) {
-			camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
+            novaPos = originalPos + Random.insideUnitSphere * shakeAmount;
+            camTransform.localPosition = new Vector3(novaPos.x,camTransform.localPosition.y,novaPos.z);
 			shakeDuration -= Time.deltaTime * decreaseFactor;
 		} else {
 			shakeDuration = 0;
