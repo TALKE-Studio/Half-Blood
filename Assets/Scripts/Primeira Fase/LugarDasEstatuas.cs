@@ -43,7 +43,7 @@ public class LugarDasEstatuas : MonoBehaviour {
         pedraFinal = true;
         GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().shakeDuration =  1f;
         GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().enabled = true;
-        GameObject.Find("teto_1fase").GetComponent<Animation>().Play();
+        GameObject.FindGameObjectWithTag("Teto").GetComponent<Animation>().Play();
         GameObject.Find("courage_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("courage_pedra").GetComponentInChildren<Light>().enabled = true;
         GameObject.Find("courage_pedra").AddComponent<LightBehaviourStone>();

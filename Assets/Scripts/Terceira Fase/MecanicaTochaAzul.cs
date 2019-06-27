@@ -56,7 +56,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
         pedraFinal = true;
         GameObject.Find("Fase3ImageTarget").GetComponent<CameraShake>().shakeDuration = 1f;
         GameObject.Find("Fase3ImageTarget").GetComponent<CameraShake>().enabled = true;
-        GameObject.Find("teto_1fase").GetComponent<Animation>().Play();
+        GameObject.FindGameObjectWithTag("Teto").GetComponent<Animation>().Play();
         GameObject.Find("intelligence_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("intelligence_pedra").GetComponentInChildren<Light>().enabled = true;
         GameObject.Find("intelligence_pedra").AddComponent<LightBehaviourStone>();

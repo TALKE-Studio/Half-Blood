@@ -114,7 +114,13 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
                 StartCoroutine(RodarAnim(fase1,"LugarFase1"));
             }
         }
-        if(gameObject.name == "Fase3ImageTarget") {
+        if (gameObject.name == "Fase2ImageTarget") {
+            fase2 = true;
+            if (jaRodou == false) {
+                StartCoroutine(RodarAnim(fase2, "LugarFase2"));
+            }
+        }
+        if (gameObject.name == "Fase3ImageTarget") {
             fase3 = true;
             if (jaRodou == false) {
                 StartCoroutine(RodarAnim(fase3, "LugarFase3"));
@@ -146,6 +152,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         if (gameObject.name == "Fase1ImageTarget") {
             fase1 = false;
+        }
+        if (gameObject.name == "Fase2ImageTarget") {
+            fase2 = false;
         }
         if (gameObject.name == "Fase3ImageTarget") {
             fase3 = false;

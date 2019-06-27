@@ -15590,6 +15590,10 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 2d8cbca173c4067469a387b6477a5baf, type: 3}
+      propertyPath: m_TagString
+      value: Teto
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2d8cbca173c4067469a387b6477a5baf, type: 3}
   m_IsPrefabAsset: 0

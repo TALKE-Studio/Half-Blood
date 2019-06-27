@@ -31,6 +31,8 @@ TagManager:
   - PlacaVermelha
   - PlacaCinza
   - Botoes
+  - TelaBrancaTutorial
+  - Teto
   layers:
   - Default
   - TransparentFX

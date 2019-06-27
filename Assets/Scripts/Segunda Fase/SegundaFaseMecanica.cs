@@ -57,7 +57,11 @@ public class SegundaFaseMecanica : MonoBehaviour {
     private void PedraFinalScript()
     {
         pedraFinal = true;
-        GameObject.FindGameObjectWithTag("Porta2").GetComponent<Animation>().Play();
+        GameObject.FindGameObjectWithTag("Porta").GetComponent<Animator>().SetBool("Abrir", true);
+        GameObject.FindGameObjectWithTag("Porta").GetComponent<BoxCollider>().enabled = false;
+        GameObject.Find("Fase2ImageTarget").GetComponent<CameraShake>().shakeDuration = 1f;
+        GameObject.Find("Fase2ImageTarget").GetComponent<CameraShake>().enabled = true;
+        GameObject.FindGameObjectWithTag("Teto").GetComponent<Animation>().Play();
         GameObject.Find("death_pedra").GetComponent<Renderer>().material.EnableKeyword("_EMISSION");
         GameObject.Find("death_pedra").GetComponentInChildren<Light>().enabled = true;
         GameObject.Find("death_pedra").AddComponent<LightBehaviourStone>();
