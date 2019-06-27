@@ -169,6 +169,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find(gameObject.name).transform);
         GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find(lugar).transform.localPosition;
         GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find(lugar).transform.localRotation;
+        yield return new WaitForSeconds(0.5f);
+        RotacaoPersonagem.inicioAnim = true;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = 1;
+        yield return new WaitForSeconds(1);
+        RotacaoPersonagem.naoMexer = false;
     }
     
 }

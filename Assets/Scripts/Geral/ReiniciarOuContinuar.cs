@@ -6,17 +6,18 @@ using UnityEngine.SceneManagement;
 public class ReiniciarOuContinuar : MonoBehaviour {
 
 	public void Reiniciar() {
-        if(SegundaFaseMecanica.tutorial == true) {
+        if(SceneManager.GetActiveScene().name == "Tutorial") {
 
         }
-        if (SegundaFaseMecanica.fase1 == true) {
-            SceneManager.LoadScene("Labirinto");
+        if (SceneManager.GetActiveScene().name == "Fase1") {
+            SceneManager.LoadScene("Fase1");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase1ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase1").transform.localPosition;
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
             RotacaoPersonagem.naoMexer = false;
         }
-        if(SegundaFaseMecanica.fase2 == true) {
+        if(SceneManager.GetActiveScene().name == "Fase2") {
+            SceneManager.LoadScene("Fase2");
             GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
@@ -26,10 +27,10 @@ public class ReiniciarOuContinuar : MonoBehaviour {
     }
 
     public void Continuar() {
-        if (SegundaFaseMecanica.fase2 == true) {
+        if (SceneManager.GetActiveScene().name == "Tutorial") {
             SceneManager.LoadScene("Menu");
         }
-        if (SegundaFaseMecanica.fase1 == true) {
+        if (SceneManager.GetActiveScene().name == "Fase1") {
             SceneManager.LoadScene("Menu");
             /*GameObject.FindGameObjectWithTag("TelaBranca").GetComponent<Animator>().SetTrigger("gameOver2");
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
@@ -41,7 +42,7 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             SegundaFaseMecanica.fase1 = false;
             SegundaFaseMecanica.fase2 = true;*/
         }
-        if (SegundaFaseMecanica.tutorial == true) {
+        if (SceneManager.GetActiveScene().name == "Fase2") {
             GameObject.Find("FinalTutorial").SetActive(false);
             Sala3.colocoupedra = false;
             GameObject.FindGameObjectWithTag("BordaCima").SetActive(false);

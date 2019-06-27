@@ -34,9 +34,6 @@ public class MecanicaTochaAzul : MonoBehaviour {
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-       // GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase3ImageTarget").transform);
-       // GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase3").transform.localPosition;
-       // GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase3").transform.localRotation;
         original = gameObject.GetComponentInChildren<Light>().GetComponent<LightBehaviourFire>().originalColor;
         luz = gameObject.GetComponentsInChildren<Light>();
     }
@@ -250,6 +247,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
         RotacaoPersonagem.animator.SetBool("Andando", false);
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+        yield return new WaitForSecondsRealtime(1);
         telaBranca.SetActive(true);
         telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
     }

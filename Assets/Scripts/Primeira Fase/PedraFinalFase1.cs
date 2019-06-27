@@ -91,6 +91,7 @@ public class PedraFinalFase1 : MonoBehaviour {
         RotacaoPersonagem.animator.SetBool("Andando", false);
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
+        yield return new WaitForSecondsRealtime(1);
         telaBranca.SetActive(true);
         telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
     }

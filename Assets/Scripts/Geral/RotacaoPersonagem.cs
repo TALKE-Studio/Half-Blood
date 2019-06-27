@@ -20,11 +20,18 @@ public class RotacaoPersonagem : MonoBehaviour {
 	public static bool Horizontal = false;
 	Collider colisor;
 	public static bool naoMexer = false;
+    public static bool inicioAnim = true;
+    Quaternion rotacao;
+    bool teste = false;
 
     // Use this for initialization
     void Start () {
+        inicioAnim = true;
 		t = GetComponent<Transform> ();
 		animator = GetComponent<Animator> ();
+        animator.speed = 0;
+        animator.SetFloat("Frente", 1);
+        naoMexer = true;
     }
 
 	// Update is called once per frame
@@ -46,40 +53,49 @@ public class RotacaoPersonagem : MonoBehaviour {
     IEnumerator EstatuaC() {
         if (CrossPlatformInputManager.GetButtonDown("Jump") == true || Input.GetKeyDown(KeyCode.Space) == true) {
             gameObject.transform.position = posBox;
+            transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
+            rotacao = gameObject.transform.rotation;
+            teste = true;
         }
         if (CrossPlatformInputManager.GetButton("Jump") == true || Input.GetKey(KeyCode.Space) == true) {
-            segurando = true;
-            //gameObject.transform.position = posBox;//está travando o pers e se esta segurando o botao o pers nao gruda na estatua
-            transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
-            if (colisor.gameObject.tag != "Lobinho") {
-                yield return new WaitForSecondsRealtime(0.1f);
-                colisor.gameObject.transform.SetParent(gameObject.transform, true);
-                BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
-                foreach (BoxCollider c in col) {
-                    if (c.isTrigger == true) {
-                        c.enabled = false;
-                        c.enabled = true;
-                    } else {
-                        c.enabled = false;
-                        c.enabled = true;
+            if (teste == true) {
+                segurando = true;
+                //gameObject.transform.position = posBox;//está travando o pers e se esta segurando o botao o pers nao gruda na estatua
+                //  transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
+                //  rotacao = gameObject.transform.rotation;
+                if (colisor.gameObject.tag != "Lobinho") {
+                    yield return new WaitForSecondsRealtime(0.1f);
+                 //   print("BBBB");
+                    if (onTrigger == true) {
+                        colisor.gameObject.transform.SetParent(gameObject.transform, true);
                     }
+                    BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
+                    foreach (BoxCollider c in col) {
+                        if (c.isTrigger == true) {
+                            c.enabled = false;
+                            c.enabled = true;
+                        } else {
+                            c.enabled = false;
+                            c.enabled = true;
+                        }
+                    }
+                } else {
+                    naoMexer = true;
                 }
-            } else {
-                naoMexer = true;
-            }
-            if (posX < 1 && posX > -1) {
-                vertical = true;
-                Horizontal = false;
-                //GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyVertical;
-            }
-            if (posY < 1 && posY > -1) {
-                Horizontal = true;
-                vertical = false;
-                //GameObject.FindGameObjectWithTag ("JoyStick").GetComponent<Joystick> ().axesToUse = Joystick.AxisOption.OnlyHorizontal;
+                if (posX < 1 && posX > -1) {
+                    vertical = true;
+                    Horizontal = false;
+                }
+                if (posY < 1 && posY > -1) {
+                    Horizontal = true;
+                    vertical = false;
+                }
             }
 
         } else {
+            teste = false;
             segurando = false;
+          //  print("AAAA");
             colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
             naoMexer = false;
             vertical = false;
@@ -96,7 +112,6 @@ public class RotacaoPersonagem : MonoBehaviour {
                     }
                 }
             }
-            GameObject.FindGameObjectWithTag("JoyStick").GetComponent<Joystick>().axesToUse = Joystick.AxisOption.Both;
         }
     }
 
@@ -108,7 +123,9 @@ public class RotacaoPersonagem : MonoBehaviour {
 			if (x != 0 || z != 0) {
 				t.rotation = Quaternion.RotateTowards (t.rotation, qtan, 700 * Time.deltaTime);
 			}
-		}
+        } else {
+            t.transform.rotation = rotacao;
+        }
 	}
 
 	void Animacao(){
@@ -188,7 +205,9 @@ public class RotacaoPersonagem : MonoBehaviour {
                 }
             }
 		} else {
-            animator.speed = 1;
+            if (inicioAnim == false) {
+                animator.speed = 1;
+            }
 			animator.SetFloat ("Blend", 0);
 			//animator.SetBool ("EmpurrandoTras", false);
 			//animator.SetBool ("EmpurrandoFrente", false);
@@ -312,14 +331,63 @@ public class RotacaoPersonagem : MonoBehaviour {
 				posX = (other.bounds.center.x - other.transform.position.x);
 				posY = (other.bounds.center.z - other.transform.position.z);
 				colisor = other;
-			}
+                colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
+                naoMexer = false;
+                vertical = false;
+                Horizontal = false;
+                BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
+                foreach (BoxCollider c in col) {
+                    if (segurando == true) {
+                        if (c.isTrigger == true) {
+                            c.enabled = false;
+                            c.enabled = true;
+                        } else {
+                            c.enabled = false;
+                            c.enabled = true;
+                        }
+                    }
+                }
+            }
 		} 
 	}
 	void OnTriggerExit(Collider other){
 		if (other.tag == "Lobinho" || other.tag == "LoboAzul" || other.tag == "LoboVermelho" || other.tag == "LoboVerde" || other.tag == "LoboRoxo"|| other.tag == "Lobinho2") {
-			if (segurando == false) {
+            segurando = false;
+            colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
+            naoMexer = false;
+            vertical = false;
+            Horizontal = false;
+            BoxCollider[] col = colisor.gameObject.GetComponents<BoxCollider>();
+            foreach (BoxCollider c in col) {
+                if (segurando == true) {
+                    if (c.isTrigger == true) {
+                        c.enabled = false;
+                        c.enabled = true;
+                    } else {
+                        c.enabled = false;
+                        c.enabled = true;
+                    }
+                }
+            }
+            if (segurando == false) {
 				onTrigger = false;
-			}
+                segurando = false;
+                colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
+                naoMexer = false;
+                vertical = false;
+                Horizontal = false;
+                foreach (BoxCollider c in col) {
+                    if (segurando == true) {
+                        if (c.isTrigger == true) {
+                            c.enabled = false;
+                            c.enabled = true;
+                        } else {
+                            c.enabled = false;
+                            c.enabled = true;
+                        }
+                    }
+                }
+            }
 		}
 	}
 
