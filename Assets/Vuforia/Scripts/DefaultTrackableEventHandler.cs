@@ -10,6 +10,7 @@ using UnityEngine;
 using Vuforia;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEngine.AI;
 
 /// <summary>
 /// A custom handler that implements the ITrackableEventHandler interface.
@@ -22,6 +23,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #region PROTECTED_MEMBER_VARIABLES
 
     protected TrackableBehaviour mTrackableBehaviour;
+    public static bool faseTutorial;
     public static bool fase1;
     public static bool fase2;
     public static bool fase3;
@@ -104,11 +106,17 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = true;
 
-       // if (TextoVelhinho.destruiouColider == true){
-      //      coliderTutoba1.GetComponent<BoxCollider>().enabled = false;
-      //  }
+        // if (TextoVelhinho.destruiouColider == true){
+        //      coliderTutoba1.GetComponent<BoxCollider>().enabled = false;
+        //  }
 
-        if(gameObject.name == "Fase1ImageTarget") {
+        if (gameObject.name == "FaseTutorialImageTarget") {
+            faseTutorial = true;
+            if (jaRodou == false) {
+                StartCoroutine(RodarAnim(faseTutorial, "LugarFaseTutorial"));
+            }
+        }
+        if (gameObject.name == "Fase1ImageTarget") {
             fase1 = true;
             if(jaRodou == false) {
                 StartCoroutine(RodarAnim(fase1,"LugarFase1"));
@@ -149,7 +157,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         foreach (var component in canvasComponents)
             component.enabled = false;
 
-
+        if (gameObject.name == "FaseTutorialImageTarget") {
+            faseTutorial = false;
+        }
         if (gameObject.name == "Fase1ImageTarget") {
             fase1 = false;
         }
@@ -174,10 +184,14 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         GetComponentInChildren<Animation>().Play();
         print("QQQQ");
         GetComponent<CameraShake>().enabled = true;
-        yield return new WaitForSeconds(GetComponentInChildren<Animation>().GetClip("LabUmAnim").length);
+        yield return new WaitForSeconds(3);
         GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find(gameObject.name).transform);
         GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find(lugar).transform.localPosition;
         GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find(lugar).transform.localRotation;
+        if(gameObject.name == "FaseTutorialImageTarget") {
+            GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
+        }
         yield return new WaitForSeconds(0.5f);
         RotacaoPersonagem.inicioAnim = true;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = 1;

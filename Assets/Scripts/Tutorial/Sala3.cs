@@ -28,11 +28,9 @@ public class Sala3 : MonoBehaviour {
 		porta = GameObject.Find("PortaFase4");
         garra = GameObject.Find("GarraTutorial");
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
-        GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
+        /*GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
         GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<NavMeshAgent>().enabled = true;
-        GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;*/
     }
 	
 	// Update is called once per frame

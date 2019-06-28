@@ -30,7 +30,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
         pedraAColocada = false;
         pedraRColocada = false;
         pedraPColocada = false;
-        StartCoroutine(PosInicial());
         esperar = new WaitForSeconds(1);
     }
 	
@@ -49,12 +48,12 @@ public class SegundaFaseMecanica : MonoBehaviour {
 
     }
 
-    IEnumerator PosInicial() {
+    /*IEnumerator PosInicial() {
         yield return new WaitForSeconds(0.1f);
             GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
             GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
             GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase2").transform.localRotation;
-    }
+    }*/
 
     private void PedraFinalScript()
     {

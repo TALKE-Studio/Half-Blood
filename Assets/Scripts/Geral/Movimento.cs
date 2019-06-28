@@ -43,9 +43,9 @@ public class Movimento : MonoBehaviour {
             Vector3 right = cam.transform.right;
             forward.y = 0;
             right.y = 0;
-            forward.Normalize();
-            right.Normalize();
-            var direcao = forward * z + right * x;
+           // forward.Normalize();
+           // right.Normalize();
+            var direcao = forward.normalized * z + right.normalized * x;
             if (RotacaoPersonagem.segurando == false) {
                 rb.velocity = direcao*30;
                 //rb.velocity = cam.transform.TransformDirection(x, 0, z) * 30;
