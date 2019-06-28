@@ -28,6 +28,16 @@ public class ReiniciarOuContinuar : MonoBehaviour {
 
     public void Continuar() {
         if (SceneManager.GetActiveScene().name == "Tutorial") {
+            /*            GameObject.Find("FinalTutorial").SetActive(false);
+            Sala3.colocoupedra = false;
+            GameObject.FindGameObjectWithTag("BordaCima").SetActive(false);
+            GameObject.FindGameObjectWithTag("BordaBaixo").SetActive(false);
+            GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
+            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+            RotacaoPersonagem.naoMexer = false;
+            CutsScene.olharValk = false;
+            SegundaFaseMecanica.gameOver = false;
+            RotacaoPersonagem.naoMexer = false;*/
             SceneManager.LoadScene("Menu");
         }
         if (SceneManager.GetActiveScene().name == "Fase1") {
@@ -43,16 +53,9 @@ public class ReiniciarOuContinuar : MonoBehaviour {
             SegundaFaseMecanica.fase2 = true;*/
         }
         if (SceneManager.GetActiveScene().name == "Fase2") {
-            GameObject.Find("FinalTutorial").SetActive(false);
-            Sala3.colocoupedra = false;
-            GameObject.FindGameObjectWithTag("BordaCima").SetActive(false);
-            GameObject.FindGameObjectWithTag("BordaBaixo").SetActive(false);
-            GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
-            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
-            RotacaoPersonagem.naoMexer = false;
-            CutsScene.olharValk = false;
-            SegundaFaseMecanica.gameOver = false;
-            RotacaoPersonagem.naoMexer = false;
+            SceneManager.LoadScene("Menu");
+        }
+        if (SceneManager.GetActiveScene().name == "Fase3") {
             SceneManager.LoadScene("Menu");
         }
     }

@@ -21,7 +21,8 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public static bool gameOver = false;
     public Sprite Ifase2;
     public GameObject telaBranca;
-    public Texture textura; 
+    public Texture textura;
+    WaitForSeconds esperar;
 
     // Use this for initialization
     void Start () {
@@ -30,11 +31,12 @@ public class SegundaFaseMecanica : MonoBehaviour {
         pedraRColocada = false;
         pedraPColocada = false;
         StartCoroutine(PosInicial());
+        esperar = new WaitForSeconds(1);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        PickRock();
+        StartCoroutine(PickRock());
         PutRock();
 
         if (pedraAColocada == true && pedraRColocada == true)
@@ -67,7 +69,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         GameObject.Find("death_pedra").AddComponent<LightBehaviourStone>();
     }
 
-    void PickRock() {
+    IEnumerator PickRock() {
         if (Input.GetKeyDown(KeyCode.Space) == true || CrossPlatformInputManager.GetButtonDown("Jump") == true) {
             foreach (GameObject p in pedras) {
                 if (p != null) {
@@ -86,8 +88,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
                         }
                     } else if (p.name == "death_pedra") {
                         if (pedraPColetada == false && pedraPColocada == false) {
-                            pedraPColetada = true;
                             StartCoroutine(ColetarPedra(p));
+                            yield return esperar;
+                            pedraPColetada = true;
                         }
                     }
                 }
@@ -123,7 +126,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         Vector3 alvo = new Vector3(pedra.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, pedra.transform.position.z);
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
-        yield return new WaitForSecondsRealtime(1);
+        yield return esperar;
         RotacaoPersonagem.naoMexer = false;
         dist = 100;
         pedra.GetComponent<MeshRenderer>().enabled = false;
@@ -142,7 +145,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         Vector3 alvo = new Vector3(g.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, g.transform.position.z);
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
-        yield return new WaitForSecondsRealtime(1);
+        yield return esperar;
         RotacaoPersonagem.naoMexer = false;
         GameObject.Find(pedra).GetComponent<MeshRenderer>().enabled = true;
         if (pedra != "PedraRosa" && pedra != "PedraAzul") {
@@ -157,7 +160,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
             RotacaoPersonagem.animator.SetBool("Andando", false);
             GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
             GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
-            yield return new WaitForSecondsRealtime(1);
+            yield return esperar;
             telaBranca.SetActive(true);
             telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
         } else {
