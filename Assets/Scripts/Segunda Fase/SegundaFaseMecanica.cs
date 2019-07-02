@@ -25,12 +25,14 @@ public class SegundaFaseMecanica : MonoBehaviour {
     WaitForSeconds esperar;
 
     // Use this for initialization
-    void Start () {
+    IEnumerator Start () {
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase2;
         pedraAColocada = false;
         pedraRColocada = false;
         pedraPColocada = false;
         esperar = new WaitForSeconds(1);
+        yield return new WaitForSeconds(0.1f);
+        GameObject.Find("death_pedra").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
     }
 	
 	// Update is called once per frame
@@ -47,13 +49,6 @@ public class SegundaFaseMecanica : MonoBehaviour {
         }
 
     }
-
-    /*IEnumerator PosInicial() {
-        yield return new WaitForSeconds(0.1f);
-            GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("Fase2ImageTarget").transform);
-            GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase2").transform.localPosition;
-            GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase2").transform.localRotation;
-    }*/
 
     private void PedraFinalScript()
     {

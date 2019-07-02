@@ -13,6 +13,10 @@ public class MenuIniciarJogo : MonoBehaviour {
     public GameObject s;
     public GameObject prog;
     public GameObject fill;
+    public static bool faseTutorial;
+    public static bool fase1;
+    public static bool fase2;
+    public static bool fase3;
 
     public void Jogar() {
         seleTela.SetActive(true);
@@ -25,24 +29,40 @@ public class MenuIniciarJogo : MonoBehaviour {
     public void Tutoba() {
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = tut;
+        faseTutorial = true;
+        fase1 = false;
+        fase2 = false;
+        fase3 = false;
         StartCoroutine(Carregar("Tutorial"));
     }
 
     public void Fase1() {
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = fas1;
+        faseTutorial = false;
+        fase1 = true;
+        fase2 = false;
+        fase3 = false;
         StartCoroutine(Carregar("Fase1"));
     }
 
     public void Fase2() {
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = fas2;
+        faseTutorial = false;
+        fase1 = false;
+        fase2 = true;
+        fase3 = false;
         StartCoroutine(Carregar("Fase2"));
     }
 
     public void Fase3() {
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = fas2;
+        faseTutorial = false;
+        fase1 = false;
+        fase2 = false;
+        fase3 = true;
         StartCoroutine(Carregar("Fase3"));
     }
 

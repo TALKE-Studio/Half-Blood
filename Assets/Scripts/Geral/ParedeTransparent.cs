@@ -10,11 +10,12 @@ public class ParedeTransparent : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        
 	}
 	
 	// Update is called once per frame
-	void Update () { 
-		if (Vector3.Distance (gameObject.transform.position, alvo.transform.position) > 350) {
+	void Update () {
+        if (Vector3.Distance (gameObject.transform.position, alvo.transform.position) > 350) {
 			GameObject.FindGameObjectWithTag ("Finish").GetComponent<Canvas> ().enabled = false;
 			for (int i = 0; i < Input.touchCount; i++) {
 				if (Input.GetTouch(i).phase == TouchPhase.Began ||Input.GetMouseButtonDown (0)) {

@@ -24,9 +24,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected TrackableBehaviour mTrackableBehaviour;
     public static bool faseTutorial;
-    public static bool fase1;
-    public static bool fase2;
-    public static bool fase3;
+    bool fase1;
+    bool fase2;
+    bool fase3;
     public static bool jaRodou = false;
 
     #endregion // PROTECTED_MEMBER_VARIABLES
@@ -112,31 +112,38 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
         if (gameObject.name == "FaseTutorialImageTarget") {
             faseTutorial = true;
-            if (jaRodou == false) {
-                StartCoroutine(RodarAnim(faseTutorial, "LugarFaseTutorial"));
+            if (MenuIniciarJogo.faseTutorial == true) {
+                if (jaRodou == false) {
+                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                }
             }
         }
         if (gameObject.name == "Fase1ImageTarget") {
             fase1 = true;
-            if(jaRodou == false) {
-                StartCoroutine(RodarAnim(fase1,"LugarFase1"));
-            }
+                if (MenuIniciarJogo.fase1 == true) {
+                    if (jaRodou == false) {
+                        StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                    }
+                }
         }
         if (gameObject.name == "Fase2ImageTarget") {
             fase2 = true;
-            if (jaRodou == false) {
-                StartCoroutine(RodarAnim(fase2, "LugarFase2"));
+            if (MenuIniciarJogo.fase2 == true) {
+                if (jaRodou == false) {
+                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                }
             }
         }
         if (gameObject.name == "Fase3ImageTarget") {
             fase3 = true;
-            if (jaRodou == false) {
-                StartCoroutine(RodarAnim(fase3, "LugarFase3"));
+            if (MenuIniciarJogo.fase3 == true) {
+                if (jaRodou == false) {
+                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                }
             }
         }
-
-
     }
+
 
 
     protected virtual void OnTrackingLost()
@@ -197,6 +204,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = 1;
         yield return new WaitForSeconds(1);
         RotacaoPersonagem.naoMexer = false;
+        GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
     }
     
 }

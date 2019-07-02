@@ -14,6 +14,7 @@ public class Movimento : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+        GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = -1;
         audioSrc = GetComponent<AudioSource>();
         rb = gameObject.GetComponent<Rigidbody> ();
         cam = GameObject.Find("ARCamera");
@@ -39,13 +40,13 @@ public class Movimento : MonoBehaviour {
         //x = -Input.GetAxis ("Horizontal");
         //z = -Input.GetAxis ("Vertical");
         if (x != 0 || z != 0) {
-            Vector3 forward = cam.transform.forward;
-            Vector3 right = cam.transform.right;
-            forward.y = 0;
-            right.y = 0;
+            Vector3 forward = cam.transform.GetChild(0).transform.forward;
+            Vector3 right = cam.transform.GetChild(0).transform.right;
+            //forward.y = 0;
+            //right.y = 0;
            // forward.Normalize();
            // right.Normalize();
-            var direcao = forward.normalized * z + right.normalized * x;
+            var direcao = forward * z + right * x;
             if (RotacaoPersonagem.segurando == false) {
                 rb.velocity = direcao*30;
                 //rb.velocity = cam.transform.TransformDirection(x, 0, z) * 30;
