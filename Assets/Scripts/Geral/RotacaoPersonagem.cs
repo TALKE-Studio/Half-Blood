@@ -22,7 +22,12 @@ public class RotacaoPersonagem : MonoBehaviour {
 	public static bool naoMexer = false;
     public static bool inicioAnim = true;
     Quaternion rotacao;
+    bool apertouBotaoAntes = false;
+    GameObject estatua;
+    public AudioClip estParar;
+    public AudioClip estMov;
     bool teste = false;
+    bool mexeu = false;
 
     // Use this for initialization
     void Start () {
@@ -55,10 +60,11 @@ public class RotacaoPersonagem : MonoBehaviour {
             gameObject.transform.position = posBox;
             transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
             rotacao = gameObject.transform.rotation;
-            teste = true;
+            estatua = colisor.gameObject;
+            apertouBotaoAntes = true;
         }
         if (CrossPlatformInputManager.GetButton("Jump") == true || Input.GetKey(KeyCode.Space) == true) {
-            if (teste == true) {
+            if (apertouBotaoAntes == true) {
                 segurando = true;
                 //gameObject.transform.position = posBox;//está travando o pers e se esta segurando o botao o pers nao gruda na estatua
                 //  transform.LookAt(new Vector3(colisor.gameObject.GetComponent<Transform>().transform.position.x, gameObject.transform.position.y, colisor.gameObject.GetComponent<Transform>().transform.position.z));
@@ -93,7 +99,7 @@ public class RotacaoPersonagem : MonoBehaviour {
             }
 
         } else {
-            teste = false;
+            apertouBotaoAntes = false;
             segurando = false;
           //  print("AAAA");
             colisor.gameObject.transform.SetParent(GameObject.FindGameObjectWithTag("Chao").gameObject.transform, true);
@@ -130,7 +136,25 @@ public class RotacaoPersonagem : MonoBehaviour {
 
 	void Animacao(){
 		animator.SetBool ("PegouEstatua", segurando);
+        if(animator.GetCurrentAnimatorStateInfo(0).IsName("Andando") == false && animator.GetCurrentAnimatorStateInfo(0).IsName("Segurando estatua") == false) {
+            if (inicioAnim == false) {
+                animator.speed = 1;
+            }
+        }
 		if (x != 0 || z != 0) {
+            if(segurando == true) {
+                estatua.GetComponent<AudioSource>().clip = estMov;
+                estatua.GetComponent<AudioSource>().loop = true;
+                mexeu = true;
+                if (estatua.GetComponent<AudioSource>().isPlaying == false) {
+                    estatua.GetComponent<AudioSource>().Play();
+                    teste = true;
+                }
+            } else {
+                if (mexeu == true) {
+                    estatua.GetComponent<AudioSource>().Stop();
+                }
+            }
             if(x>0 && z > 0) {
                 if (x > z) {
                     animator.SetFloat("Blend", x);
@@ -205,6 +229,18 @@ public class RotacaoPersonagem : MonoBehaviour {
                 }
             }
 		} else {
+            if (segurando == true) {
+                if (mexeu == true) {
+                    estatua.GetComponent<AudioSource>().clip = estParar;
+                    estatua.GetComponent<AudioSource>().loop = false;
+                    if (teste == true) {
+                        if (estatua.GetComponent<AudioSource>().isPlaying == false) {
+                            estatua.GetComponent<AudioSource>().Play();
+                            teste = false;
+                        }
+                    }
+                }
+            }
             if (inicioAnim == false) {
                 animator.speed = 1;
             }

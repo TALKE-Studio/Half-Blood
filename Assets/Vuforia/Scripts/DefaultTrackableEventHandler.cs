@@ -114,23 +114,23 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             faseTutorial = true;
             if (MenuIniciarJogo.faseTutorial == true) {
                 if (jaRodou == false) {
-                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                    StartCoroutine(RodarAnim(faseTutorial, "LugarFaseTutorial"));
                 }
             }
         }
         if (gameObject.name == "Fase1ImageTarget") {
             fase1 = true;
-                if (MenuIniciarJogo.fase1 == true) {
-                    if (jaRodou == false) {
-                        StartCoroutine(RodarAnim(fase1, "LugarFase1"));
-                    }
+            if (MenuIniciarJogo.fase1 == true) {
+                if (jaRodou == false) {
+                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
                 }
+            }
         }
         if (gameObject.name == "Fase2ImageTarget") {
             fase2 = true;
             if (MenuIniciarJogo.fase2 == true) {
                 if (jaRodou == false) {
-                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                    StartCoroutine(RodarAnim(fase2, "LugarFase2"));
                 }
             }
         }
@@ -138,7 +138,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             fase3 = true;
             if (MenuIniciarJogo.fase3 == true) {
                 if (jaRodou == false) {
-                    StartCoroutine(RodarAnim(fase1, "LugarFase1"));
+                    StartCoroutine(RodarAnim(fase3, "LugarFase3"));
                 }
             }
         }
@@ -183,7 +183,6 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     IEnumerator RodarAnim(bool fase,string lugar) {
         jaRodou = true;
-
        // yield return new WaitForSeconds(0.25f);
         yield return new WaitForSeconds(GameObject.Find("TelaDoCapitulo").GetComponent<Animation>().GetClip("Tela_Inicio1").length - 1f);
         //GetComponentInChildren<Animation>().Rewind();
@@ -191,6 +190,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
         GetComponentInChildren<Animation>().Play();
         print("QQQQ");
         GetComponent<CameraShake>().enabled = true;
+        GetComponent<AudioSource>().Play();
         yield return new WaitForSeconds(3);
         GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find(gameObject.name).transform);
         GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find(lugar).transform.localPosition;
@@ -200,7 +200,7 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             GameObject.FindGameObjectWithTag("Player").GetComponent<AndarSosinho>().enabled = true;
         }
         yield return new WaitForSeconds(0.5f);
-        RotacaoPersonagem.inicioAnim = true;
+        RotacaoPersonagem.inicioAnim = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().speed = 1;
         yield return new WaitForSeconds(1);
         RotacaoPersonagem.naoMexer = false;

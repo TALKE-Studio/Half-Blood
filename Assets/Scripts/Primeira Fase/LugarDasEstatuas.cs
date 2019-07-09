@@ -14,9 +14,11 @@ public class LugarDasEstatuas : MonoBehaviour {
 	public static bool posicionado3;
 	public static bool posicionado4;
     bool pedraFinal = false;
+    public AudioClip estParar;
+    public AudioClip estMov;
 
-	// Use this for initialization
-	IEnumerator Start () {
+    // Use this for initialization
+    IEnumerator Start () {
 		rend = GetComponent<Renderer> ();
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
@@ -32,7 +34,8 @@ public class LugarDasEstatuas : MonoBehaviour {
 		if (posicionado1 == true && posicionado2 == true && posicionado3 == true && posicionado4 == true) {
 			GameObject.FindGameObjectWithTag ("Porta").GetComponent<Animator> ().SetBool ("Abrir", true);
 			GameObject.FindGameObjectWithTag ("Porta").GetComponent<BoxCollider> ().enabled = false;
-            if(pedraFinal == false) {
+            if (pedraFinal == false) {
+                GameObject.FindGameObjectWithTag("Porta").GetComponentInChildren<AudioSource>().Play();
                 PedraFinalScript();
             }
         }
@@ -135,13 +138,17 @@ public class LugarDasEstatuas : MonoBehaviour {
 		
 	IEnumerator MoverEstatua(GameObject lobo){
 		BoxCollider[] col = lobo.gameObject.GetComponents<BoxCollider> ();
-
-		float tempo = 0;
+        float tempo = 0;
 		tempo += 0.5f * Time.deltaTime;
 		lobo.transform.position = Vector3.LerpUnclamped (lobo.transform.position, gameObject.transform.position, tempo);
 		yield return new WaitForSeconds (0.1f);
 		if (dist>0.1f) {
-			foreach (BoxCollider c in col) {
+            if (lobo.GetComponent<AudioSource>().isPlaying == false) {
+                lobo.GetComponent<AudioSource>().loop = true;
+                lobo.GetComponent<AudioSource>().clip = estMov;
+                lobo.GetComponent<AudioSource>().Play();
+            }
+            foreach (BoxCollider c in col) {
 				if (c.isTrigger == false) {
 					teste = true;
 					c.enabled = false;
@@ -151,7 +158,10 @@ public class LugarDasEstatuas : MonoBehaviour {
 			}
 			StartCoroutine (MoverEstatua (lobo));
 		} else {
-			foreach (BoxCollider c in col) {
+            lobo.GetComponent<AudioSource>().loop = false;
+            lobo.GetComponent<AudioSource>().clip = estParar;
+            lobo.GetComponent<AudioSource>().Play();
+            foreach (BoxCollider c in col) {
 				if (c.isTrigger == false) {
 					if (teste == true) {
 						c.enabled = true;

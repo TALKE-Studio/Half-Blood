@@ -15,9 +15,10 @@ public class PedraRolando : MonoBehaviour {
     Color original;
     MeshRenderer[] cores;
     float tC = 0.2f;
+    Vector3 localPoint;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         StartCoroutine(Crescer());
         alphaColor = gameObject.transform.GetChild(0).GetChild(1).GetComponent<MeshRenderer>().material.color;
         original = alphaColor;
@@ -27,7 +28,7 @@ public class PedraRolando : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-            Move();
+        Move();
         if (rodar == true) {
             Rolar();
         }
@@ -68,7 +69,7 @@ public class PedraRolando : MonoBehaviour {
 
     void OnTriggerEnter(Collider other) {
         if(other.name == "Cenario_04_paredes") {
-            print("BATEU");
+            //print("BATEU");
             rodar = false;
             gameObject.GetComponent<SphereCollider>().enabled = false;
             gameObject.transform.GetChild(0).eulerAngles = new Vector3(0, 0, 0);
@@ -77,16 +78,12 @@ public class PedraRolando : MonoBehaviour {
             //Destroy(gameObject);
         }
         else if(other.tag == "Player") {
-            print("ATROPELOU");
-            RaycastHit hit;
-            Physics.Raycast(transform.position, transform.TransformDirection(transform.forward), out hit);
-           // gameObject.GetComponent<SphereCollider>().enabled = false;
-            Vector3 localPoint = hit.point;
-            Vector3 localDir = localPoint.normalized;
-            float fwdDot = Vector3.Dot(localDir, other.transform.right);
-            float rightDot = Vector3.Dot(localDir, other.transform.forward);
-           // print(fwdDot + " " + rightDot);
-            RotacaoPersonagem.animator.SetFloat("Frente", -fwdDot);
+           // print("ATROPELOU");
+            Vector3 direction = other.transform.position - transform.position;
+            float fwdDot = Vector3.Dot(other.transform.forward, direction.normalized);
+            float rightDot = Vector3.Dot(other.transform.right, direction.normalized);
+            print(fwdDot + " " + rightDot);
+            RotacaoPersonagem.animator.SetFloat("Frente", fwdDot);
             RotacaoPersonagem.animator.SetFloat("Lados", -rightDot);
             RotacaoPersonagem.naoMexer = true;
             RotacaoPersonagem.x = 0;
@@ -97,6 +94,12 @@ public class PedraRolando : MonoBehaviour {
             RotacaoPersonagem.animator.SetTrigger("Bateu");
             RotacaoPersonagem.animator.speed = 1;
             StartCoroutine(EsperarAnim());
+        }
+    }
+
+    private void OnDrawGizmos() {
+        if(localPoint != null) {
+            Gizmos.DrawWireSphere(localPoint, 5f);
         }
     }
 

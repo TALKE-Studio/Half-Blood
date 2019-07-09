@@ -23,6 +23,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
     public GameObject telaBranca;
     public Texture textura;
     WaitForSeconds esperar;
+    public AudioClip pegouAudio;
+    public AudioClip colocouAudio;
+    public AudioClip passos;
 
     // Use this for initialization
     IEnumerator Start () {
@@ -30,6 +33,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         pedraAColocada = false;
         pedraRColocada = false;
         pedraPColocada = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         esperar = new WaitForSeconds(1);
         yield return new WaitForSeconds(0.1f);
         GameObject.Find("death_pedra").GetComponent<Renderer>().material.DisableKeyword("_EMISSION");
@@ -44,6 +48,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         {
             if (pedraFinal == false)
             {
+                GameObject.FindGameObjectWithTag("Porta").GetComponentInChildren<AudioSource>().Play();
                 PedraFinalScript();
             }
         }
@@ -73,15 +78,21 @@ public class SegundaFaseMecanica : MonoBehaviour {
                     if (p.name == "PedraRosa") {
                         if (pedraRColetada == false && pedraRColocada == false) {
                             pedraRColetada = true;
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                             StartCoroutine(ColetarPedra(p));
                         }
                     } else if (p.name == "PedraAzul") {
                         if (pedraAColetada == false && pedraAColocada == false) {
                             pedraAColetada = true;
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                             StartCoroutine(ColetarPedra(p));
                         }
                     } else if (p.name == "death_pedra") {
                         if (pedraPColetada == false && pedraPColocada == false) {
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                             StartCoroutine(ColetarPedra(p));
                             yield return esperar;
                             pedraPColetada = true;
@@ -121,6 +132,7 @@ public class SegundaFaseMecanica : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
         yield return esperar;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         RotacaoPersonagem.naoMexer = false;
         dist = 100;
         pedra.GetComponent<MeshRenderer>().enabled = false;
@@ -140,7 +152,8 @@ public class SegundaFaseMecanica : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
         yield return esperar;
-        RotacaoPersonagem.naoMexer = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = colocouAudio;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
         GameObject.Find(pedra).GetComponent<MeshRenderer>().enabled = true;
         if (pedra != "PedraRosa" && pedra != "PedraAzul") {
             g.GetComponent<Renderer>().material.mainTexture = textura;
@@ -162,6 +175,9 @@ public class SegundaFaseMecanica : MonoBehaviour {
             GameObject.Find(pedra).gameObject.transform.localPosition = GameObject.Find("Pedra_Garras").transform.localPosition;
             GameObject.Find(pedra).gameObject.transform.localRotation = GameObject.Find("Pedra_Garras").transform.localRotation;
             GameObject.Find(pedra).AddComponent<LightBehaviourStone>();
+            yield return new WaitForSeconds(0.5f);
+            RotacaoPersonagem.naoMexer = false;
+            GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         }
 	}
 

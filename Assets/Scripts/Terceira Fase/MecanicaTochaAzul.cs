@@ -25,10 +25,14 @@ public class MecanicaTochaAzul : MonoBehaviour {
     public GameObject pedraBase;
     public GameObject telaBranca;
     public Texture textura;
+    public AudioClip pegouAudio;
+    public AudioClip colocouAudio;
+    public AudioClip passos;
 
     // Use this for initialization
     void Start () {
         pedraIColocada = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;//TROCAR PRA FASE3
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
@@ -46,7 +50,9 @@ public class MecanicaTochaAzul : MonoBehaviour {
             PickRock();
             PutRock();
             if (pedraFinal == false) {
-                GameObject.Find("PortasFase3").GetComponent<Animation>().Play();
+                GameObject.FindGameObjectWithTag("Porta").GetComponent<Animator>().SetBool("Abrir", true);
+                GameObject.FindGameObjectWithTag("Porta").GetComponent<BoxCollider>().enabled = false;
+                GameObject.FindGameObjectWithTag("Porta").GetComponentInChildren<AudioSource>().Play();
                 PedraFinalScript();
             }
         }
@@ -117,9 +123,11 @@ public class MecanicaTochaAzul : MonoBehaviour {
                             Vector3 alvo = new Vector3(t.transform.position.x, GameObject.FindGameObjectWithTag("Player").transform.position.y, t.transform.position.z);
                             GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
                             GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("UsarTocha");
+                            t.GetComponent<AudioSource>().enabled = true;
                             yield return new WaitForSeconds(0.25f);
                             yield return new WaitForSeconds(gameObject.GetComponent<Animator>().GetCurrentAnimatorStateInfo(0).length);
-                          //  yield return new WaitForSeconds(1f);
+                            t.transform.GetChild(0).GetComponent<AudioSource>().enabled = true;
+                            //  yield return new WaitForSeconds(1f);
                             RotacaoPersonagem.naoMexer = false;
                             dist = 100;
                             c = 0;
@@ -186,8 +194,10 @@ public class MecanicaTochaAzul : MonoBehaviour {
             if (pedraIColetada == false) {
                 dist = Vector3.Distance(gameObject.transform.position, pedra.gameObject.transform.position);
                 if (dist < 15) {
-                    if (pedraIColocada == false) {
+                    if (pedraIColetada == false) {
                         pedraIColetada = true;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                         StartCoroutine(ColetarPedra());
                     }
                 }
@@ -218,6 +228,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
         yield return new WaitForSecondsRealtime(1);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         RotacaoPersonagem.naoMexer = false;
         dist = 100;
         pedra.GetComponent<MeshRenderer>().enabled = false;
@@ -227,6 +238,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
 
 
     IEnumerator ColocarPedra() {
+        SegundaFaseMecanica.gameOver = true;
         RotacaoPersonagem.naoMexer = true;
         RotacaoPersonagem.x = 0;
         RotacaoPersonagem.z = 0;
@@ -235,6 +247,8 @@ public class MecanicaTochaAzul : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
         yield return new WaitForSecondsRealtime(1);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = colocouAudio;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
         RotacaoPersonagem.naoMexer = false;
         pedra.GetComponent<MeshRenderer>().enabled = true;
         pedraBase.GetComponent<Renderer>().material.mainTexture = textura;

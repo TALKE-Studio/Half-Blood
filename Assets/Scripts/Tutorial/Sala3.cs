@@ -19,18 +19,19 @@ public class Sala3 : MonoBehaviour {
     float distG;
     public Sprite Ituto;
     public GameObject teto;
+    public AudioClip pegouAudio;
+    public AudioClip colocouAudio;
+    public AudioClip passos;
 
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
 		pedra = GameObject.Find("Pedra_Tutorial");
 		pedrainv = GameObject.Find("Pedra_Tutorial_Inv");
 		porta = GameObject.Find("PortaFase4");
         garra = GameObject.Find("GarraTutorial");
         GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ituto;
-        /*GameObject.FindGameObjectWithTag("Player").transform.SetParent(GameObject.Find("FaseTutorialImageTarget").transform);
-        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFaseTutorial").transform.localPosition;
-        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFaseTutorial").transform.localRotation;*/
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
     }
 	
 	// Update is called once per frame
@@ -44,7 +45,9 @@ public class Sala3 : MonoBehaviour {
             distP = Vector3.Distance(gameObject.transform.position, pedra.gameObject.transform.position);
             if (distP < 15) {
                  if (coletoupedra == false) {
-                     coletoupedra = true;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
+                    coletoupedra = true;
                      RotacaoPersonagem.naoMexer = true;
                      RotacaoPersonagem.x = 0;
                      RotacaoPersonagem.z = 0;
@@ -53,7 +56,8 @@ public class Sala3 : MonoBehaviour {
                      GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
                      GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
                      yield return new WaitForSecondsRealtime(1);
-                     RotacaoPersonagem.naoMexer = false;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
+                    RotacaoPersonagem.naoMexer = false;
                      distP = 100;
                      pedra.GetComponent<MeshRenderer>().enabled = false;
                      pedra.transform.localPosition = new Vector3(pedra.transform.localPosition.x, pedra.transform.localPosition.y - 5, pedra.transform.localPosition.z);
@@ -78,12 +82,15 @@ public class Sala3 : MonoBehaviour {
                     GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
                     GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
                     yield return new WaitForSecondsRealtime(1);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = colocouAudio;
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                     pedra.gameObject.transform.SetParent(garra.transform);
                     pedra.gameObject.transform.localPosition = pedrainv.transform.localPosition;
                     pedra.gameObject.transform.localRotation = pedrainv.transform.localRotation;
                     pedra.GetComponent<MeshRenderer>().enabled = true;
                    // pedrainv.GetComponent<MeshRenderer>().enabled = true;
                     yield return new WaitForSecondsRealtime(1);
+                    GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
                     porta.GetComponent<Animator>().SetBool("Abrir", true);
                     teto.GetComponent<Animation>().Play();
                     iniciarAndar = true;

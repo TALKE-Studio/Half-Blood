@@ -12,11 +12,16 @@ public class PedraFinalFase1 : MonoBehaviour {
     public GameObject pedraBase;
     public GameObject telaBranca;
     public Texture textura;
+    public AudioClip pegouAudio;
+    public AudioClip colocouAudio;
+    public AudioClip passos;
 
     // Use this for initialization
     void Start () {
+        SegundaFaseMecanica.gameOver = false;
         pedraCColocada = false;
         DefaultTrackableEventHandler.jaRodou = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
     }
 	
 	// Update is called once per frame
@@ -30,7 +35,9 @@ public class PedraFinalFase1 : MonoBehaviour {
             if (pedraCColetada == false) {
                 dist = Vector3.Distance(gameObject.transform.position, pedra.gameObject.transform.position);
                 if (dist < 15) {
-                    if (pedraCColocada == false) {
+                    if (pedraCColetada == false) {
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = pegouAudio;
+                        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
                         pedraCColetada = true;
                         StartCoroutine(ColetarPedra());
                     }
@@ -62,6 +69,7 @@ public class PedraFinalFase1 : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("PegouChao");
         yield return new WaitForSecondsRealtime(1);
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
         RotacaoPersonagem.naoMexer = false;
         dist = 100;
         pedra.GetComponent<MeshRenderer>().enabled = false;
@@ -71,6 +79,7 @@ public class PedraFinalFase1 : MonoBehaviour {
 
 
     IEnumerator ColocarPedra() {
+        SegundaFaseMecanica.gameOver = true;
         RotacaoPersonagem.naoMexer = true;
         RotacaoPersonagem.x = 0;
         RotacaoPersonagem.z = 0;
@@ -79,7 +88,8 @@ public class PedraFinalFase1 : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
         yield return new WaitForSecondsRealtime(1);
-        RotacaoPersonagem.naoMexer = false;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = colocouAudio;
+        GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
         pedra.GetComponent<MeshRenderer>().enabled = true;
         pedraBase.GetComponent<Renderer>().material.mainTexture = textura;
         pedra.GetComponentInChildren<Light>().enabled = true;

@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class MenuIniciarJogo : MonoBehaviour {
 
     public GameObject seleTela;
+    public GameObject conq;
     public Sprite tut;
     public Sprite fas1;
     public Sprite fas2;
@@ -20,10 +21,15 @@ public class MenuIniciarJogo : MonoBehaviour {
 
     public void Jogar() {
         seleTela.SetActive(true);
+        SegundaFaseMecanica.gameOver = false;
     }
 
     public void Voltar() {
-        seleTela.SetActive(false);
+        GameObject.Find("Voltar").transform.parent.gameObject.SetActive(false);
+    }
+
+    public void Conquistas() {
+        conq.SetActive(true);
     }
 
     public void Tutoba() {
