@@ -86,7 +86,9 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingFound()
     {
-
+        if(RotacaoPersonagem.inicioAnim == false) {
+            RotacaoPersonagem.naoMexer = false;
+        }
 
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -148,6 +150,10 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
 
     protected virtual void OnTrackingLost()
     {
+        RotacaoPersonagem.naoMexer = true;
+        RotacaoPersonagem.x = 0;
+        RotacaoPersonagem.z = 0;
+        Movimento.rb.velocity = new Vector3(0, 0, 0);
         var rendererComponents = GetComponentsInChildren<Renderer>(true);
         var colliderComponents = GetComponentsInChildren<Collider>(true);
         var canvasComponents = GetComponentsInChildren<Canvas>(true);

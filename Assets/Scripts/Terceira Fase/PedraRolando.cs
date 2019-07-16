@@ -8,7 +8,7 @@ public class PedraRolando : MonoBehaviour {
     public float velocidade = 35;
     float t = 0.2f;
     bool rodar = true;
-    float v = 35;
+    float v = 18;
     public Transform filhoT;
     bool destruir = false;
     Color alphaColor;

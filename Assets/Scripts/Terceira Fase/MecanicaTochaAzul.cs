@@ -14,7 +14,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
     Color azul =  new Color(0.03301889f, 0.2960934f, 1);
     Light[] luz;
     float c = 0;
-    public Sprite Ifase1;
+    public Sprite Ifase3;
     public float tempoDeTocha = 15;
     public static int nTochasAcesas = 0;
     bool pedraFinal = false;
@@ -33,7 +33,7 @@ public class MecanicaTochaAzul : MonoBehaviour {
     void Start () {
         pedraIColocada = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
-        GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase1;//TROCAR PRA FASE3
+        GameObject.Find("TelaDoCapitulo").GetComponent<Image>().sprite = Ifase3;//TROCAR PRA FASE3
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().enabled = true;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = false;
         GameObject.Find("ARCamera").GetComponent<ParedeTransparent>().enabled = true;

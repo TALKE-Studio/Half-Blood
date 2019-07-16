@@ -630,33 +630,6 @@ Transform:
   m_Father: {fileID: 1848182853}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!21 &70620465
-Material:
-  serializedVersion: 6
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: 'Planta_Baixa_3Material
-
-    153278'
-  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
-  m_ShaderKeywords: 
-  m_LightmapFlags: 5
-  m_EnableInstancingVariants: 0
-  m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
-  m_SavedProperties:
-    serializedVersion: 3
-    m_TexEnvs:
-    - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 64e21d4e96fe463a9007c3f9923e2a04, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    m_Floats: []
-    m_Colors:
-    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &79871650
 GameObject:
   m_ObjectHideFlags: 0
@@ -2597,7 +2570,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 6.2
-  MaxDistance: 72.79
+  MaxDistance: 157.6
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -3902,14 +3875,14 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 445205700}
-  m_LocalRotation: {x: 0.5508222, y: 0.0010142103, z: -0.0015367585, w: 0.83462065}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -103, y: 120, z: -103}
   m_LocalScale: {x: 1, y: 1.0574818, z: 1.057485}
   m_Children:
   - {fileID: 843779962}
   m_Father: {fileID: 0}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 66.847, y: 0, z: -0.21100001}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &447703502
 GameObject:
   m_ObjectHideFlags: 0
@@ -4691,7 +4664,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1 &572232723
 GameObject:
   m_ObjectHideFlags: 0
@@ -4835,161 +4808,6 @@ Transform:
   m_Father: {fileID: 1343160246}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!43 &589686563
-Mesh:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_Name: ImageTargetMesh345056
-  serializedVersion: 9
-  m_SubMeshes:
-  - serializedVersion: 2
-    firstByte: 0
-    indexCount: 6
-    topology: 0
-    baseVertex: 0
-    firstVertex: 0
-    vertexCount: 4
-    localAABB:
-      m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.5, y: 0, z: 0.5}
-  m_Shapes:
-    vertices: []
-    shapes: []
-    channels: []
-    fullWeights: []
-  m_BindPose: []
-  m_BoneNameHashes: 
-  m_RootBoneNameHash: 0
-  m_MeshCompression: 0
-  m_IsReadable: 1
-  m_KeepVertices: 1
-  m_KeepIndices: 1
-  m_IndexFormat: 0
-  m_IndexBuffer: 000001000200020001000300
-  m_VertexData:
-    serializedVersion: 2
-    m_VertexCount: 4
-    m_Channels:
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 12
-      format: 0
-      dimension: 3
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 24
-      format: 0
-      dimension: 2
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    - stream: 0
-      offset: 0
-      format: 0
-      dimension: 0
-    m_DataSize: 128
-    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
-  m_CompressedMesh:
-    m_Vertices:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UV:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Normals:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Tangents:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Weights:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_NormalSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_TangentSigns:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_FloatColors:
-      m_NumItems: 0
-      m_Range: 0
-      m_Start: 0
-      m_Data: 
-      m_BitSize: 0
-    m_BoneIndices:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_Triangles:
-      m_NumItems: 0
-      m_Data: 
-      m_BitSize: 0
-    m_UVInfo: 0
-  m_LocalAABB:
-    m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.5, y: 0, z: 0.5}
-  m_MeshUsageFlags: 0
-  m_BakedConvexCollisionMesh: 
-  m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
-  m_MeshOptimized: 0
 --- !u!1 &608346838
 GameObject:
   m_ObjectHideFlags: 0
@@ -5288,7 +5106,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 7.91
-  MaxDistance: 100.9
+  MaxDistance: 151.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -6999,6 +6817,161 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_Center: {x: -0.0000014305115, y: 0.000000014901161, z: 0.0000023841858}
+--- !u!43 &782417547
+Mesh:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ImageTargetMesh16792
+  serializedVersion: 9
+  m_SubMeshes:
+  - serializedVersion: 2
+    firstByte: 0
+    indexCount: 6
+    topology: 0
+    baseVertex: 0
+    firstVertex: 0
+    vertexCount: 4
+    localAABB:
+      m_Center: {x: 0, y: 0, z: 0}
+      m_Extent: {x: 0.5, y: 0, z: 0.5}
+  m_Shapes:
+    vertices: []
+    shapes: []
+    channels: []
+    fullWeights: []
+  m_BindPose: []
+  m_BoneNameHashes: 
+  m_RootBoneNameHash: 0
+  m_MeshCompression: 0
+  m_IsReadable: 1
+  m_KeepVertices: 1
+  m_KeepIndices: 1
+  m_IndexFormat: 0
+  m_IndexBuffer: 000001000200020001000300
+  m_VertexData:
+    serializedVersion: 2
+    m_VertexCount: 4
+    m_Channels:
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 12
+      format: 0
+      dimension: 3
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 24
+      format: 0
+      dimension: 2
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    - stream: 0
+      offset: 0
+      format: 0
+      dimension: 0
+    m_DataSize: 128
+    _typelessdata: 000000bf00000000000000bf000000000000803f000000000000000000000000000000bf000000000000003f000000000000803f00000000000000000000803f0000003f00000000000000bf000000000000803f000000000000803f000000000000003f000000000000003f000000000000803f000000000000803f0000803f
+  m_CompressedMesh:
+    m_Vertices:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UV:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Normals:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Tangents:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Weights:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_NormalSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_TangentSigns:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_FloatColors:
+      m_NumItems: 0
+      m_Range: 0
+      m_Start: 0
+      m_Data: 
+      m_BitSize: 0
+    m_BoneIndices:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_Triangles:
+      m_NumItems: 0
+      m_Data: 
+      m_BitSize: 0
+    m_UVInfo: 0
+  m_LocalAABB:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0.5, y: 0, z: 0.5}
+  m_MeshUsageFlags: 0
+  m_BakedConvexCollisionMesh: 
+  m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
+  m_MeshOptimized: 0
 --- !u!1 &786872987
 GameObject:
   m_ObjectHideFlags: 0
@@ -7131,6 +7104,33 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!21 &805832268
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: 'Planta_Baixa_3Material
+
+    16802'
+  m_Shader: {fileID: 10752, guid: 0000000000000000f000000000000000, type: 0}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 5
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: 64e21d4e96fe463a9007c3f9923e2a04, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats: []
+    m_Colors:
+    - _Color: {r: 0.82089555, g: 0.82089555, b: 0.82089555, a: 1}
 --- !u!1 &806535446
 GameObject:
   m_ObjectHideFlags: 0
@@ -8222,7 +8222,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1 &932021619
 GameObject:
   m_ObjectHideFlags: 0
@@ -8294,7 +8294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1001 &935573519
 Prefab:
   m_ObjectHideFlags: 0
@@ -8917,7 +8917,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1 &1025823371
 GameObject:
   m_ObjectHideFlags: 0
@@ -9250,7 +9250,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 6.2
-  MaxDistance: 72.79
+  MaxDistance: 157.6
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -11603,7 +11603,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 6.2
-  MaxDistance: 72.79
+  MaxDistance: 157.6
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -11896,7 +11896,7 @@ MeshFilter:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1423874673}
-  m_Mesh: {fileID: 589686563}
+  m_Mesh: {fileID: 782417547}
 --- !u!23 &1423874675
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -11912,7 +11912,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 70620465}
+  - {fileID: 805832268}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -12289,7 +12289,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1 &1498228654
 GameObject:
   m_ObjectHideFlags: 0
@@ -12469,7 +12469,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 6.2
-  MaxDistance: 72.79
+  MaxDistance: 157.6
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -13574,7 +13574,7 @@ MonoBehaviour:
   - {fileID: 1940772747}
   - {fileID: 1601815769}
   - {fileID: 617901241}
-  Ifase1: {fileID: 21300000, guid: 7ff3a7d0f65fea642bcfa7994855bee6, type: 3}
+  Ifase3: {fileID: 21300000, guid: 1514c91807394d642881cf8c3f1a65f3, type: 3}
   tempoDeTocha: 15
   pedra: {fileID: 1276189690}
   pedraBase: {fileID: 887393565}
@@ -13732,7 +13732,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 9.1
-  MaxDistance: 165.3
+  MaxDistance: 174.2
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -14328,7 +14328,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 7.91
-  MaxDistance: 100.9
+  MaxDistance: 151.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -14598,7 +14598,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 6.2
-  MaxDistance: 72.79
+  MaxDistance: 157.6
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -16981,7 +16981,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pedra: {fileID: 1668428539443330, guid: 424da99a37eeb424da9af0fabf6fdb9e, type: 2}
-  tempo: 3
+  tempo: 5
 --- !u!1001 &1933540154
 Prefab:
   m_ObjectHideFlags: 0
@@ -17098,7 +17098,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 7.91
-  MaxDistance: 100.9
+  MaxDistance: 151.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -17289,7 +17289,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 7.91
-  MaxDistance: 100.9
+  MaxDistance: 151.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0
@@ -17476,7 +17476,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 7.91
-  MaxDistance: 100.9
+  MaxDistance: 151.4
   Pan2D: 0
   rolloffMode: 1
   BypassEffects: 0

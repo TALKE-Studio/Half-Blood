@@ -18,10 +18,12 @@ public class MenuIniciarJogo : MonoBehaviour {
     public static bool fase1;
     public static bool fase2;
     public static bool fase3;
+    public Sprite conqTutorial;
 
     public void Jogar() {
         seleTela.SetActive(true);
         SegundaFaseMecanica.gameOver = false;
+        DefaultTrackableEventHandler.jaRodou = false;
     }
 
     public void Voltar() {
@@ -30,6 +32,9 @@ public class MenuIniciarJogo : MonoBehaviour {
 
     public void Conquistas() {
         conq.SetActive(true);
+        if(FimTutorial.conquistaTutorial == true) {
+            GameObject.Find("Bebe").GetComponent<Image>().sprite = conqTutorial;
+        }
     }
 
     public void Tutoba() {

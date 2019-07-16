@@ -37,6 +37,7 @@ public class RotacaoPersonagem : MonoBehaviour {
         animator.speed = 0;
         animator.SetFloat("Frente", 1);
         naoMexer = true;
+        SegundaFaseMecanica.gameOver = false;
     }
 
 	// Update is called once per frame

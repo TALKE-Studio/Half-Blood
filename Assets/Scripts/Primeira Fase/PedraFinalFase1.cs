@@ -88,6 +88,9 @@ public class PedraFinalFase1 : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.LookAt(alvo, Vector3.up);
         GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>().SetTrigger("TocouParede");
         yield return new WaitForSecondsRealtime(1);
+        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().shakeDuration = 1f;
+        GameObject.Find("Fase1ImageTarget").GetComponent<CameraShake>().enabled = true;
+        GameObject.Find("Fase1ImageTarget").GetComponent<AudioSource>().Play();
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = colocouAudio;
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().Play();
         pedra.GetComponent<MeshRenderer>().enabled = true;
@@ -101,7 +104,7 @@ public class PedraFinalFase1 : MonoBehaviour {
         RotacaoPersonagem.animator.SetBool("Andando", false);
         GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
         GameObject.FindGameObjectWithTag("Botoes").GetComponent<Canvas>().sortingOrder = 60;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(2);
         telaBranca.SetActive(true);
         telaBranca.GetComponent<Animator>().SetTrigger("gameOver");
     }

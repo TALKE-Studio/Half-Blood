@@ -14,6 +14,7 @@ public class FimTutorial : MonoBehaviour {
     bool podeavancar = false;
     Touch touch;
     public GameObject telaBrancaTutorial;
+    public static bool conquistaTutorial;
 
     // Use this for initialization
     void Start () {
@@ -54,6 +55,7 @@ public class FimTutorial : MonoBehaviour {
 
 	IEnumerator Conquista(){
 		yield return new WaitForSeconds(7f);
+        conquistaTutorial = true;
 		Texto_Tutorial.SetActive(true);
 		Imagem_Tutorial.SetActive(true);
 	}
