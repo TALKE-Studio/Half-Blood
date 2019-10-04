@@ -1,89 +1,251 @@
 fileFormatVersion: 2
 guid: 1a5d86e5a8706cb42ae28427e5952e8f
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: Back_01
-    100002: Back_02
-    100004: Cabeca
-    100006: Capa_01
-    100008: Capa_02
-    100010: Capa_03
-    100012: Capa_04
-    100014: Capa_05
-    100016: Capa_06
-    100018: Capa_LowPoly
-    100020: Espinha
-    100022: Front_01
-    100024: Front_02
-    100026: L_Cotovelo
-    100028: L_Joelho
-    100030: L_Mao
-    100032: L_Ombro
-    100034: L_Pe
-    100036: L_Pe_ponta
-    100038: L_Perna
-    100040: pCube1
-    100042: pCylinder1
-    100044: Peitoral
-    100046: R_Cotovelo
-    100048: R_Joelho
-    100050: R_Mao
-    100052: R_Ombro
-    100054: R_Pe
-    100056: R_Pe_ponta
-    100058: R_Perna
-    100060: R_Tocha
-    100062: Root
-    100064: Topo
-    100066: Viking_LowPoly
-    100068: //RootNode
-    400000: Back_01
-    400002: Back_02
-    400004: Cabeca
-    400006: Capa_01
-    400008: Capa_02
-    400010: Capa_03
-    400012: Capa_04
-    400014: Capa_05
-    400016: Capa_06
-    400018: Capa_LowPoly
-    400020: Espinha
-    400022: Front_01
-    400024: Front_02
-    400026: L_Cotovelo
-    400028: L_Joelho
-    400030: L_Mao
-    400032: L_Ombro
-    400034: L_Pe
-    400036: L_Pe_ponta
-    400038: L_Perna
-    400040: pCube1
-    400042: pCylinder1
-    400044: Peitoral
-    400046: R_Cotovelo
-    400048: R_Joelho
-    400050: R_Mao
-    400052: R_Ombro
-    400054: R_Pe
-    400056: R_Pe_ponta
-    400058: R_Perna
-    400060: R_Tocha
-    400062: Root
-    400064: Topo
-    400066: Viking_LowPoly
-    400068: //RootNode
-    2100000: Capa_Texture
-    2100002: Viking_texture
-    2100004: unwrapChekcerShader
-    4300000: Capa_LowPoly
-    4300002: Viking_LowPoly
-    4300004: pCylinder1
-    7400000: Take 001
-    9500000: //RootNode
-    13700000: Capa_LowPoly
-    13700002: pCylinder1
-    13700004: Viking_LowPoly
+  serializedVersion: 26
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: Back_01
+  - first:
+      1: 100002
+    second: Back_02
+  - first:
+      1: 100004
+    second: Cabeca
+  - first:
+      1: 100006
+    second: Capa_01
+  - first:
+      1: 100008
+    second: Capa_02
+  - first:
+      1: 100010
+    second: Capa_03
+  - first:
+      1: 100012
+    second: Capa_04
+  - first:
+      1: 100014
+    second: Capa_05
+  - first:
+      1: 100016
+    second: Capa_06
+  - first:
+      1: 100018
+    second: Capa_LowPoly
+  - first:
+      1: 100020
+    second: Espinha
+  - first:
+      1: 100022
+    second: Front_01
+  - first:
+      1: 100024
+    second: Front_02
+  - first:
+      1: 100026
+    second: L_Cotovelo
+  - first:
+      1: 100028
+    second: L_Joelho
+  - first:
+      1: 100030
+    second: L_Mao
+  - first:
+      1: 100032
+    second: L_Ombro
+  - first:
+      1: 100034
+    second: L_Pe
+  - first:
+      1: 100036
+    second: L_Pe_ponta
+  - first:
+      1: 100038
+    second: L_Perna
+  - first:
+      1: 100040
+    second: pCube1
+  - first:
+      1: 100042
+    second: pCylinder1
+  - first:
+      1: 100044
+    second: Peitoral
+  - first:
+      1: 100046
+    second: R_Cotovelo
+  - first:
+      1: 100048
+    second: R_Joelho
+  - first:
+      1: 100050
+    second: R_Mao
+  - first:
+      1: 100052
+    second: R_Ombro
+  - first:
+      1: 100054
+    second: R_Pe
+  - first:
+      1: 100056
+    second: R_Pe_ponta
+  - first:
+      1: 100058
+    second: R_Perna
+  - first:
+      1: 100060
+    second: R_Tocha
+  - first:
+      1: 100062
+    second: Root
+  - first:
+      1: 100064
+    second: Topo
+  - first:
+      1: 100066
+    second: Viking_LowPoly
+  - first:
+      1: 100068
+    second: //RootNode
+  - first:
+      4: 400000
+    second: Back_01
+  - first:
+      4: 400002
+    second: Back_02
+  - first:
+      4: 400004
+    second: Cabeca
+  - first:
+      4: 400006
+    second: Capa_01
+  - first:
+      4: 400008
+    second: Capa_02
+  - first:
+      4: 400010
+    second: Capa_03
+  - first:
+      4: 400012
+    second: Capa_04
+  - first:
+      4: 400014
+    second: Capa_05
+  - first:
+      4: 400016
+    second: Capa_06
+  - first:
+      4: 400018
+    second: Capa_LowPoly
+  - first:
+      4: 400020
+    second: Espinha
+  - first:
+      4: 400022
+    second: Front_01
+  - first:
+      4: 400024
+    second: Front_02
+  - first:
+      4: 400026
+    second: L_Cotovelo
+  - first:
+      4: 400028
+    second: L_Joelho
+  - first:
+      4: 400030
+    second: L_Mao
+  - first:
+      4: 400032
+    second: L_Ombro
+  - first:
+      4: 400034
+    second: L_Pe
+  - first:
+      4: 400036
+    second: L_Pe_ponta
+  - first:
+      4: 400038
+    second: L_Perna
+  - first:
+      4: 400040
+    second: pCube1
+  - first:
+      4: 400042
+    second: pCylinder1
+  - first:
+      4: 400044
+    second: Peitoral
+  - first:
+      4: 400046
+    second: R_Cotovelo
+  - first:
+      4: 400048
+    second: R_Joelho
+  - first:
+      4: 400050
+    second: R_Mao
+  - first:
+      4: 400052
+    second: R_Ombro
+  - first:
+      4: 400054
+    second: R_Pe
+  - first:
+      4: 400056
+    second: R_Pe_ponta
+  - first:
+      4: 400058
+    second: R_Perna
+  - first:
+      4: 400060
+    second: R_Tocha
+  - first:
+      4: 400062
+    second: Root
+  - first:
+      4: 400064
+    second: Topo
+  - first:
+      4: 400066
+    second: Viking_LowPoly
+  - first:
+      4: 400068
+    second: //RootNode
+  - first:
+      21: 2100000
+    second: Capa_Texture
+  - first:
+      21: 2100002
+    second: Viking_texture
+  - first:
+      21: 2100004
+    second: unwrapChekcerShader
+  - first:
+      43: 4300000
+    second: Capa_LowPoly
+  - first:
+      43: 4300002
+    second: Viking_LowPoly
+  - first:
+      43: 4300004
+    second: pCylinder1
+  - first:
+      74: 7400000
+    second: Olhando Atras
+  - first:
+      95: 9500000
+    second: //RootNode
+  - first:
+      137: 13700000
+    second: Capa_LowPoly
+  - first:
+      137: 13700002
+    second: pCylinder1
+  - first:
+      137: 13700004
+    second: Viking_LowPoly
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -111,13 +273,44 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Olhando Atras
+      takeName: Take 001
+      internalID: 7400000
+      firstFrame: 540
+      lastFrame: 600
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
@@ -125,27 +318,32 @@ ModelImporter:
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
     useFileScale: 0
-    previousCalculatedGlobalScale: 0.01
-    hasPreviousCalculatedGlobalScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
     normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
+  copyAvatar: 1
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -155,12 +353,13 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
-    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
-    hasExtraRoot: 0
+    hasExtraRoot: 1
     skeletonHasParents: 1
-  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d8260e090024e5c49b85249433e1202a,
+    type: 3}
   animationType: 2
   humanoidOversampling: 1
   additionalBone: 0

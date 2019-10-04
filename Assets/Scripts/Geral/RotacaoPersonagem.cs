@@ -156,6 +156,14 @@ public class RotacaoPersonagem : MonoBehaviour {
                     estatua.GetComponent<AudioSource>().Stop();
                 }
             }
+            if (Mathf.Abs(x) > Mathf.Abs(z)) {
+                gameObject.GetComponent<CapsuleCollider>().center = new Vector3(gameObject.GetComponent<CapsuleCollider>().center.x , gameObject.GetComponent<CapsuleCollider>().center.y , (0.454f * Mathf.Abs(x)) + 0.712f);
+                gameObject.GetComponent<CapsuleCollider>().radius = (0.45f * Mathf.Abs(x)) + 3.85f;
+            }
+            else {
+                gameObject.GetComponent<CapsuleCollider>().center = new Vector3(gameObject.GetComponent<CapsuleCollider>().center.x , gameObject.GetComponent<CapsuleCollider>().center.y , (0.454f * Mathf.Abs(z)) + 0.712f);
+                gameObject.GetComponent<CapsuleCollider>().radius = (0.45f * Mathf.Abs(z)) + 3.85f;
+            }
             if(x>0 && z > 0) {
                 if (x > z) {
                     animator.SetFloat("Blend", x);
@@ -230,6 +238,8 @@ public class RotacaoPersonagem : MonoBehaviour {
                 }
             }
 		} else {
+            gameObject.GetComponent<CapsuleCollider>().center = new Vector3(gameObject.GetComponent<CapsuleCollider>().center.x , gameObject.GetComponent<CapsuleCollider>().center.y , 0.712f);
+            gameObject.GetComponent<CapsuleCollider>().radius = 3.85f;
             if (segurando == true) {
                 if (mexeu == true) {
                     estatua.GetComponent<AudioSource>().clip = estParar;

@@ -7,11 +7,23 @@ public class QuartaFaseMecanica : MonoBehaviour {
     bool rodando = false;
     bool caiu = false;
     CameraShake shake;
+    Renderer[] viking;
+    Light[] luzes;
+    Animator animator;
+    Color corOriginal;
+    float alpha =0;
 
 	// Use this for initialization
 	void Start () {
         shake = GetComponent<CameraShake>();
-
+        viking = GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<Renderer>();
+        luzes = GameObject.FindGameObjectWithTag("Player").GetComponentsInChildren<Light>();
+        corOriginal = luzes[0].color;
+        //TIRAR ISSO DAQUI QUANDO TIVER O QRCODE DA FASE 4
+        animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
+        animator.speed = 1;
+        RotacaoPersonagem.inicioAnim = false;
+        RotacaoPersonagem.naoMexer = false;
     }
 	
 	// Update is called once per frame
@@ -37,16 +49,16 @@ public class QuartaFaseMecanica : MonoBehaviour {
             if (gameObject.tag == "PlacaVermelha") {
                 print("PiSOU VERMELHO");
                 shake.camTransform = gameObject.transform.GetChild(0);
-                shake.shakeDuration = 1;
+                shake.shakeDuration = 1.2f;
                 if (rodando == false) {
                     StartCoroutine(Vermelha());
                 }
             } else if (gameObject.tag == "PlacaCinza") {
                 print("PiSOU CINZA");
                 shake.camTransform = gameObject.transform.GetChild(0);
-                shake.shakeDuration = 1;
+                shake.shakeDuration = 1.2f;
                 if (rodando == false) {
-                    StartCoroutine(Cinza());
+                    Cinza();
                 }
             }
         }
@@ -56,11 +68,87 @@ public class QuartaFaseMecanica : MonoBehaviour {
         if (other.gameObject.tag == "Player") {
             if(caiu == true) {
                 //RODAR ANIMACAO DO VIKING CAINDO QUANDO COMECAR A VIBRAR 
+                caiu = false;
                 RotacaoPersonagem.naoMexer = true;
-                other.transform.Translate(Vector3.down*0.4f);
-                
+                RotacaoPersonagem.x = 0;
+                RotacaoPersonagem.z = 0;
+                Movimento.rb.velocity = new Vector3(0 , 0 , 0);
+                SegundaFaseMecanica.gameOver = true;
+                GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = false;
+                animator.speed = 1;
+                animator.SetTrigger("Caindo");
+                StartCoroutine(FicarInvisivel());
+                //other.transform.Translate(Vector3.down*0.4f);
+
             }
 
+        }
+    }
+
+    IEnumerator FicarInvisivel() {
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("Caindo"));
+        yield return new WaitForSeconds(0.3f);
+        foreach (Renderer r in viking) {
+            //GameObject.Find("Viking_LowPoly").GetComponent<Renderer>()
+            r.material.SetInt("_SrcBlend" , (int) UnityEngine.Rendering.BlendMode.SrcAlpha);
+            r.material.SetInt("_DstBlend" , (int) UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+            r.material.SetInt("_ZWrite" , 0);
+            r.material.DisableKeyword("_ALPHATEST_ON");
+            r.material.EnableKeyword("_ALPHABLEND_ON");
+            r.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+            r.material.renderQueue = 3000;
+            r.material.color = new Color(1 , 1 , 1 , 0);
+        }
+        foreach (Light l in luzes) {
+            l.gameObject.GetComponent<LightBehaviourFire>().originalColor = new Color(0,0,0,0);
+        }
+        yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("Levantando"));
+        RotacaoPersonagem.inicioAnim = true;
+        animator.speed = 0;
+        GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase4").transform.localPosition;
+        GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase4").transform.localRotation;
+        alpha = 0;
+        StartCoroutine(FicarVisivel());
+    }
+
+    /*
+      Opaco
+                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
+                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
+                 standardShaderMaterial.SetInt("_ZWrite", 1);
+                 standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
+                 standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                 standardShaderMaterial.renderQueue = -1;
+         */
+
+    IEnumerator FicarVisivel() {
+        if (alpha < 0.9f) {
+            foreach (Renderer r in viking) {
+                r.material.color = new Color(1 , 1 , 1 , Mathf.Lerp(r.material.color.a,1,Time.deltaTime*10));
+                alpha = r.material.color.a;
+            }
+            print(alpha);
+            yield return new WaitForSeconds(0.1f);
+            StartCoroutine(FicarVisivel());
+        }
+        else {
+            print("ASDASD");
+            foreach (Renderer r in viking) {
+                r.material.SetInt("_SrcBlend" , (int) UnityEngine.Rendering.BlendMode.One);
+                r.material.SetInt("_DstBlend" , (int) UnityEngine.Rendering.BlendMode.Zero);
+                r.material.SetInt("_ZWrite" , 1);
+                r.material.DisableKeyword("_ALPHATEST_ON");
+                r.material.DisableKeyword("_ALPHABLEND_ON");
+                r.material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
+                r.material.renderQueue = -1;
+            }
+            foreach (Light l in luzes) {
+                l.gameObject.GetComponent<LightBehaviourFire>().originalColor = corOriginal;
+            }
+            GameObject.FindGameObjectWithTag("Finish").GetComponent<Canvas>().enabled = true;
+            RotacaoPersonagem.naoMexer = false;
+            RotacaoPersonagem.inicioAnim = false;
         }
     }
 
@@ -69,14 +157,7 @@ public class QuartaFaseMecanica : MonoBehaviour {
             if(caiu == true) {
                 print("ASDASD");
                 // DEIXAR ELE INVISIVEL QUANDO CAIR
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.SrcAlpha);
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.SetInt("_ZWrite", 0);
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.DisableKeyword("_ALPHATEST_ON");
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.EnableKeyword("_ALPHABLEND_ON");
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.renderQueue = 3000;
-                GameObject.Find("Viking_LowPoly").GetComponent<Renderer>().material.color = new Color(1, 1, 1, 0);
+
             }
         }
     }
@@ -84,19 +165,20 @@ public class QuartaFaseMecanica : MonoBehaviour {
     IEnumerator Vermelha() {
         rodando = true;
         yield return new WaitForSecondsRealtime(2);
-        shake.enabled = true;
-        yield return new WaitForSecondsRealtime(1);
-        GetComponentInChildren<Animation>().Play();
-        shake.enabled = false;
-        caiu = true;
+        StartCoroutine(CairPlataforma());
     }
-    IEnumerator Cinza() {
+    void Cinza() {
         rodando = true;
+        StartCoroutine(CairPlataforma());
+    }
+
+    IEnumerator CairPlataforma() {
         shake.enabled = true;
-        yield return new WaitForSecondsRealtime(1);
+        yield return new WaitForSecondsRealtime(0.2f);
+        caiu = true;
+        yield return new WaitForSecondsRealtime(1f);
         GetComponentInChildren<Animation>().Play();
         shake.enabled = false;
-        caiu = true;
     }
 
 }

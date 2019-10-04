@@ -20,7 +20,7 @@ public class PedraFinalFase1 : MonoBehaviour {
     void Start () {
         SegundaFaseMecanica.gameOver = false;
         pedraCColocada = false;
-        DefaultTrackableEventHandler.jaRodou = false;
+        TargetVuforiaPersonalizado.jaRodou = false;
         GameObject.FindGameObjectWithTag("Player").GetComponent<AudioSource>().clip = passos;
     }
 	

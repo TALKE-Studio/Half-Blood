@@ -18,12 +18,13 @@ public class MenuIniciarJogo : MonoBehaviour {
     public static bool fase1;
     public static bool fase2;
     public static bool fase3;
+    public static bool fase4;
     public Sprite conqTutorial;
 
     public void Jogar() {
         seleTela.SetActive(true);
         SegundaFaseMecanica.gameOver = false;
-        DefaultTrackableEventHandler.jaRodou = false;
+        TargetVuforiaPersonalizado.jaRodou = false;
     }
 
     public void Voltar() {
@@ -37,6 +38,17 @@ public class MenuIniciarJogo : MonoBehaviour {
         }
     }
 
+    public void QrCodesVariados() {
+        prog.SetActive(true);
+        fill.GetComponent<Image>().sprite = tut;
+        faseTutorial = false;
+        fase1 = false;
+        fase2 = false;
+        fase3 = false;
+        fase4 = false;
+        StartCoroutine(Carregar("QrCodes"));
+    }
+
     public void Tutoba() {
         prog.SetActive(true);
         fill.GetComponent<Image>().sprite = tut;
@@ -44,6 +56,7 @@ public class MenuIniciarJogo : MonoBehaviour {
         fase1 = false;
         fase2 = false;
         fase3 = false;
+        fase4 = false;
         StartCoroutine(Carregar("Tutorial"));
     }
 
@@ -54,6 +67,7 @@ public class MenuIniciarJogo : MonoBehaviour {
         fase1 = true;
         fase2 = false;
         fase3 = false;
+        fase4 = false;
         StartCoroutine(Carregar("Fase1"));
     }
 
@@ -64,6 +78,7 @@ public class MenuIniciarJogo : MonoBehaviour {
         fase1 = false;
         fase2 = true;
         fase3 = false;
+        fase4 = false;
         StartCoroutine(Carregar("Fase2"));
     }
 
@@ -74,7 +89,19 @@ public class MenuIniciarJogo : MonoBehaviour {
         fase1 = false;
         fase2 = false;
         fase3 = true;
+        fase4 = false;
         StartCoroutine(Carregar("Fase3"));
+    }
+
+    public void Fase4() {
+        prog.SetActive(true);
+        fill.GetComponent<Image>().sprite = fas2;
+        faseTutorial = false;
+        fase1 = false;
+        fase2 = false;
+        fase3 = false;
+        fase4 = true;
+        StartCoroutine(Carregar("Fase4"));
     }
 
     IEnumerator Carregar(string fase) {
