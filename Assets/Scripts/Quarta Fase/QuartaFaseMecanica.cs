@@ -22,13 +22,16 @@ public class QuartaFaseMecanica : MonoBehaviour {
         //TIRAR ISSO DAQUI QUANDO TIVER O QRCODE DA FASE 4
         animator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
         animator.speed = 1;
+        StartCoroutine(Teste());
+    }
+
+    IEnumerator Teste() {
+        yield return new WaitForSeconds(0.2f);
         RotacaoPersonagem.inicioAnim = false;
         RotacaoPersonagem.naoMexer = false;
     }
-	
 	// Update is called once per frame
 	void Update () {
-		
 	}
 
     private void OnDrawGizmos() {
@@ -67,7 +70,6 @@ public class QuartaFaseMecanica : MonoBehaviour {
     private void OnTriggerStay(Collider other) {
         if (other.gameObject.tag == "Player") {
             if(caiu == true) {
-                //RODAR ANIMACAO DO VIKING CAINDO QUANDO COMECAR A VIBRAR 
                 caiu = false;
                 RotacaoPersonagem.naoMexer = true;
                 RotacaoPersonagem.x = 0;
@@ -78,7 +80,6 @@ public class QuartaFaseMecanica : MonoBehaviour {
                 animator.speed = 1;
                 animator.SetTrigger("Caindo");
                 StartCoroutine(FicarInvisivel());
-                //other.transform.Translate(Vector3.down*0.4f);
 
             }
 
@@ -89,7 +90,6 @@ public class QuartaFaseMecanica : MonoBehaviour {
         yield return new WaitUntil(() => animator.GetCurrentAnimatorStateInfo(0).IsName("Caindo"));
         yield return new WaitForSeconds(0.3f);
         foreach (Renderer r in viking) {
-            //GameObject.Find("Viking_LowPoly").GetComponent<Renderer>()
             r.material.SetInt("_SrcBlend" , (int) UnityEngine.Rendering.BlendMode.SrcAlpha);
             r.material.SetInt("_DstBlend" , (int) UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
             r.material.SetInt("_ZWrite" , 0);
@@ -108,19 +108,11 @@ public class QuartaFaseMecanica : MonoBehaviour {
         GameObject.FindGameObjectWithTag("Player").transform.localPosition = GameObject.Find("LugarFase4").transform.localPosition;
         GameObject.FindGameObjectWithTag("Player").transform.localRotation = GameObject.Find("LugarFase4").transform.localRotation;
         alpha = 0;
+        gameObject.GetComponentInChildren<MeshRenderer>().enabled = false;
+        rodando = false;
+        gameObject.tag = "PlacaCinza";
         StartCoroutine(FicarVisivel());
     }
-
-    /*
-      Opaco
-                 standardShaderMaterial.SetInt("_SrcBlend", (int)UnityEngine.Rendering.BlendMode.One);
-                 standardShaderMaterial.SetInt("_DstBlend", (int)UnityEngine.Rendering.BlendMode.Zero);
-                 standardShaderMaterial.SetInt("_ZWrite", 1);
-                 standardShaderMaterial.DisableKeyword("_ALPHATEST_ON");
-                 standardShaderMaterial.DisableKeyword("_ALPHABLEND_ON");
-                 standardShaderMaterial.DisableKeyword("_ALPHAPREMULTIPLY_ON");
-                 standardShaderMaterial.renderQueue = -1;
-         */
 
     IEnumerator FicarVisivel() {
         if (alpha < 0.9f) {
@@ -152,15 +144,6 @@ public class QuartaFaseMecanica : MonoBehaviour {
         }
     }
 
-    private void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag == "Player") {
-            if(caiu == true) {
-                print("ASDASD");
-                // DEIXAR ELE INVISIVEL QUANDO CAIR
-
-            }
-        }
-    }
 
     IEnumerator Vermelha() {
         rodando = true;
